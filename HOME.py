@@ -90,3 +90,5 @@ buscar_barra = tk.Entry(borde_buscar, bg="#313145", width=25, font=("arial", 16)
 buscar_barra.pack(pady=1, ipady=5)
 
 screen.mainloop()
+
+
