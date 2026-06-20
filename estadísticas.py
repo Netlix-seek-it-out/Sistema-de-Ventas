@@ -1,75 +1,49 @@
-import tkinter as tk 
+
+import tkinter as tk
 
 ventana = tk.Tk()
 ventana.title("resumen de ventana ")
 ventana.geometry("900x650")
 ventana.config(bg="#1e1e2e")
 
-titulo = tk.Label(ventana,text="📊 Estadisticas",font=("Arial",22,"bold"),bg="#1e1e2e",fg="#cdd6f4")
-titulo.pack(pady=20 )
+titulo = tk.Label(ventana,text="📊 Estadisticas",font=("Segoe UI",24,"bold"),bg="#1e1e2e",fg="#8B5CF6")
+titulo.pack(pady=40)
 
-tarjetas_1 = tk.Frame(ventana,bg="#36A126",width=200,height=120)
 
-tarjetas_1.place(x=150, y=100)
+contenedor = tk.Frame(ventana, bg="#1e1e2e")
+contenedor.pack(expand=True)
 
+
+
+fila1 = tk.Frame(contenedor, bg="#1e1e2e")
+fila1.pack(pady=50)
+
+tarjetas_1 = tk.Frame(fila1, bg="#7A68EE", width=280, height=160)
+tarjetas_1.pack(side="left", padx=80)
 tarjetas_1.pack_propagate(False)
+tex_targeta1 = tk.Label(tarjetas_1, text="🛒 Total de ventas", font=("Segoe UI",16,"bold"), bg="#7A68EE", fg="#ffffff")
+tex_targeta1.pack(expand=True)
 
-
-
-tex_targeta1= tk.Label(tarjetas_1,text= "🛒 Total ventas",font=("Arial",14,"bold"),bg="#36A126",fg="#FFFDFD")
-
-tex_targeta1.pack(pady=(30,5))
-
-
-
-tarjetas_2= tk.Frame(ventana,bg="#8E44AD",width=200,height=120)
-
-tarjetas_2.place(x=450, y=100)
-
+tarjetas_2 = tk.Frame(fila1, bg="#7A68EE", width=280, height=160)
+tarjetas_2.pack(side="left", padx=80)
 tarjetas_2.pack_propagate(False)
+tex_targeta2 = tk.Label(tarjetas_2, text="🏆 Producto más vendido", font=("Segoe UI",16,"bold"), bg="#7A68EE", fg="#ffffff")
+tex_targeta2.pack(expand=True)
 
 
+fila2 = tk.Frame(contenedor, bg="#1e1e2e")
+fila2.pack(pady=30)
 
-tex_targeta2= tk.Label(tarjetas_2,text= "🏆 Producto Top",font=("Arial",14,"bold"),bg="#8E44AD",fg="#FFFDFD")
-
-tex_targeta2.pack(pady=(30,5))
-
-
-
-tarjetas_3= tk.Frame(ventana,bg="#E67E22",width=200,height=120)
-
-tarjetas_3.place(x=150, y=260)
-
+tarjetas_3 = tk.Frame(fila2, bg="#7A68EE", width=280, height=160)
+tarjetas_3.pack(side="left", padx=80)
 tarjetas_3.pack_propagate(False)
+tex_targeta3 = tk.Label(tarjetas_3, text="👤Mejor cliente ", font=("Segoe UI",16,"bold"), bg="#7A68EE", fg="#ffffff")
+tex_targeta3.pack(expand=True)
 
-
-
-tex_targeta3= tk.Label(tarjetas_3,text= "👤 Cliente VIP",font=("Arial",14,"bold"),bg="#E67E22",fg="#FFFDFD")
-
-tex_targeta3.pack(pady=(30,5))
-
-
-
-tarjetas_4= tk.Frame(ventana,bg="#1E88E5",width=200,height=120)
-
-tarjetas_4.place(x=450, y=260)
-
+tarjetas_4 = tk.Frame(fila2, bg="#7A68EE", width=280, height=160)
+tarjetas_4.pack(side="left", padx=80)
 tarjetas_4.pack_propagate(False)
-
-
-
-tex_targeta4= tk.Label(tarjetas_4,text="💰 Ingresos" ,font=("Arial",14,"bold"),bg="#1E88E5",fg="#FFFDFD")
-
-tex_targeta4.pack(pady=(30,5))
-
-
-
-
-
-
-
-
-
-
+tex_targeta4 = tk.Label(tarjetas_4, text="💰 Total de Ingresos ", font=("Segoe UI",16,"bold"), bg="#7A68EE", fg="#ffffff")
+tex_targeta4.pack(expand=True)
 
 ventana.mainloop()
