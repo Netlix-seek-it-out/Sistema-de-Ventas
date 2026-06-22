@@ -1,10 +1,10 @@
-
 import tkinter as tk
 
 
-def abrir_estadisticas():
+def abrir_estadisticas(ventana_home):
+        ventana_home.destroy()
 
-        ventana = tk.Toplevel()
+        ventana = tk.Tk()
         #tk.Toplevel crea una ventana hija que aparecera por encima de la original
         ventana.title("Estadísticas de Ventas")
         ventana.geometry("1000x700")
@@ -35,7 +35,7 @@ def abrir_estadisticas():
 
         estadisticas_boton_barra = tk.Label(menu_frame, text="📊 Estadisticas", bg="#1e293b", width=18, height=2, font=("Arial", 12, "bold"), cursor="hand2", fg="#94a3b8")
         estadisticas_boton_barra.grid(row=0, column=2, padx=10, pady=8)
-        estadisticas_boton_barra.bind("<Button-1>", lambda e: abrir_estadisticas())
+        estadisticas_boton_barra.bind("<Button-1>", lambda e: None)
 
         historial_boton_barra = tk.Label(menu_frame, text="📄 Historial", bg="#1e293b", width=18, height=2, font=("Arial", 12, "bold"), cursor="hand2", fg="#94a3b8")
         historial_boton_barra.grid(row=0, column=3, padx=10, pady=8)
@@ -102,4 +102,4 @@ def abrir_estadisticas():
             barras = "█" * int((val / max_val) * 30)
             tk.Label(fila, text=f" {barras}",font=("Segoe UI", 11),bg="#2a2a3e", fg="#7A68EE").pack(side="left")
 
-    #ventana.mainloop()
+        ventana.mainloop()

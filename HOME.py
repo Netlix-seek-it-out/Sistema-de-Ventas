@@ -38,7 +38,7 @@ registro_boton_barra.grid(row=0, column=1, padx=10, pady=8)
 
 estadisticas_boton_barra = tk.Label(menu_frame, text="📊 Estadisticas", bg="#1e293b", width=18, height=2, font=("Arial", 12, "bold"), cursor="hand2", fg="#94a3b8")
 estadisticas_boton_barra.grid(row=0, column=2, padx=10, pady=8)
-estadisticas_boton_barra.bind("<Button-1>", lambda e: abrir_estadisticas())
+estadisticas_boton_barra.bind("<Button-1>", lambda e: abrir_estadisticas(screen))
 
 historial_boton_barra = tk.Label(menu_frame, text="📄 Historial", bg="#1e293b", width=18, height=2, font=("Arial", 12, "bold"), cursor="hand2", fg="#94a3b8")
 historial_boton_barra.grid(row=0, column=3, padx=10, pady=8)
@@ -79,11 +79,11 @@ historial_boton.grid(row=0, column=1, padx=40, pady=10)
 
 estadisticas_boton = tk.Label(botones_frame, text="Estadisticas 📊", font=("arial", 12, "bold"), fg="#cdd6f4", cursor="hand2", bg="#7c6af7", width=18, height=2)
 estadisticas_boton.grid(row=0, column=2, padx=40, pady=10)
-estadisticas_boton.bind("<Button-1>", lambda e: abrir_estadisticas(), )
+estadisticas_boton.bind("<Button-1>", lambda e: abrir_estadisticas(screen), )
 #"<button-1>" representa exactamente el click izquierdo
 
 buscar_label = tk.Label(padre_frame, text="Buscar...", font=("arial", 12, "bold"), fg="#cdd6f4", bg="#1e1e2e")
-buscar_label.pack(pady=10)
+#buscar_label.pack(pady=5)
 
 
 borde_buscar = tk.Frame(padre_frame, bg="#5596ff", highlightthickness=1)
@@ -91,6 +91,10 @@ borde_buscar.pack(pady=5, padx=10)
 
 buscar_barra = tk.Entry(borde_buscar, bg="#313145", width=25, font=("arial", 16), fg="#fbfbfb")
 buscar_barra.pack(pady=1, ipady=5)
+
+buscar_boton_act = tk.Button(padre_frame, text="Buscar", font=("arial", 12, "bold"), fg="#cdd6f4", cursor="hand2", bg="#7c6af7", 
+    width=18, height=2)
+buscar_boton_act.pack(pady=20)
 
 screen.mainloop()
 
