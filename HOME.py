@@ -3,58 +3,80 @@ import tkinter as tk
 
 def mostrar_estadisticas():
     home_frame.pack_forget()
+    registro_frame.pack_forget()
+    historial_frame.pack_forget()
     estadisticas_frame.pack(fill="both", expand=True)
 
-def mostrar_home_de_estadistica():
+def mostrar_home():
     estadisticas_frame.pack_forget()
-    home_frame.pack(fill="both", pady=0, padx=0)
+    registro_frame.pack_forget()
+    historial_frame.pack_forget()
+    home_frame.pack(fill="both", expand=True)
+
+
+def mostrar_registro():
+    estadisticas_frame.pack_forget()
+    home_frame.pack_forget()
+    historial_frame.pack_forget()
+    registro_frame.pack(fill="both", expand=True)
+
+def mostrar_historial():
+    estadisticas_frame.pack_forget()
+    home_frame.pack_forget()
+    registro_frame.pack_forget()
+    historial_frame.pack(fill="both", expand=True)
+
+
 
 screen = tk.Tk()
 
 screen.title("HOME")
 
-screen.geometry("1000x600")
+screen.geometry("1200x600")
 screen.resizable(True, True)
 screen.config(bg="#1e1e2e")
 
 home_frame = tk.Frame(screen
                        , bg="#1e1e2e")
-home_frame.pack(pady=0, padx=0, fill=("both"))
+home_frame.pack(fill="both", expand=True)
 
 #BARRA DE NAVEGACION
 # Barra superior
 nav_frame = tk.Frame(home_frame, bg="#1e293b")
-nav_frame.columnconfigure(3, weight=1)
-nav_frame.pack(fill="x", expand=True, pady=(0, 0), ipady=(3), ipadx=10)
+nav_frame.pack(fill="x", pady=(0, 0), ipady=3, ipadx=10)
 
 menu_frame = tk.Frame(nav_frame, bg="#1e293b")
 menu_frame.pack(anchor="center", expand=True)
 
 
+menu_frame.columnconfigure(4, weight=1)
+
+
 #columnconfigure funciona así: el primer parametro es el indie en donde se encuentra la columna, y la segunda opcion, el weight, es el peso, o la importancia que tiene, si tiene weight=1, el widget cubrirá todo el espacio sobrante. Si uuno tiene un weight de 2, cubrirá más espacio del sobrante.
 # rowconfigure funciona igual pero para las filas
 
-nombre_app = tk.Label(menu_frame,  text="¡Indago!", bg="#1e293b", width=18, height=2, font=("Arial", 12, "bold"), fg="#7A68EE", cursor="hand2")
-nombre_app.grid(row=0, column=0)
 
- 
+nombre_app = tk.Label(menu_frame,  text="¡Indago!", bg="#1e293b", width=18, height=2, font=("Arial", 12, "bold"), fg="#7A68EE", cursor="hand2")
+nombre_app.grid(row=0, column=0, padx=10, pady=8)
+
+home_boton = tk.Label(menu_frame,  text="HOME", bg="#1e293b", width=18, height=2, font=("Arial", 12, "bold"), fg="#E2DEEA", cursor="hand2")
+home_boton.grid(row=0, column=1, padx=10, pady=8)
+
 registro_boton_barra = tk.Label(
     menu_frame, text="📝 Registro", bg="#1e293b", width=18, height=2, font=("Arial", 12, "bold"), cursor="hand2",
       fg="#94a3b8")
-registro_boton_barra.grid(row=0, column=1, padx=10, pady=8)
+registro_boton_barra.grid(row=0, column=2, padx=10, pady=8)
+registro_boton_barra.bind("<Button-1>", lambda e: mostrar_registro())
 
 
 estadisticas_boton_barra = tk.Label(menu_frame, text="📊 Estadisticas", bg="#1e293b", width=18, height=2, font=("Arial", 12, "bold"), cursor="hand2", fg="#94a3b8")
-estadisticas_boton_barra.grid(row=0, column=2, padx=10, pady=8)
+estadisticas_boton_barra.grid(row=0, column=3, padx=10, pady=8)
 estadisticas_boton_barra.bind("<Button-1>", lambda e: mostrar_estadisticas())
 
 historial_boton_barra = tk.Label(menu_frame, text="📄 Historial", bg="#1e293b", width=18, height=2, font=("Arial", 12, "bold"), cursor="hand2", fg="#94a3b8")
-historial_boton_barra.grid(row=0, column=3, padx=10, pady=8)
+historial_boton_barra.grid(row=0, column=4, padx=10, pady=8)
+historial_boton_barra.bind("<Button-1>", lambda e: mostrar_historial())
 
-#barra_navegacion = tk.Frame(padre_frame, bg="#154162", padx=15, pady=15)
-#barra_navegacion.pack(pady=10)
-#registrar_venta_barra = tk.Label(barra_navegacion, text="Registrar ventas", bg="#001A2E", font=("arial", 14), fg="darkblue")
-#registrar_venta_barra.grid(row=0, column=0, padx=2, pady=2)
 
 #FIN DE BARRA DE NAVEGACION
 
@@ -75,14 +97,16 @@ botones_frame.pack(pady=20)
 
 registro_boton = tk.Label(botones_frame, text="Registar venta ✏️", font=("arial", 12, "bold"), fg="#cdd6f4", cursor="hand2", bg="#7c6af7",
      width=18, height=2)
-#registro_boton.bind("<Button-1>", lambda e: funcion)
 registro_boton.grid(row=0, column=0, padx=40, pady=10)
+registro_boton.bind("<Button-1>", lambda e: mostrar_registro())
+
 #.bind sirve para ejecutr un comando, casi igual que "button". 
 # "button-1 es el indicador que dice que se realizara cuando se presione click derecho"
 
 historial_boton = tk.Label(botones_frame, text="Ver Historial 📄", font=("arial", 12, "bold"), fg="#cdd6f4", cursor="hand2", bg="#7c6af7", 
     width=18, height=2)
 historial_boton.grid(row=0, column=1, padx=40, pady=10)
+historial_boton.bind("<Button-1>", lambda e: mostrar_historial())
 # LINK
 
 estadisticas_boton = tk.Label(botones_frame, text="Estadisticas 📊", font=("arial", 12, "bold"), fg="#cdd6f4", cursor="hand2", bg="#7c6af7", width=18, height=2)
@@ -90,18 +114,18 @@ estadisticas_boton.grid(row=0, column=2, padx=40, pady=10)
 estadisticas_boton.bind("<Button-1>", lambda e: mostrar_estadisticas())
 #"<button-1>" representa exactamente el click izquierdo
 
-buscar_label = tk.Label(home_frame, text="Buscar...", font=("arial", 12, "bold"), fg="#cdd6f4", bg="#1e1e2e")
+#buscar_label = tk.Label(home_frame, text="Buscar...", font=("arial", 12, "bold"), fg="#cdd6f4", bg="#1e1e2e")
 #buscar_label.pack(pady=5)
 
 
-borde_buscar = tk.Frame(home_frame, bg="#5596ff", highlightthickness=1)
-borde_buscar.pack(pady=5, padx=10)
+#borde_buscar = tk.Frame(home_frame, bg="#5596ff", highlightthickness=1)
+#borde_buscar.pack(pady=5, padx=10)
 
-buscar_barra = tk.Entry(borde_buscar, bg="#313145", width=25, font=("arial", 16), fg="#fbfbfb")
-buscar_barra.pack(pady=1, ipady=5)
+#buscar_barra = tk.Entry(borde_buscar, bg="#313145", width=25, font=("arial", 16), fg="#fbfbfb")
+#buscar_barra.pack(pady=1, ipady=5)
 
-buscar_boton_act = tk.Button(home_frame, text="Buscar", font=("arial", 12, "bold"), fg="#cdd6f4", cursor="hand2", bg="#7c6af7", 
-    width=18, height=2)
+buscar_boton_act = tk.Label(home_frame, text="¡Mantén tus compras organizadas!", font=("arial", 18, "bold"), fg="#e4e4e4", cursor="hand2", bg="#1e1e2e", 
+    height=3)
 buscar_boton_act.pack(pady=20)
 
 
@@ -113,31 +137,36 @@ estadisticas_frame = tk.Frame(screen, bg="#1e1e2e")
 
 #BARRA DE NAVEGACION
 nav_frame = tk.Frame(estadisticas_frame, bg="#1e293b")
-nav_frame.columnconfigure(3, weight=1)
-nav_frame.pack(fill="x", expand=True, pady=(0, 10), ipady=(3), ipadx=10)
+nav_frame.pack(fill="x", pady=(0, 0), ipady=3, ipadx=10)
+
 
 menu_frame = tk.Frame(nav_frame, bg="#1e293b")
 menu_frame.pack(anchor="center", expand=True)
+menu_frame.columnconfigure(4, weight=1)
 
 
 nombre_app = tk.Label(menu_frame,  text="¡Indago!", bg="#1e293b", width=18, height=2, font=("Arial", 12, "bold"), fg="#7A68EE", cursor="hand2")
-nombre_app.grid(row=0, column=0)
-nombre_app.bind("<Button-1>", lambda e: mostrar_home_de_estadistica())
+nombre_app.grid(row=0, column=0, padx=10, pady=8)
 
-
+home_boton = tk.Label(menu_frame,  text="HOME", bg="#1e293b", width=18, height=2, font=("Arial", 12, "bold"), fg="#E2DEEA", cursor="hand2")
+home_boton.grid(row=0, column=1, padx=10, pady=8)
+home_boton.bind("<Button-1>", lambda e: mostrar_home())
     
 registro_boton_barra = tk.Label(
             menu_frame, text="📝 Registro", bg="#1e293b", width=18, height=2, font=("Arial", 12, "bold"), cursor="hand2",
             fg="#94a3b8")
-registro_boton_barra.grid(row=0, column=1, padx=10, pady=8)
+registro_boton_barra.grid(row=0, column=2, padx=10, pady=8)
+registro_boton_barra.bind("<Button-1>", lambda e: mostrar_registro())
 
 
 estadisticas_boton_barra = tk.Label(menu_frame, text="📊 Estadisticas", bg="#1e293b", width=18, height=2, font=("Arial", 12, "bold"), cursor="hand2", fg="#94a3b8")
-estadisticas_boton_barra.grid(row=0, column=2, padx=10, pady=8)
+estadisticas_boton_barra.grid(row=0, column=3, padx=10, pady=8)
 estadisticas_boton_barra.bind("<Button-1>", lambda e: None)
 
 historial_boton_barra = tk.Label(menu_frame, text="📄 Historial", bg="#1e293b", width=18, height=2, font=("Arial", 12, "bold"), cursor="hand2", fg="#94a3b8")
-historial_boton_barra.grid(row=0, column=3, padx=10, pady=8)
+historial_boton_barra.grid(row=0, column=4, padx=10, pady=8)
+historial_boton_barra.bind("<Button-1>", lambda e: mostrar_historial())
+
 
 titulo = tk.Label(estadisticas_frame, text="📊 Estadísticas", font=("Segoe UI", 35, "bold"), bg="#1e1e2e", fg="#8B5CF6")
 titulo.pack(pady=(30, 15))
@@ -200,6 +229,175 @@ for dia, val in dias:
 
     barras = "█" * int((val / max_val) * 30)
     tk.Label(fila, text=f" {barras}",font=("Segoe UI", 11),bg="#2a2a3e", fg="#7A68EE").pack(side="left")
+
+
+
+
+# REGISTRO DE VENTAS ___ FRAME DE VENTANA
+
+registro_frame = tk.Frame(screen, bg="#1e1e2e")
+
+#BARRA DE NAVEGACION
+nav_frame = tk.Frame(registro_frame, bg="#1e293b")
+nav_frame.pack(fill="x", pady=(0, 10), ipady=(3), ipadx=10)
+
+menu_frame.columnconfigure(4, weight=1)
+
+menu_frame = tk.Frame(nav_frame, bg="#1e293b")
+menu_frame.pack(anchor="center", expand=True)
+
+
+nombre_app = tk.Label(menu_frame,  text="¡Indago!", bg="#1e293b", width=18, height=2, font=("Arial", 12, "bold"), fg="#7A68EE", cursor="hand2")
+nombre_app.grid(row=0, column=0, padx=10, pady=8)
+
+home_boton = tk.Label(menu_frame,  text="HOME", bg="#1e293b", width=18, height=2, font=("Arial", 12, "bold"), fg="#E2DEEA", cursor="hand2")
+home_boton.grid(row=0, column=1, padx=10, pady=8)
+home_boton.bind("<Button-1>", lambda e: mostrar_home())
+    
+
+    
+registro_boton_barra = tk.Label(
+            menu_frame, text="📝 Registro", bg="#1e293b", width=18, height=2, font=("Arial", 12, "bold"), cursor="hand2",
+            fg="#94a3b8")
+registro_boton_barra.grid(row=0, column=2, padx=10, pady=8)
+registro_boton_barra.bind("<Button-1>", lambda e: mostrar_registro())
+
+
+
+estadisticas_boton_barra = tk.Label(menu_frame, text="📊 Estadisticas", bg="#1e293b", width=18, height=2, font=("Arial", 12, "bold"), cursor="hand2", fg="#94a3b8")
+estadisticas_boton_barra.grid(row=0, column=3, padx=10, pady=8)
+estadisticas_boton_barra.bind("<Button-1>", lambda e: mostrar_estadisticas())
+
+historial_boton_barra = tk.Label(menu_frame, text="📄 Historial", bg="#1e293b", width=18, height=2, font=("Arial", 12, "bold"), cursor="hand2", fg="#94a3b8")
+historial_boton_barra.grid(row=0, column=4, padx=10, pady=8)
+historial_boton_barra.bind("<Button-1>", lambda e: mostrar_historial())
+
+
+# Titulo
+tk.Label(registro_frame, text="Registrar venta",
+         bg="#1e1e2e", fg="#cdd6f4",
+         font=("Segoe UI", 20, "bold")).pack(pady=(40, 30))
+
+# Campo con las 6 etiquetas
+form_frame = tk.Frame(registro_frame, bg="#1e1e2e")
+form_frame.pack(padx=120, fill="x")
+
+left_col = tk.Frame(form_frame, bg="#1e1e2e")
+left_col.pack(side="left", fill="both", expand=True, padx=(0, 40))
+
+right_col = tk.Frame(form_frame, bg="#1e1e2e")
+right_col.pack(side="left", fill="both", expand=True, padx=(40, 0))
+
+entries = {}
+
+def make_field(parent, key, label_text):
+    tk.Label(parent, text=label_text, bg="#1e1e2e",
+             fg="#a6adc8", font=("Segoe UI", 12)).pack(anchor="w")
+    entry = tk.Entry(parent, bg="#313145", fg="#cdd6f4",
+                     insertbackground="#cdd6f4", relief="flat",
+                     font=("Segoe UI", 13))
+    entry.pack(fill="x", pady=(4, 22), ipady=10)
+    entries[key] = entry
+
+# Columna izquierda
+make_field(left_col,  "num_venta", "Numero de venta:")
+make_field(left_col,  "cliente",   "Nombre del cliente:")
+make_field(left_col,  "producto",  "Producto vendido:")
+
+# Columna derecha
+make_field(right_col, "cantidad",  "Cantidad:")
+make_field(right_col, "precio",    "Precio unitario:")
+make_field(right_col, "total",     "Total:")
+
+# Boton
+def guardar():
+    lbl_status.config(text="Venta guardada correctamente.")
+
+btn = tk.Button(registro_frame, text="Guardar Venta",
+                bg="#7c6af7", fg="#ffffff",
+                activebackground="#9a8cff", activeforeground="#ffffff",
+                relief="flat", font=("Segoe UI", 13, "bold"),
+                cursor="hand2", command=guardar)
+btn.pack(ipadx=40, ipady=12, pady=(20, 0))
+
+lbl_status = tk.Label(registro_frame, text="", bg="#1e1e2e",
+                       fg="#a6e3a1", font=("Segoe UI", 11))
+lbl_status.pack(pady=12)
+
+
+
+
+
+
+## HSITORIAL___FRAME___VENTANA
+
+historial_frame = tk.Frame(screen, bg="#1e1e2e")
+
+nav_frame = tk.Frame(historial_frame, bg="#1e293b")
+nav_frame.pack(fill="x", pady=(0, 0), ipady=(3), ipadx=10)
+
+
+menu_frame.columnconfigure(4, weight=1)
+
+menu_frame = tk.Frame(nav_frame, bg="#1e293b")
+menu_frame.pack(anchor="center", expand=True)
+
+nombre_app = tk.Label(menu_frame,  text="¡Indago!", bg="#1e293b", width=18, height=2, font=("Arial", 12, "bold"), fg="#7A68EE", cursor="hand2")
+nombre_app.grid(row=0, column=0, padx=10, pady=8)
+
+home_boton = tk.Label(menu_frame,  text="HOME", bg="#1e293b", width=18, height=2, font=("Arial", 12, "bold"), fg="#E2DEEA", cursor="hand2")
+home_boton.grid(row=0, column=1, padx=10, pady=8)
+home_boton.bind("<Button-1>", lambda e: mostrar_home())
+    
+
+ 
+registro_boton_barra = tk.Label(
+    menu_frame, text="📝 Registro", bg="#1e293b", width=18, height=2, font=("Arial", 12, "bold"), cursor="hand2",
+      fg="#94a3b8")
+registro_boton_barra.grid(row=0, column=2, padx=10, pady=8)
+registro_boton_barra.bind("<Button-1>", lambda e: mostrar_registro())
+
+
+estadisticas_boton_barra = tk.Label(menu_frame, text="📊 Estadisticas", bg="#1e293b", width=18, height=2, font=("Arial", 12, "bold"), cursor="hand2", fg="#94a3b8")
+estadisticas_boton_barra.grid(row=0, column=3, padx=10, pady=8)
+estadisticas_boton_barra.bind("<Button-1>", lambda e: mostrar_estadisticas())
+
+historial_boton_barra = tk.Label(menu_frame, text="📄 Historial", bg="#1e293b", width=18, height=2, font=("Arial", 12, "bold"), cursor="hand2", fg="#94a3b8")
+historial_boton_barra.grid(row=0, column=4, padx=10, pady=8)
+historial_boton_barra.bind("<Button-1>", lambda e: mostrar_historial())
+
+# barra del naveagdors
+#nav = tk.Frame(historial_frame, bg="#252535", height=40)
+#nav.pack(fill="x")
+#tk.Label(nav, text="¡Indago!", bg="#252535", fg="#7b6cf6", font=("Arial", 11, "bold")).pack(side="left", padx=10, pady=8)
+
+# Titulo
+tk.Label(historial_frame, text="Historial", bg="#1e1e2e", fg="white", font=("Arial", 16, "bold")).pack(anchor="w", padx=20, pady=(15, 5))
+
+# Tarjeta
+card = tk.Frame(historial_frame, bg="#2a2a3e")
+card.pack(fill="both", expand=True, padx=20, pady=5)
+#for item in ["Registro", "Estadísticas", "Historial"]:
+#    tk.Label(nav, text=item, bg="#252535", fg="#a0a0c0", font=("Arial", 9)).pack(side="left", padx=10)
+
+
+mensaje = tk.Label(
+    card,
+    text="Tus registros",
+    bg="#2a2a3e",
+    fg="white",
+    font=("Arial", 11, "bold")
+)
+mensaje.place(relx=0.5, rely=0.5,
+              anchor="center")
+
+dias= ["lunes:","martes:","miercoles:","jueves:","viernes:","sabado:","domingo:"]
+
+for dia in dias:
+    tk.Label(card, text=dia, bg="#2a2a3e", fg="white", font=("Arial", 12,)).pack(anchor="w", padx=20, pady=2)
+
+# Resumen
+tk.Label(card, text="Resumen", bg="#2a2a3e", fg="white", font=("Arial", 11, "bold")).pack(anchor="w", padx=15, pady=(10, 2))
 
 screen.mainloop()
 
