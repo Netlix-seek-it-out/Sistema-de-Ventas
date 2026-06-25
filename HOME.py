@@ -315,7 +315,6 @@ make_field(right_col, "precio",    "Precio unitario:")
 make_field(right_col, "total",     "Total:")
 
 
-def guardar ():
 # Boton
 def guardar():
     lbl_status.config(text="Venta guardada correctamente.")
