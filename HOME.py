@@ -1,5 +1,10 @@
 import tkinter as tk
+
 #from estadisticas import abrir_estadisticas
+
+from backend_registro import guardar_ventas
+
+
 
 def mostrar_estadisticas():
     home_frame.pack_forget()
@@ -151,7 +156,7 @@ nombre_app.grid(row=0, column=0, padx=10, pady=8)
 home_boton = tk.Label(menu_frame,  text="HOME", bg="#1e293b", width=18, height=2, font=("Arial", 12, "bold"), fg="#E2DEEA", cursor="hand2")
 home_boton.grid(row=0, column=1, padx=10, pady=8)
 home_boton.bind("<Button-1>", lambda e: mostrar_home())
-    
+   
 registro_boton_barra = tk.Label(
             menu_frame, text="📝 Registro", bg="#1e293b", width=18, height=2, font=("Arial", 12, "bold"), cursor="hand2",
             fg="#94a3b8")
@@ -309,6 +314,8 @@ make_field(right_col, "cantidad",  "Cantidad:")
 make_field(right_col, "precio",    "Precio unitario:")
 make_field(right_col, "total",     "Total:")
 
+
+def guardar ():
 # Boton
 def guardar():
     lbl_status.config(text="Venta guardada correctamente.")
