@@ -1,7 +1,13 @@
 import json
 
-with open ("base_datos.json","r",encoding="utf-8") as bd:
-    compras =json.load (bd)  
 
-def guardar_ventas():
-    numero_venta =
+
+def guardar_ventas(venta):    
+    with open("registro.json", "r", encoding="utf-8") as bd:       
+        compras = json.load(bd)
+
+    compras["Ventas_registradas"].append(venta)
+
+
+    with open("registro.json", "w", encoding="utf-8") as bd:
+        json.dump(compras, bd, indent=2)

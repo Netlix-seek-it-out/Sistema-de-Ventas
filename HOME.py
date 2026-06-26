@@ -2,8 +2,7 @@ import tkinter as tk
 
 #from estadisticas import abrir_estadisticas
 
-from backend_registro import guardar_ventas
-
+import backend_registro as br
 
 
 def mostrar_estadisticas():
@@ -315,15 +314,25 @@ make_field(right_col, "precio",    "Precio unitario:")
 make_field(right_col, "total",     "Total:")
 
 
-# Boton
-def guardar():
+def guardar_datos_ventas():
+    venta = {
+        "num_venta": entries["num_venta"].get(),
+        "cliente": entries["cliente"].get(),
+        "producto": entries["producto"].get(),
+        "cantidad": entries["cantidad"].get(),
+        "precio": entries["precio"].get(),
+        "total": entries["total"].get()
+    }
+
+    br.guardar_ventas(venta)
     lbl_status.config(text="Venta guardada correctamente.")
 
+# Boton
 btn = tk.Button(registro_frame, text="Guardar Venta",
                 bg="#7c6af7", fg="#ffffff",
                 activebackground="#9a8cff", activeforeground="#ffffff",
                 relief="flat", font=("Segoe UI", 13, "bold"),
-                cursor="hand2", command=guardar)
+                cursor="hand2", command=guardar_datos_ventas)
 btn.pack(ipadx=40, ipady=12, pady=(20, 0))
 
 lbl_status = tk.Label(registro_frame, text="", bg="#1e1e2e",
