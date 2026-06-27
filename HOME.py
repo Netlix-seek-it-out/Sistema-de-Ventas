@@ -313,8 +313,18 @@ make_field(right_col, "cantidad",  "Cantidad:")
 make_field(right_col, "precio",    "Precio unitario:")
 make_field(right_col, "total",     "Total:")
 
+from tkinter import messagebox 
 
 def guardar_datos_ventas():
+   
+    for key in ["num_venta", "cliente", "producto", "cantidad", "precio", "total"]:
+        if entries[key].get().strip() == "":
+            messagebox.showwarning(
+                "Registro incompleto",
+                "Completa todos los campos antes de guardar." )
+            return 
+
+   
     venta = {
         "num_venta": entries["num_venta"].get(),
         "cliente": entries["cliente"].get(),
