@@ -305,20 +305,20 @@ def make_field(parent, key, label_text):
     entries[key] = entry
 
 # Columna izquierda
-make_field(left_col,  "num_venta", "Numero de venta:")
+#make_field(left_col,  "num_venta", "Numero de venta:")
 make_field(left_col,  "cliente",   "Nombre del cliente:")
 make_field(left_col,  "producto",  "Producto vendido:")
 
 # Columna derecha
 make_field(right_col, "cantidad",  "Cantidad:")
 make_field(right_col, "precio",    "Precio unitario:")
-make_field(right_col, "total",     "Total:")
+#make_field(right_col, "total",     "Total:")
 
 from tkinter import messagebox 
 
 def guardar_datos_ventas():
    
-    for key in ["num_venta", "cliente", "producto", "cantidad", "precio", "total"]:
+    for key in ["cliente", "producto", "cantidad", "precio"]:
         if entries[key].get().strip() == "":
             messagebox.showwarning(
                 "Registro incompleto",
@@ -327,12 +327,12 @@ def guardar_datos_ventas():
 
    
     venta = {
-        "num_venta": entries["num_venta"].get(),
+        #"num_venta": entries["num_venta"].get(),
         "cliente": entries["cliente"].get(),
         "producto": entries["producto"].get(),
         "cantidad": entries["cantidad"].get(),
         "precio": entries["precio"].get(),
-        "total": entries["total"].get()
+        #"total": entries["total"].get()
     }
 
     br.guardar_ventas(venta)
