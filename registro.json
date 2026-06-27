@@ -7,6 +7,14 @@
       "cantidad": "",
       "precio": "",
       "total": ""
+    },
+    {
+      "num_venta": "",
+      "cliente": "",
+      "producto": "",
+      "cantidad": "xan",
+      "precio": "",
+      "total": ""
     }
   ]
 }
