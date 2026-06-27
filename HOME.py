@@ -22,6 +22,7 @@ def mostrar_registro():
     estadisticas_frame.pack_forget()
     home_frame.pack_forget()
     historial_frame.pack_forget()
+    lbl_status.config(text="")
     registro_frame.pack(fill="both", expand=True)
 
 def mostrar_historial():
