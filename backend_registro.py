@@ -10,4 +10,4 @@ def guardar_ventas(venta):
 
 
     with open("registro.json", "w", encoding="utf-8") as bd:
-        json.dump(compras, bd, indent=2)
+        json.dump(compras, bd, indent=2) 
