@@ -301,23 +301,25 @@ def make_field(parent, key, label_text):
     entry = tk.Entry(parent, bg="#313145", fg="#cdd6f4",
                      insertbackground="#cdd6f4", relief="flat",
                      font=("Segoe UI", 13))
-    entry.pack(fill="x", pady=(4, 22), ipady=10)
+    entry.pack(fill="x", pady=(4, 60), ipady=10)
     entries[key] = entry
 
 # Columna izquierda
 #make_field(left_col,  "num_venta", "Numero de venta:")
 make_field(left_col,  "cliente",   "Nombre del cliente:")
-make_field(left_col,  "producto",  "Producto vendido:")
+make_field(left_col,  "cantidad",  "Cantidad de unidades:")
 
 # Columna derecha
-make_field(right_col, "cantidad",  "Cantidad:")
+make_field(right_col, "producto",  "Producto vendido:")
 make_field(right_col, "precio",    "Precio unitario:")
 #make_field(right_col, "total",     "Total:")
 
 from tkinter import messagebox 
 
 def guardar_datos_ventas():
-   
+    
+    
+
     for key in ["cliente", "producto", "cantidad", "precio"]:
         if entries[key].get().strip() == "":
             messagebox.showwarning(
@@ -334,6 +336,13 @@ def guardar_datos_ventas():
         "precio": entries["precio"].get(),
         #"total": entries["total"].get()
     }
+
+    try:
+        cantifad_numerador = float(venta["cantidad"])
+        precio_numerador = float(venta["precio"])
+    except:
+        messagebox.showerror("ERROR", "ingrese datos válidos en la cantidad y precio")
+        return
 
     br.guardar_ventas(venta)
     lbl_status.config(text="Venta guardada correctamente.")
