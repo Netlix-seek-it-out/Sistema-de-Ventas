@@ -2,8 +2,7 @@ import tkinter as tk
 
 #from estadisticas import abrir_estadisticas
 
-from backend_registro import guardar_ventas
-
+import backend_registro as br
 
 
 def mostrar_estadisticas():
@@ -23,6 +22,7 @@ def mostrar_registro():
     estadisticas_frame.pack_forget()
     home_frame.pack_forget()
     historial_frame.pack_forget()
+    lbl_status.config(text="")
     registro_frame.pack(fill="both", expand=True)
 
 def mostrar_historial():
@@ -301,29 +301,58 @@ def make_field(parent, key, label_text):
     entry = tk.Entry(parent, bg="#313145", fg="#cdd6f4",
                      insertbackground="#cdd6f4", relief="flat",
                      font=("Segoe UI", 13))
-    entry.pack(fill="x", pady=(4, 22), ipady=10)
+    entry.pack(fill="x", pady=(4, 60), ipady=10)
     entries[key] = entry
 
 # Columna izquierda
-make_field(left_col,  "num_venta", "Numero de venta:")
+#make_field(left_col,  "num_venta", "Numero de venta:")
 make_field(left_col,  "cliente",   "Nombre del cliente:")
-make_field(left_col,  "producto",  "Producto vendido:")
+make_field(left_col,  "cantidad",  "Cantidad de unidades:")
 
 # Columna derecha
-make_field(right_col, "cantidad",  "Cantidad:")
+make_field(right_col, "producto",  "Producto vendido:")
 make_field(right_col, "precio",    "Precio unitario:")
-make_field(right_col, "total",     "Total:")
+#make_field(right_col, "total",     "Total:")
 
+from tkinter import messagebox 
 
-# Boton
-def guardar():
+def guardar_datos_ventas():
+    
+    
+
+    for key in ["cliente", "producto", "cantidad", "precio"]:
+        if entries[key].get().strip() == "":
+            messagebox.showwarning(
+                "Registro incompleto",
+                "Completa todos los campos antes de guardar." )
+            return 
+
+   
+    venta = {
+        #"num_venta": entries["num_venta"].get(),
+        "cliente": entries["cliente"].get(),
+        "producto": entries["producto"].get(),
+        "cantidad": entries["cantidad"].get(),
+        "precio": entries["precio"].get(),
+        #"total": entries["total"].get()
+    }
+
+    try:
+        cantifad_numerador = float(venta["cantidad"])
+        precio_numerador = float(venta["precio"])
+    except:
+        messagebox.showerror("ERROR", "ingrese datos válidos en la cantidad y precio")
+        return
+
+    br.guardar_ventas(venta)
     lbl_status.config(text="Venta guardada correctamente.")
 
+# Boton
 btn = tk.Button(registro_frame, text="Guardar Venta",
                 bg="#7c6af7", fg="#ffffff",
                 activebackground="#9a8cff", activeforeground="#ffffff",
                 relief="flat", font=("Segoe UI", 13, "bold"),
-                cursor="hand2", command=guardar)
+                cursor="hand2", command=guardar_datos_ventas)
 btn.pack(ipadx=40, ipady=12, pady=(20, 0))
 
 lbl_status = tk.Label(registro_frame, text="", bg="#1e1e2e",

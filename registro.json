@@ -1,0 +1,25 @@
+{
+  "Ventas_registradas": [
+    {
+      "cliente": "Gris",
+      "producto": "Iphone",
+      "cantidad": "20",
+      "precio": "500",
+      "num_venta": 1
+    },
+    {
+      "cliente": "Owenaso",
+      "producto": "Silla",
+      "cantidad": "33",
+      "precio": "99",
+      "num_venta": 2
+    },
+    {
+      "cliente": "Naho",
+      "producto": "Palo",
+      "cantidad": "20",
+      "precio": "20",
+      "num_venta": 3
+    }
+  ]
+}
