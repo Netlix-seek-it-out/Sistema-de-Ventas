@@ -31,8 +31,3 @@ def guardar_ventas(venta):
     with open("registro.json", "w", encoding="utf-8") as bd:
         json.dump(compras, bd, indent=2) 
 
-<<<<<<< HEAD
-def guardar_ventas():
-    num_venta =()
-=======
->>>>>>> 787b1d542853cc0a4d205666643ab3c3cb9d8d84

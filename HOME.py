@@ -345,7 +345,7 @@ def guardar_datos_ventas():
         precio_numerador = float(venta["precio"])
 
         if cantifad_numerador <= 0 or precio_numerador <= 0:
-            messagebox.showerror("Error", "No puede ingresar numeros negativos")
+            messagebox.showerror("ERROR", "nesesitas ingresar un valor mayor que cero para poder registrar tu venta")
             return
         
         total = cantifad_numerador * precio_numerador

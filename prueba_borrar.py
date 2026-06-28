@@ -1,3 +1,0 @@
-#borra esto
-
-print("BORRAR")
