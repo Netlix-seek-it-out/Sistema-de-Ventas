@@ -1,25 +1,29 @@
 {
+  "ultimo_id_para_sumar": 4,
   "Ventas_registradas": [
     {
-      "cliente": "Gris",
-      "producto": "Iphone",
-      "cantidad": "20",
-      "precio": "500",
+      "cliente": "Diego",
+      "producto": "Ventilador",
+      "cantidad": "10",
+      "precio": "10",
+      "total": 100.0,
       "num_venta": 1
     },
     {
-      "cliente": "Owenaso",
-      "producto": "Silla",
-      "cantidad": "33",
-      "precio": "99",
-      "num_venta": 2
+      "cliente": "Isis",
+      "producto": "Laptop",
+      "cantidad": "1",
+      "precio": "200",
+      "total": 200.0,
+      "num_venta": 3
     },
     {
-      "cliente": "Naho",
-      "producto": "Palo",
-      "cantidad": "20",
+      "cliente": "Owenaso",
+      "producto": "Lentes",
+      "cantidad": "1",
       "precio": "20",
-      "num_venta": 3
+      "total": 20.0,
+      "num_venta": 4
     }
   ]
 }

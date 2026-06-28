@@ -337,10 +337,23 @@ def guardar_datos_ventas():
         #"total": entries["total"].get()
     }
 
+
+    #CALCULANDO EL TOTAL, Asegurandose que no sean numero negativos, y calculando el total
     try:
+        
         cantifad_numerador = float(venta["cantidad"])
         precio_numerador = float(venta["precio"])
-    except:
+
+        if cantifad_numerador <= 0 or precio_numerador <= 0:
+            messagebox.showerror("Error", "No puede ingresar numeros negativos")
+            return
+        
+        total = cantifad_numerador * precio_numerador
+        messagebox.showinfo("TOTAL DE VENTA", f"Total: {total}")
+        venta["total"]  = total
+
+
+    except ValueError:
         messagebox.showerror("ERROR", "ingrese datos válidos en la cantidad y precio")
         return
 
