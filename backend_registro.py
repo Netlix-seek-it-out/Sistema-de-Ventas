@@ -1,20 +1,31 @@
 import json
 from tkinter import messagebox
 
-def put_num_venta(compras):
-    return len(compras["Ventas_registradas"]) + 1
+#def put_num_venta(compras):
+#    len_dic = len(compras["Ventas_registradas"]) + 1
+#    return len_dic
+
 
 def guardar_ventas(venta):    
     with open("registro.json", "r", encoding="utf-8") as bd:       
         compras = json.load(bd)
 
 
+
     # CREANDO EL NUMERO ID AUTOMATIZADO
-    #numero_id = put_num_venta(compras)
-    #venta["num_venta"] = numero_id
+    #Aseguradno que sea un numeor unico. Guardo el ultmio id recolectado, para que así, se evite numeros repetidos
+
+
+    numero_id = compras["ultimo_id_para_sumar"] + 1
+    compras["ultimo_id_para_sumar"] = numero_id
+    venta["num_venta"] = numero_id
+
 
     #AGREGANDO LA VEMTA AL JSON
     compras["Ventas_registradas"].append(venta)
+
+    #Numero de venta mostrar
+    messagebox.showinfo("N de venta", f"Numero de venta: {numero_id}")
 
 # Modifica el json, lo reescribe
     with open("registro.json", "w", encoding="utf-8") as bd:
