@@ -1,8 +1,10 @@
 import tkinter as tk
 
-#from estadisticas import abrir_estadisticas
-
 import backend_registro as br
+
+from calcular_estadisticas import calcular_estadisticas
+
+
 
 
 def mostrar_estadisticas():
@@ -181,6 +183,7 @@ cuadros.pack()
 
 fila1 = tk.Frame(cuadros, bg="#1e1e2e")
 fila1.pack(pady=15)
+
 
 
 ventas = tk.Frame(fila1, bg="#7A68EE", width=220, height=150)

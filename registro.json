@@ -1,5 +1,5 @@
 {
-  "ultimo_id_para_sumar": 4,
+  "ultimo_id_para_sumar": 5,
   "Ventas_registradas": [
     {
       "cliente": "Diego",
@@ -24,6 +24,14 @@
       "precio": "20",
       "total": 20.0,
       "num_venta": 4
+    },
+    {
+      "cliente": "Gris",
+      "producto": "Paquete de chocolates",
+      "cantidad": "10",
+      "precio": "2",
+      "total": 20.0,
+      "num_venta": 5
     }
   ]
 }
