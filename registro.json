@@ -1,5 +1,5 @@
 {
-  "ultimo_id_para_sumar": 5,
+  "ultimo_id_para_sumar": 8,
   "Ventas_registradas": [
     {
       "cliente": "Diego",
@@ -32,6 +32,30 @@
       "precio": "2",
       "total": 20.0,
       "num_venta": 5
+    },
+    {
+      "cliente": "May",
+      "producto": "Iphone",
+      "cantidad": "1",
+      "precio": "200",
+      "total": 200.0,
+      "num_venta": 6
+    },
+    {
+      "cliente": "Diego",
+      "producto": "Caja de creales",
+      "cantidad": "1",
+      "precio": "200",
+      "total": 200.0,
+      "num_venta": 7
+    },
+    {
+      "cliente": "Nehemias",
+      "producto": "tazas",
+      "cantidad": "10",
+      "precio": "10",
+      "total": 100.0,
+      "num_venta": 8
     }
   ]
 }
