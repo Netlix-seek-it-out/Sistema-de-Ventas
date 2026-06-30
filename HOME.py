@@ -6,6 +6,8 @@ from calcular_estadisticas import calcular_estadisticas
 
 from cargar_historial import cargar_historial
 
+from realizar_busqueda import busqueda
+
 def mostrar_estadisticas():
     home_frame.pack_forget()
     registro_frame.pack_forget()
@@ -35,6 +37,7 @@ def mostrar_registro():
     home_frame.pack_forget()
     historial_frame.pack_forget()
     lbl_status.config(text="")
+    limpiar_campos()
     registro_frame.pack(fill="both", expand=True)
 
 def mostrar_historial():
@@ -336,6 +339,9 @@ make_field(right_col, "precio",    "Precio unitario:")
 #make_field(right_col, "total",     "Total:")
 
 from tkinter import messagebox 
+def limpiar_campos():
+   for campo in entries.values():
+       campo.delete(0, tk.END)
 
 def guardar_datos_ventas():
     
@@ -379,6 +385,7 @@ def guardar_datos_ventas():
         return
 
     br.guardar_ventas(venta)
+    limpiar_campos()
     lbl_status.config(text="Venta guardada correctamente.")
 
 # Boton
@@ -488,6 +495,7 @@ mensaje.place(relx=0.5, rely=0.5,
 
 # Resumen
 #tk.Label(card, text="Resumen", bg="#2a2a3e", fg="white", font=("Arial", 11, "bold")).pack(anchor="w", padx=15, pady=(10, 2))
+
 
 screen.mainloop()
 
