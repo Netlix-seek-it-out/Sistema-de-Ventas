@@ -4,7 +4,7 @@ import backend_registro as br
 
 from calcular_estadisticas import calcular_estadisticas
 
-#from cargar_historial import cargar_historial
+from cargar_historial import cargar_historial
 
 def mostrar_estadisticas():
     home_frame.pack_forget()
@@ -41,7 +41,7 @@ def mostrar_historial():
     estadisticas_frame.pack_forget()
     home_frame.pack_forget()
     registro_frame.pack_forget()
-    #cargar_historial()
+    cargar_historial(card)
     historial_frame.pack(fill="both", expand=True)
 
 
@@ -457,13 +457,13 @@ mensaje = tk.Label(
 mensaje.place(relx=0.5, rely=0.5,
               anchor="center")
 
-dias= ["lunes:","martes:","miercoles:","jueves:","viernes:","sabado:","domingo:"]
+#dias= ["lunes:","martes:","miercoles:","jueves:","viernes:","sabado:","domingo:"]
 
-for dia in dias:
-    tk.Label(card, text=dia, bg="#2a2a3e", fg="white", font=("Arial", 12,)).pack(anchor="w", padx=20, pady=2)
+#for dia in dias:
+#    tk.Label(card, text=dia, bg="#2a2a3e", fg="white", font=("Arial", 12,)).pack(anchor="w", padx=20, pady=2)
 
 # Resumen
-tk.Label(card, text="Resumen", bg="#2a2a3e", fg="white", font=("Arial", 11, "bold")).pack(anchor="w", padx=15, pady=(10, 2))
+#tk.Label(card, text="Resumen", bg="#2a2a3e", fg="white", font=("Arial", 11, "bold")).pack(anchor="w", padx=15, pady=(10, 2))
 
 screen.mainloop()
 
