@@ -442,7 +442,19 @@ historial_boton_barra.bind("<Button-1>", lambda e: mostrar_historial())
 
 # Titulo
 tk.Label(historial_frame, text="Historial", bg="#1e1e2e", fg="white", font=("Arial", 16, "bold")).pack(anchor="w", padx=20, pady=(15, 5))
+#Barra de busqueda
+header_frame = tk.Frame(historial_frame, bg="#1e1e2e")
+header_frame.pack(fill="x", padx=20, pady=(15, 4))
 
+tk.Label(header_frame, text="Buscar:", bg="#1e1e2e", fg="white", font=("Arial", 11)).pack(side="left")
+busqueda_frame = tk.Frame(header_frame, bg="#1e1e2e")
+busqueda.frame.pack(side="right", padx=(5, 0))
+
+buscar_entry = tk.Entry(busqueda_frame, bg="#313145", fg="white", insertbackground="white", relief="flat", font=("Arial", 11))
+buscar_entry.pack(side="left", ipady=4)
+
+tk.Label(busqueda_frame, text="🔍", bg="#1e1e2e", fg="#94a3b8",
+         font=("Arial", 13)).pack(side="left", padx=(5, 0))
 # Tarjeta
 card = tk.Frame(historial_frame, bg="#2a2a3e")
 card.pack(fill="both", expand=True, padx=20, pady=5)
