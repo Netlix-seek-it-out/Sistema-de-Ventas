@@ -1,6 +1,21 @@
 {
-  "ultimo_id_para_sumar": 1,
+  "ultimo_id_para_sumar": 6,
   "Ventas_registradas": [
-   
+    {
+      "cliente": "pepe",
+      "producto": "silla",
+      "cantidad": "100",
+      "precio": "500",
+      "total": 50000.0,
+      "num_venta": 5
+    },
+    {
+      "cliente": "q",
+      "producto": "2",
+      "cantidad": "2",
+      "precio": "2",
+      "total": 4.0,
+      "num_venta": 6
+    }
   ]
 }
