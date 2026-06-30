@@ -1,61 +1,21 @@
 {
-  "ultimo_id_para_sumar": 8,
+  "ultimo_id_para_sumar": 6,
   "Ventas_registradas": [
     {
-      "cliente": "Diego",
-      "producto": "Ventilador",
-      "cantidad": "10",
-      "precio": "10",
-      "total": 100.0,
-      "num_venta": 1
-    },
-    {
-      "cliente": "Isis",
-      "producto": "Laptop",
-      "cantidad": "1",
-      "precio": "200",
-      "total": 200.0,
-      "num_venta": 3
-    },
-    {
-      "cliente": "Owenaso",
-      "producto": "Lentes",
-      "cantidad": "1",
-      "precio": "20",
-      "total": 20.0,
-      "num_venta": 4
-    },
-    {
-      "cliente": "Gris",
-      "producto": "Paquete de chocolates",
-      "cantidad": "10",
-      "precio": "2",
-      "total": 20.0,
+      "cliente": "pepe",
+      "producto": "silla",
+      "cantidad": "100",
+      "precio": "500",
+      "total": 50000.0,
       "num_venta": 5
     },
     {
-      "cliente": "May",
-      "producto": "Iphone",
-      "cantidad": "1",
-      "precio": "200",
-      "total": 200.0,
+      "cliente": "q",
+      "producto": "2",
+      "cantidad": "2",
+      "precio": "2",
+      "total": 4.0,
       "num_venta": 6
-    },
-    {
-      "cliente": "Diego",
-      "producto": "Caja de creales",
-      "cantidad": "1",
-      "precio": "200",
-      "total": 200.0,
-      "num_venta": 7
-    },
-    {
-      "cliente": "Nehemias",
-      "producto": "tazas",
-      "cantidad": "10",
-      "precio": "10",
-      "total": 100.0,
-      "num_venta": 8
     }
   ]
 }
