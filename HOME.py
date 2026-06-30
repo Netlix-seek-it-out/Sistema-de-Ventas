@@ -121,16 +121,17 @@ registro_boton.bind("<Button-1>", lambda e: mostrar_registro())
 #.bind sirve para ejecutr un comando, casi igual que "button". 
 # "button-1 es el indicador que dice que se realizara cuando se presione click derecho"
 
-historial_boton = tk.Label(botones_frame, text="Ver Historial 📄", font=("arial", 12, "bold"), fg="#cdd6f4", cursor="hand2", bg="#7c6af7", 
-    width=18, height=2)
-historial_boton.grid(row=0, column=1, padx=40, pady=10)
-historial_boton.bind("<Button-1>", lambda e: mostrar_historial())
 # LINK
 
 estadisticas_boton = tk.Label(botones_frame, text="Estadisticas 📊", font=("arial", 12, "bold"), fg="#cdd6f4", cursor="hand2", bg="#7c6af7", width=18, height=2)
-estadisticas_boton.grid(row=0, column=2, padx=40, pady=10)
+estadisticas_boton.grid(row=0, column=1, padx=40, pady=10)
 estadisticas_boton.bind("<Button-1>", lambda e: mostrar_estadisticas())
 #"<button-1>" representa exactamente el click izquierdo
+
+historial_boton = tk.Label(botones_frame, text="Ver Historial 📄", font=("arial", 12, "bold"), fg="#cdd6f4", cursor="hand2", bg="#7c6af7", 
+    width=18, height=2)
+historial_boton.grid(row=0, column=2, padx=40, pady=10)
+historial_boton.bind("<Button-1>", lambda e: mostrar_historial())
 
 #buscar_label = tk.Label(home_frame, text="Buscar...", font=("arial", 12, "bold"), fg="#cdd6f4", bg="#1e1e2e")
 #buscar_label.pack(pady=5)
@@ -184,6 +185,8 @@ estadisticas_boton_barra.bind("<Button-1>", lambda e: None)
 historial_boton_barra = tk.Label(menu_frame, text="📄 Historial", bg="#1e293b", width=18, height=2, font=("Arial", 12, "bold"), cursor="hand2", fg="#94a3b8")
 historial_boton_barra.grid(row=0, column=4, padx=10, pady=8)
 historial_boton_barra.bind("<Button-1>", lambda e: mostrar_historial())
+
+
 
 
 titulo = tk.Label(estadisticas_frame, text="📊 Estadísticas", font=("Segoe UI", 35, "bold"), bg="#1e1e2e", fg="#8B5CF6")
