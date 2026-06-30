@@ -441,7 +441,28 @@ historial_boton_barra.bind("<Button-1>", lambda e: mostrar_historial())
 #tk.Label(nav, text="¡Indago!", bg="#252535", fg="#7b6cf6", font=("Arial", 11, "bold")).pack(side="left", padx=10, pady=8)
 
 # Titulo
-tk.Label(historial_frame, text="Historial", bg="#1e1e2e", fg="white", font=("Arial", 16, "bold")).pack(anchor="w", padx=20, pady=(15, 5))
+barra_ante_superior = tk.Frame(historial_frame, bg="#1e1e2e")
+barra_ante_superior.pack(anchor="w", pady=10)
+
+
+tk.Label(barra_ante_superior, text="Historial", bg="#1e1e2e", fg="white", font=("Arial", 16, "bold")).grid(row=0, column=0, padx=(30, 50), pady=(5, 5))
+
+espacio = tk.Label(barra_ante_superior, bg="#1e1e2e", width=6)
+espacio.grid(pady=10, padx=6, row=0, column=1)
+
+buscar_label = tk.Label(barra_ante_superior, text="Buscar por numero de venta", font=("arial", 12, "bold"), fg="#cdd6f4", bg="#1e1e2e")
+buscar_label.grid(pady=5, row=0, column=2)
+
+
+borde_buscar = tk.Frame(barra_ante_superior, bg="#313145", highlightthickness=1)
+borde_buscar.grid(pady=5, padx=10, row=0, column=3)
+
+buscar_barra = tk.Entry(borde_buscar, bg="#313145", width=40, font=("arial", 16), fg="#fbfbfb")
+buscar_barra.pack(pady=1, ipady=5, ipadx=5)
+
+boton_activar_buscar = tk.Button(barra_ante_superior, text="¡Buscar Ya!", bg="#7A68EE", width=10, height=2, font=("arial", 10, "bold"), fg="#fbfbfb", cursor="hand2")
+boton_activar_buscar.grid(pady=5, padx=10, row=0, column=4)
+
 
 # Tarjeta
 card = tk.Frame(historial_frame, bg="#2a2a3e")
