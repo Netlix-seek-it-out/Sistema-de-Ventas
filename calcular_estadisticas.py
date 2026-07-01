@@ -8,8 +8,18 @@ def calcular_estadisticas():
 
     estaditicas = {}
 
-    # ---------- TOTAL DE VENTAS ----------
+    if len(compras["Ventas_registradas"]) == 0:
+       estaditicas["Total_ventas"] = 0
+       estaditicas["Total_ingresos"] = 0
+       estaditicas["Cliente_lead"] = "Sin ventas"
+       estaditicas["Mayor_producto"] = "Sin ventas"
+       return estaditicas 
+    
+    #else:
+
+    # Total de ventas
     # Cuenta cuántas ventas hay registradas en total
+
     total_ventas = len(compras["Ventas_registradas"])
     estaditicas["Total_ventas"] = total_ventas
 

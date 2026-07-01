@@ -498,4 +498,7 @@ mensaje.place(relx=0.5, rely=0.5,
 # Resumen
 #tk.Label(card, text="Resumen", bg="#2a2a3e", fg="white", font=("Arial", 11, "bold")).pack(anchor="w", padx=15, pady=(10, 2))
 
+
+
+
 screen.mainloop()
