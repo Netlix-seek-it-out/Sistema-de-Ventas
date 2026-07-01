@@ -244,7 +244,7 @@ texto_vingresos3=tk.Label(ingresos, text="Total de ingresos", font=("Segoe UI", 
 grafica_frame = tk.Frame(estadisticas_frame, bg="#2a2a3e", highlightbackground="#7A68EE", highlightthickness=2)
 grafica_frame.pack(padx=40, pady=15, fill="both", expand=True)
 
-grafica = tk.Label(grafica_frame, text="📊 Gráfica de ventas",font=("Segoe UI", 14, "bold"), bg="#2a2a3e", fg="#8B5CF6")
+grafica = tk.Label(grafica_frame, text="📊 Gráfica de ventas",font=("Segoe UI", 14,"bold"), bg="#2a2a3e", fg="#8B5CF6")
 grafica.pack(anchor="w", padx=20, pady=(15, 10))
 
 dias = [("Lun", 2), ("Mar", 5), ("Mié", 4), ("Jue", 7), ("Vie", 6), ("Sáb", 3), ("Dom", 1)]
