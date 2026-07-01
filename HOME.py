@@ -6,6 +6,8 @@ from calcular_estadisticas import calcular_estadisticas
 
 from cargar_historial import cargar_historial
 
+from realizar_busqueda import busqueda
+
 def mostrar_estadisticas():
     home_frame.pack_forget()
     registro_frame.pack_forget()
@@ -36,6 +38,7 @@ def mostrar_registro():
     home_frame.pack_forget()
     historial_frame.pack_forget()
     lbl_status.config(text="")
+    limpiar_campos()
     registro_frame.pack(fill="both", expand=True)
 
 def mostrar_historial():
@@ -337,6 +340,9 @@ make_field(right_col, "precio",    "Precio unitario:")
 #make_field(right_col, "total",     "Total:")
 
 from tkinter import messagebox 
+def limpiar_campos():
+   for campo in entries.values():
+       campo.delete(0, tk.END)
 
 def guardar_datos_ventas():
     
@@ -380,6 +386,7 @@ def guardar_datos_ventas():
         return
 
     br.guardar_ventas(venta)
+    limpiar_campos()
     lbl_status.config(text="Venta guardada correctamente.")
 
 # Boton
@@ -461,7 +468,8 @@ borde_buscar.grid(pady=5, padx=10, row=0, column=3)
 buscar_barra = tk.Entry(borde_buscar, bg="#313145", width=40, font=("arial", 16), fg="#fbfbfb")
 buscar_barra.pack(pady=1, ipady=5, ipadx=5)
 
-boton_activar_buscar = tk.Button(barra_ante_superior, text="¡Buscar Ya!", bg="#7A68EE", width=10, height=2, font=("arial", 10, "bold"), fg="#fbfbfb", cursor="hand2")
+boton_activar_buscar = tk.Button(barra_ante_superior, text="¡Buscar Ya!", bg="#7A68EE", width=10, height=2, font=("arial", 10, "bold"), fg="#fbfbfb", 
+        cursor="hand2", command=lambda:(busqueda(buscar_barra)))
 boton_activar_buscar.grid(pady=5, padx=10, row=0, column=4)
 
 
@@ -491,4 +499,3 @@ mensaje.place(relx=0.5, rely=0.5,
 #tk.Label(card, text="Resumen", bg="#2a2a3e", fg="white", font=("Arial", 11, "bold")).pack(anchor="w", padx=15, pady=(10, 2))
 
 screen.mainloop()
-
