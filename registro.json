@@ -16,14 +16,7 @@
       "precio": "2",
       "total": 4.0,
       "num_venta": 6
-    },
-    {
-      "cliente": "David",
-      "producto": "Lavadora",
-      "cantidad": "1",
-      "precio": "70",
-      "total": 70.0,
-      "num_venta": 7
     }
+    {
   ]
 }
