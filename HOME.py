@@ -467,7 +467,8 @@ borde_buscar.grid(pady=5, padx=10, row=0, column=3)
 buscar_barra = tk.Entry(borde_buscar, bg="#313145", width=40, font=("arial", 16), fg="#fbfbfb")
 buscar_barra.pack(pady=1, ipady=5, ipadx=5)
 
-boton_activar_buscar = tk.Button(barra_ante_superior, text="¡Buscar Ya!", bg="#7A68EE", width=10, height=2, font=("arial", 10, "bold"), fg="#fbfbfb", cursor="hand2")
+boton_activar_buscar = tk.Button(barra_ante_superior, text="¡Buscar Ya!", bg="#7A68EE", width=10, height=2, font=("arial", 10, "bold"), fg="#fbfbfb", 
+        cursor="hand2", command=lambda:(busqueda(buscar_barra)))
 boton_activar_buscar.grid(pady=5, padx=10, row=0, column=4)
 
 
@@ -496,6 +497,4 @@ mensaje.place(relx=0.5, rely=0.5,
 # Resumen
 #tk.Label(card, text="Resumen", bg="#2a2a3e", fg="white", font=("Arial", 11, "bold")).pack(anchor="w", padx=15, pady=(10, 2))
 
-
 screen.mainloop()
-
