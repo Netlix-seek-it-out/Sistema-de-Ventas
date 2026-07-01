@@ -17,6 +17,7 @@ def mostrar_estadisticas():
     texto_ventana2.config(text=estadisticas["Total_ventas"])
     texto_clientes2.config(text=estadisticas["Cliente_lead"])
     texto_producto2.config(text=estadisticas["Mayor_producto"])
+    texto_vingresos2.config(text= f"${estadisticas["Total_ingresos"]:.2f}")
 
 
     estadisticas_frame.pack(fill="both", expand=True)
