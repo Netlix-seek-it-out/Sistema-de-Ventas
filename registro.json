@@ -1,6 +1,13 @@
 {
-  "ultimo_id_para_sumar": 1,
+  "ultimo_id_para_sumar": 3,
   "Ventas_registradas": [
-
+    {
+      "cliente": "Griselda ",
+      "producto": "Lapto",
+      "cantidad": "1",
+      "precio": "400",
+      "total": 400.0,
+      "num_venta": 2
+    }
   ]
 }
