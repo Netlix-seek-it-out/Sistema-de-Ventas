@@ -8,7 +8,17 @@ from cargar_historial import cargar_historial
 
 from realizar_busqueda import busqueda
 
+#Esto lo cree para utilizar el canvas para la barra de busqueda, rendondear las esquinas
+def crear_rect_redondeado(canvas, x1, y1, x2, y2, radio=18, **kwargs):
+    puntos = [
+        x1+radio, y1, x2-radio, y1, x2, y1, x2, y1+radio,
+        x2, y2-radio, x2, y2, x2-radio, y2, x1+radio, y2,
+        x1, y2, x1, y2-radio, x1, y1+radio, x1, y1
+    ]
+    return canvas.create_polygon(puntos, smooth=True, **kwargs)
+
 def mostrar_estadisticas():
+
     home_frame.pack_forget()
     registro_frame.pack_forget()
     historial_frame.pack_forget()
@@ -116,7 +126,6 @@ historial_boton_barra = tk.Label(menu_frame, text="📄 Historial", bg="#1e293b"
 historial_boton_barra.grid(row=0, column=4, padx=10, pady=8)
 historial_boton_barra.bind("<Button-1>", lambda e: mostrar_historial())
 
-
 #FIN DE BARRA DE NAVEGACION
 
 welcome_label = tk.Label(home_frame, text="¡Bienvenido a Indago!", bg="#1e1e2e", font=("Arial", 20, "bold"), fg="#f8fafc")
@@ -139,17 +148,49 @@ registro_boton = tk.Label(botones_frame, text="Registar venta ✏️", font=("ar
 registro_boton.grid(row=0, column=0, padx=40, pady=10)
 registro_boton.bind("<Button-1>", lambda e: mostrar_registro())
 
+
+#Funcion para que al pasar el mouse por encima del boton, cambie de color, y al salir vuelva a su color 
+def entrar_mouse(e):
+    registro_boton.config(bg="#5a4bd6")  # color más oscuro
+
+def salir_mouse(e):
+    registro_boton.config(bg="#7c6af7")  # color original
+
+registro_boton.bind("<Enter>", entrar_mouse)
+registro_boton.bind("<Leave>", salir_mouse)
+
+
+
+registro_boton.grid(row=0, column=0, padx=40, pady=10)
+registro_boton.bind("<Button-1>", lambda e: mostrar_registro())
+
+
 #.bind sirve para ejecutr un comando, casi igual que "button". 
 # "button-1 es el indicador que dice que se realizara cuando se presione click derecho"
 
 # LINK
 
-estadisticas_boton = tk.Label(botones_frame, text="Estadisticas 📊", font=("arial", 12, "bold"), fg="#cdd6f4", cursor="hand2", bg="#7c6af7", width=18, height=2)
+estadisticas_boton = tk.Label(botones_frame, text="📊 Estadisticas", font=("arial", 12, "bold"), fg="#cdd6f4", cursor="hand2", bg="#7c6af7", width=18, height=2)
 estadisticas_boton.grid(row=0, column=1, padx=40, pady=10)
 estadisticas_boton.bind("<Button-1>", lambda e: mostrar_estadisticas())
+
+
+estadisticas_boton.grid(row=0, column=1, padx=40, pady=10)
+estadisticas_boton.bind("<Button-1>", lambda e: mostrar_estadisticas())
+
+#La misma funciondel boton de registro, pero para el boton de estadisticas
+def entrar_mouse(e):
+    estadisticas_boton.config(bg="#5a4bd6")
+
+def salir_mouse(e):
+    estadisticas_boton.config(bg="#7c6af7")
+
+estadisticas_boton.bind("<Enter>", entrar_mouse)
+estadisticas_boton.bind("<Leave>", salir_mouse)
+#termina
 #"<button-1>" representa exactamente el click izquierdo
 
-historial_boton = tk.Label(botones_frame, text="Ver Historial 📄", font=("arial", 12, "bold"), fg="#cdd6f4", cursor="hand2", bg="#7c6af7", 
+historial_boton = tk.Label(botones_frame, text="📄 Historial", font=("arial", 12, "bold"), fg="#cdd6f4", cursor="hand2", bg="#7c6af7", 
     width=18, height=2)
 historial_boton.grid(row=0, column=2, padx=40, pady=10)
 historial_boton.bind("<Button-1>", lambda e: mostrar_historial())
@@ -448,19 +489,87 @@ tk.Label(barra_ante_superior, text="Historial", bg="#1e1e2e", fg="white", font=(
 espacio = tk.Label(barra_ante_superior, bg="#1e1e2e", width=6)
 espacio.grid(pady=10, padx=6, row=0, column=1)
 
-buscar_label = tk.Label(barra_ante_superior, text="Buscar por numero de venta", font=("arial", 12, "bold"), fg="#cdd6f4", bg="#1e1e2e")
+buscar_label = tk.Label(barra_ante_superior, text="Ingresar número de venta:", font=("arial", 12, "bold"), fg="#cdd6f4", bg="#1e1e2e")
 buscar_label.grid(pady=5, row=0, column=2)
 
 
 borde_buscar = tk.Frame(barra_ante_superior, bg="#313145", highlightthickness=1)
 borde_buscar.grid(pady=5, padx=10, row=0, column=3)
 
-buscar_barra = tk.Entry(borde_buscar, bg="#313145", width=40, font=("arial", 16), fg="#fbfbfb")
-buscar_barra.pack(pady=1, ipady=5, ipadx=5)
+#Barra de busqueda
 
-boton_activar_buscar = tk.Button(barra_ante_superior, text="¡Buscar Ya!", bg="#7A68EE", width=10, height=2, font=("arial", 10, "bold"), fg="#fbfbfb", 
-        cursor="hand2", command=lambda:(busqueda(buscar_barra)))
-boton_activar_buscar.grid(pady=5, padx=10, row=0, column=4)
+COLOR_NORMAL = "#3a3a55"
+COLOR_FOCUS  = "#7A68EE"
+
+buscar_canvas = tk.Canvas(barra_ante_superior, width=320, height=44,
+                           bg="#1e1e2e", highlightthickness=0)
+buscar_canvas.grid(row=0, column=3, padx=10, pady=5)
+
+rect_buscar = crear_rect_redondeado(
+    buscar_canvas, 2, 2, 318, 42, radio=20,
+    fill="#252538", outline=COLOR_NORMAL, width=2
+)
+
+buscar_barra = tk.Entry(buscar_canvas, bg="#252538", fg="#fbfbfb",
+                         insertbackground="#fbfbfb", relief="flat",
+                         font=("Segoe UI", 12), bd=0)
+buscar_canvas.create_window(160, 22, window=buscar_barra, width=280, height=28)
+
+def al_enfocar(e):
+    buscar_canvas.itemconfig(rect_buscar, outline=COLOR_FOCUS, fill="#2c2c44")
+
+def al_desenfocar(e):
+    buscar_canvas.itemconfig(rect_buscar, outline=COLOR_NORMAL, fill="#252538")
+
+buscar_barra.bind("<FocusIn>", al_enfocar)
+buscar_barra.bind("<FocusOut>", al_desenfocar)
+buscar_barra.bind("<Return>", lambda e: busqueda(buscar_barra))
+
+# boton de buscar
+
+btn_buscar_canvas = tk.Canvas(barra_ante_superior, width=140, height=44,
+                               bg="#1e1e2e", highlightthickness=0, cursor="hand2")
+btn_buscar_canvas.grid(row=0, column=4, padx=10, pady=5)
+
+btn_rect = crear_rect_redondeado(btn_buscar_canvas, 2, 2, 138, 42, radio=20,
+                                  fill="#7A68EE", outline="")
+btn_texto = btn_buscar_canvas.create_text(70, 22, text=" Buscar",
+                                           fill="white", font=("Segoe UI", 11, "bold"))
+
+# Lupa a la derecha
+buscar_canvas.create_text(
+    295, 22,              
+    text="🔍",
+    fill="#bdbdd7",
+    font=("Segoe UI Emoji", 12)
+)
+
+# Entry 
+buscar_canvas.create_window(
+    145, 22,
+    window=buscar_barra,
+    width=250,
+    height=28
+)
+def btn_hover(e):
+    btn_buscar_canvas.itemconfig(btn_rect, fill="#9a8cff")
+
+def btn_salir(e):
+    btn_buscar_canvas.itemconfig(btn_rect, fill="#7A68EE")
+
+def btn_presionar(e):
+    btn_buscar_canvas.itemconfig(btn_rect, fill="#5a4bd6")
+
+def btn_soltar(e):
+    btn_buscar_canvas.itemconfig(btn_rect, fill="#9a8cff")
+    busqueda(buscar_barra)
+
+for item in (btn_rect, btn_texto):
+    btn_buscar_canvas.tag_bind(item, "<Enter>", btn_hover)
+    btn_buscar_canvas.tag_bind(item, "<Leave>", btn_salir)
+    btn_buscar_canvas.tag_bind(item, "<ButtonPress-1>", btn_presionar)
+    btn_buscar_canvas.tag_bind(item, "<ButtonRelease-1>", btn_soltar)
+
 
 
 # Tarjeta
