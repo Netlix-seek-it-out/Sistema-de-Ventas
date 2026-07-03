@@ -131,16 +131,6 @@ registro_boton = tk.Label(botones_frame, text="Registar venta ✏️", font=("ar
 registro_boton.grid(row=0, column=0, padx=40, pady=10)
 registro_boton.bind("<Button-1>", lambda e: mostrar_registro())
 
-registro_boton = tk.Label(
-    botones_frame,
-    text="📝 Registro",
-    font=("arial", 12, "bold"),
-    fg="#cdd6f4",
-    cursor="hand2",
-    bg="#7c6af7",
-    width=18,
-    height=2
-)
 
 #Funcion para que al pasar el mouse por encima del boton, cambie de color, y al salir vuelva a su color 
 def entrar_mouse(e):
@@ -167,17 +157,6 @@ estadisticas_boton = tk.Label(botones_frame, text="📊 Estadisticas", font=("ar
 estadisticas_boton.grid(row=0, column=1, padx=40, pady=10)
 estadisticas_boton.bind("<Button-1>", lambda e: mostrar_estadisticas())
 
-
-estadisticas_boton = tk.Label(
-    botones_frame,
-    text="📊 Estadisticas",
-    font=("arial", 12, "bold"),
-    fg="#cdd6f4",
-    cursor="hand2",
-    bg="#7c6af7",
-    width=18,
-    height=2
-)
 
 estadisticas_boton.grid(row=0, column=1, padx=40, pady=10)
 estadisticas_boton.bind("<Button-1>", lambda e: mostrar_estadisticas())
