@@ -21,6 +21,23 @@ def mostrar_estadisticas():
     texto_producto2.config(text=estadisticas["Mayor_producto"])
     texto_vingresos2.config(text= f"${estadisticas["Total_ingresos"]:.2f}")
 
+    # Borramos las barras viejas para redibujarlas
+    for widget in grafica_frame.winfo_children():
+        if widget != grafica:
+            widget.destroy()
+
+    # Agarramos los datos reales
+    dias = list(estadisticas["Ventas_por_dia"].items())
+    max_val = max(v for _, v in dias) or 1
+
+    # Dibujamos una barra por cada día
+    for dia, val in dias:
+        fila = tk.Frame(grafica_frame, bg="#2a2a3e")
+        fila.pack(fill="x", padx=20, pady=3)
+        tk.Label(fila, text=dia, font=("Segoe UI", 11), bg="#2a2a3e", fg="#9090b0", width=4, anchor="e").pack(side="left")
+        barras = "█" * int((val / max_val) * 30)
+        tk.Label(fila, text=f" {barras}", font=("Segoe UI", 11), bg="#2a2a3e", fg="#7A68EE").pack(side="left")
+
 
     estadisticas_frame.pack(fill="both", expand=True)
 
@@ -238,18 +255,8 @@ grafica_frame.pack(padx=40, pady=15, fill="both", expand=True)
 grafica = tk.Label(grafica_frame, text="📊 Gráfica de ventas",font=("Segoe UI", 14,"bold"), bg="#2a2a3e", fg="#8B5CF6")
 grafica.pack(anchor="w", padx=20, pady=(15, 10))
 
-dias = [("Lun", 2), ("Mar", 5), ("Mié", 4), ("Jue", 7), ("Vie", 6), ("Sáb", 3), ("Dom", 1)]
 
-max_val = max(v for _, v in dias)
 
-for dia, val in dias:
-    fila = tk.Frame(grafica_frame, bg="#2a2a3e")
-    fila.pack(fill="x", padx=20, pady=3)
-
-    tk.Label(fila, text=dia, font=("Segoe UI", 11),bg="#2a2a3e", fg="#9090b0", width=4,anchor="e").pack(side="left")
-
-    barras = "█" * int((val / max_val) * 30)
-    tk.Label(fila, text=f" {barras}",font=("Segoe UI", 11),bg="#2a2a3e", fg="#7A68EE").pack(side="left")
 
 
 

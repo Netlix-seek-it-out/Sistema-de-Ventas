@@ -1,4 +1,5 @@
 import json
+from datetime import datetime
 
 
 def calcular_estadisticas():
@@ -57,6 +58,39 @@ def calcular_estadisticas():
             contador_producto[producto] += cantidad
         else:
             contador_producto[producto] = cantidad
+
+
+
+        contador_dias = {}
+
+        mayor_producto = max(contador_producto, key=contador_producto.get)
+        
+    estaditicas["Mayor_producto"] = mayor_producto
+
+    # ---------- VENTAS POR DÍA ----------
+    # Lista con los nombres de los días en orden
+    nombres_dias = ["Lun", "Mar", "Mié", "Jue", "Vie", "Sáb", "Dom"]
+
+    # Contador que empieza en 0 para cada día
+    contador_dias = {"Lun": 0, "Mar": 0, "Mié": 0, "Jue": 0, "Vie": 0, "Sáb": 0, "Dom": 0}
+
+    for dia in compras["Ventas_registradas"]:
+        # Agarramos la fecha de cada venta
+        fecha = dia.get("fecha", None)
+        if fecha:  # solo si la venta tiene fecha
+            # Convertimos el texto a fecha real
+            fecha_real = datetime.strptime(fecha, "%Y-%m-%d")
+            # Sacamos el número del día (0=Lunes, 6=Domingo)
+            dia_semana = fecha_real.weekday()
+            # Convertimos el número al nombre
+            nombre_dia = nombres_dias[dia_semana]
+            # Sumamos 1 al día correspondiente
+            contador_dias[nombre_dia] += 1
+
+    estaditicas["Ventas_por_dia"] = contador_dias
+
+    return estaditicas
+
 
     mayor_producto = max(contador_producto, key=contador_producto.get)
     estaditicas["Mayor_producto"] = mayor_producto
