@@ -5,7 +5,6 @@ from eliminar_venta import eliminar_venta
 def cargar_historial(padre):
 
 
-    #carta = tk.Frame(padre, bg="#2a2a3e")
 
     for widget in padre.winfo_children():
         widget.destroy()
@@ -32,7 +31,7 @@ def cargar_historial(padre):
         tk.Label(datos_frame, text=f"🔢 Cantidad: {venta['cantidad']}", bg="#313145", fg="white", font=("Arial", 10, "bold")).pack(anchor="w")
         tk.Label(datos_frame, text=f"💲 Precio: ${venta['precio']}", bg="#313145", fg="white", font=("Arial", 10, "bold")).pack(anchor="w")
         tk.Label(datos_frame, text=f"🟰 Total: ${venta['total']}", bg="#313145", fg="white", font=("Arial", 10, "bold")).pack(anchor="w")
-
+        tk.Label(datos_frame, text=f"📅 Fecha: {venta.get('fecha', 'Sin fecha')}", bg="#313145", fg="white", font=("Arial", 10, "bold")).pack(anchor="w")
         tk.Button(acciones_frame, text="Editar", bg="#7A68EE", width=10, height=2, font=("arial", 10, "bold"), fg="#fbfbfb", 
         cursor="hand2",).pack(pady=5, padx=10)
 
