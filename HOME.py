@@ -8,6 +8,7 @@ from cargar_historial import cargar_historial
 
 from realizar_busqueda import busqueda
 
+#Esto lo cree para utilizar el canvas para la barra de busqueda, rendondear las esquinas
 def crear_rect_redondeado(canvas, x1, y1, x2, y2, radio=18, **kwargs):
     puntos = [
         x1+radio, y1, x2-radio, y1, x2, y1, x2, y1+radio,
@@ -17,6 +18,7 @@ def crear_rect_redondeado(canvas, x1, y1, x2, y2, radio=18, **kwargs):
     return canvas.create_polygon(puntos, smooth=True, **kwargs)
 
 def mostrar_estadisticas():
+
     home_frame.pack_forget()
     registro_frame.pack_forget()
     historial_frame.pack_forget()
@@ -107,7 +109,6 @@ historial_boton_barra = tk.Label(menu_frame, text="📄 Historial", bg="#1e293b"
 historial_boton_barra.grid(row=0, column=4, padx=10, pady=8)
 historial_boton_barra.bind("<Button-1>", lambda e: mostrar_historial())
 
-
 #FIN DE BARRA DE NAVEGACION
 
 welcome_label = tk.Label(home_frame, text="¡Bienvenido a Indago!", bg="#1e1e2e", font=("Arial", 20, "bold"), fg="#f8fafc")
@@ -130,20 +131,85 @@ registro_boton = tk.Label(botones_frame, text="Registar venta ✏️", font=("ar
 registro_boton.grid(row=0, column=0, padx=40, pady=10)
 registro_boton.bind("<Button-1>", lambda e: mostrar_registro())
 
+registro_boton = tk.Label(
+    botones_frame,
+    text="📝 Registro",
+    font=("arial", 12, "bold"),
+    fg="#cdd6f4",
+    cursor="hand2",
+    bg="#7c6af7",
+    width=18,
+    height=2
+)
+
+#Funcion para que al pasar el mouse por encima del boton, cambie de color, y al salir vuelva a su color 
+def entrar_mouse(e):
+    registro_boton.config(bg="#5a4bd6")  # color más oscuro
+
+def salir_mouse(e):
+    registro_boton.config(bg="#7c6af7")  # color original
+
+registro_boton.bind("<Enter>", entrar_mouse)
+registro_boton.bind("<Leave>", salir_mouse)
+
+
+
+registro_boton.grid(row=0, column=0, padx=40, pady=10)
+registro_boton.bind("<Button-1>", lambda e: mostrar_registro())
+
+
 #.bind sirve para ejecutr un comando, casi igual que "button". 
 # "button-1 es el indicador que dice que se realizara cuando se presione click derecho"
 
 # LINK
 
-estadisticas_boton = tk.Label(botones_frame, text="Estadisticas 📊", font=("arial", 12, "bold"), fg="#cdd6f4", cursor="hand2", bg="#7c6af7", width=18, height=2)
+estadisticas_boton = tk.Label(botones_frame, text="📊 Estadisticas", font=("arial", 12, "bold"), fg="#cdd6f4", cursor="hand2", bg="#7c6af7", width=18, height=2)
 estadisticas_boton.grid(row=0, column=1, padx=40, pady=10)
 estadisticas_boton.bind("<Button-1>", lambda e: mostrar_estadisticas())
+
+
+estadisticas_boton = tk.Label(
+    botones_frame,
+    text="📊 Estadisticas",
+    font=("arial", 12, "bold"),
+    fg="#cdd6f4",
+    cursor="hand2",
+    bg="#7c6af7",
+    width=18,
+    height=2
+)
+
+estadisticas_boton.grid(row=0, column=1, padx=40, pady=10)
+estadisticas_boton.bind("<Button-1>", lambda e: mostrar_estadisticas())
+
+#La misma funciondel boton de registro, pero para el boton de estadisticas
+def entrar_mouse(e):
+    estadisticas_boton.config(bg="#5a4bd6")
+
+def salir_mouse(e):
+    estadisticas_boton.config(bg="#7c6af7")
+
+estadisticas_boton.bind("<Enter>", entrar_mouse)
+estadisticas_boton.bind("<Leave>", salir_mouse)
+#termina
 #"<button-1>" representa exactamente el click izquierdo
 
-historial_boton = tk.Label(botones_frame, text="Ver Historial 📄", font=("arial", 12, "bold"), fg="#cdd6f4", cursor="hand2", bg="#7c6af7", 
+historial_boton = tk.Label(botones_frame, text="📄 Historial", font=("arial", 12, "bold"), fg="#cdd6f4", cursor="hand2", bg="#7c6af7", 
     width=18, height=2)
 historial_boton.grid(row=0, column=2, padx=40, pady=10)
 historial_boton.bind("<Button-1>", lambda e: mostrar_historial())
+
+#La misma funciondel boton de registro, pero para el boton de historial
+def entrar_mouse(e):
+    historial_boton.config(bg="#5a4bd6")  # color más oscuro
+
+def salir_mouse(e):
+   historial_boton.config(bg="#7c6af7")  # color original
+
+historial_boton.bind("<Enter>", entrar_mouse)
+historial_boton.bind("<Leave>", salir_mouse)
+#termina
+
 
 #buscar_label = tk.Label(home_frame, text="Buscar...", font=("arial", 12, "bold"), fg="#cdd6f4", bg="#1e1e2e")
 #buscar_label.pack(pady=5)
@@ -466,14 +532,14 @@ tk.Label(barra_ante_superior, text="Historial", bg="#1e1e2e", fg="white", font=(
 espacio = tk.Label(barra_ante_superior, bg="#1e1e2e", width=6)
 espacio.grid(pady=10, padx=6, row=0, column=1)
 
-buscar_label = tk.Label(barra_ante_superior, text="Ingrese numero de venta", font=("arial", 12, "bold"), fg="#cdd6f4", bg="#1e1e2e")
+buscar_label = tk.Label(barra_ante_superior, text="Ingresar número de venta:", font=("arial", 12, "bold"), fg="#cdd6f4", bg="#1e1e2e")
 buscar_label.grid(pady=5, row=0, column=2)
 
 
 borde_buscar = tk.Frame(barra_ante_superior, bg="#313145", highlightthickness=1)
 borde_buscar.grid(pady=5, padx=10, row=0, column=3)
 
-# --- BARRA DE BÚSQUEDA CON BORDES REDONDEADOS ---
+#Barra de busqueda
 
 COLOR_NORMAL = "#3a3a55"
 COLOR_FOCUS  = "#7A68EE"
@@ -502,7 +568,7 @@ buscar_barra.bind("<FocusIn>", al_enfocar)
 buscar_barra.bind("<FocusOut>", al_desenfocar)
 buscar_barra.bind("<Return>", lambda e: busqueda(buscar_barra))
 
-# --- BOTÓN DE BUSCAR CON BORDES REDONDEADOS ---
+# boton de buscar
 
 btn_buscar_canvas = tk.Canvas(barra_ante_superior, width=140, height=44,
                                bg="#1e1e2e", highlightthickness=0, cursor="hand2")
@@ -515,13 +581,13 @@ btn_texto = btn_buscar_canvas.create_text(70, 22, text=" Buscar",
 
 # Lupa a la derecha
 buscar_canvas.create_text(
-    295, 22,              # Cerca del borde derecho
+    295, 22,              
     text="🔍",
     fill="#bdbdd7",
     font=("Segoe UI Emoji", 12)
 )
 
-# Entry un poco más angosto para dejar espacio a la lupa
+# Entry 
 buscar_canvas.create_window(
     145, 22,
     window=buscar_barra,
