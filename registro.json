@@ -1,5 +1,5 @@
 {
-  "ultimo_id_para_sumar": 3,
+  "ultimo_id_para_sumar": 5,
   "Ventas_registradas": [
     {
       "cliente": "Karla",
@@ -7,7 +7,8 @@
       "cantidad": "1",
       "precio": "10",
       "total": 10.0,
-      "num_venta": 2
+      "num_venta": 2,
+      "fecha": "2026-07-02"
     },
     {
       "cliente": "Diego",
@@ -15,7 +16,25 @@
       "cantidad": "1",
       "precio": "10",
       "total": 10.0,
-      "num_venta": 3
+      "num_venta": 3,
+      "fecha": "2026-07-02"
+    },
+    {
+      "cliente": "Alex",
+      "producto": "Limon",
+      "cantidad": "10",
+      "precio": "3",
+      "total": 30.0,
+      "num_venta": 4,
+      "fecha": "2026-07-03"
+    },
+    {
+      "cliente": "Diego",
+      "producto": "laptop",
+      "cantidad": "1",
+      "precio": "12",
+      "total": 12.0,
+      "num_venta": 5
     }
   ]
 }
