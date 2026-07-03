@@ -8,8 +8,18 @@ def calcular_estadisticas():
 
     estaditicas = {}
 
-    # ---------- TOTAL DE VENTAS ----------
+    if len(compras["Ventas_registradas"]) == 0:
+       estaditicas["Total_ventas"] = 0
+       estaditicas["Total_ingresos"] = 0
+       estaditicas["Cliente_lead"] = "Sin ventas"
+       estaditicas["Mayor_producto"] = "Sin ventas"
+       return estaditicas 
+    
+    
+
+    # Total de ventas
     # Cuenta cuántas ventas hay registradas en total
+
     total_ventas = len(compras["Ventas_registradas"])
     estaditicas["Total_ventas"] = total_ventas
 
@@ -30,7 +40,6 @@ def calcular_estadisticas():
         else:
             contador_cliente[cliente] = 1
 
-    # max() busca la clave (cliente) con el valor más alto en el diccionario
     mayor_cliente = max(contador_cliente, key=contador_cliente.get)
     estaditicas["Cliente_lead"] = mayor_cliente
 

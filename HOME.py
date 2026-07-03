@@ -14,7 +14,7 @@ def mostrar_estadisticas():
     historial_frame.pack_forget()
 
 
-    #Pasarle el valor de ,as estadisticas y luego agregarlo al texto
+    #Pasarle el valor de ,las estadisticas y luego agregarlo al texto
     estadisticas = calcular_estadisticas()
     texto_ventana2.config(text=estadisticas["Total_ventas"])
     texto_clientes2.config(text=estadisticas["Cliente_lead"])
@@ -137,15 +137,6 @@ historial_boton = tk.Label(botones_frame, text="Ver Historial 📄", font=("aria
 historial_boton.grid(row=0, column=2, padx=40, pady=10)
 historial_boton.bind("<Button-1>", lambda e: mostrar_historial())
 
-#buscar_label = tk.Label(home_frame, text="Buscar...", font=("arial", 12, "bold"), fg="#cdd6f4", bg="#1e1e2e")
-#buscar_label.pack(pady=5)
-
-
-#borde_buscar = tk.Frame(home_frame, bg="#5596ff", highlightthickness=1)
-#borde_buscar.pack(pady=5, padx=10)
-
-#buscar_barra = tk.Entry(borde_buscar, bg="#313145", width=25, font=("arial", 16), fg="#fbfbfb")
-#buscar_barra.pack(pady=1, ipady=5)
 
 buscar_boton_act = tk.Label(home_frame, text="¡Mantén tus compras organizadas!", font=("arial", 18, "bold"), fg="#e4e4e4", cursor="hand2", bg="#1e1e2e", 
     height=3)
@@ -330,14 +321,12 @@ def make_field(parent, key, label_text):
     entries[key] = entry
 
 # Columna izquierda
-#make_field(left_col,  "num_venta", "Numero de venta:")
 make_field(left_col,  "cliente",   "Nombre del cliente:")
 make_field(left_col,  "cantidad",  "Cantidad de unidades:")
 
 # Columna derecha
 make_field(right_col, "producto",  "Producto vendido:")
 make_field(right_col, "precio",    "Precio unitario:")
-#make_field(right_col, "total",     "Total:")
 
 from tkinter import messagebox 
 def limpiar_campos():
@@ -357,12 +346,10 @@ def guardar_datos_ventas():
 
    
     venta = {
-        #"num_venta": entries["num_venta"].get(),
         "cliente": entries["cliente"].get(),
         "producto": entries["producto"].get(),
         "cantidad": entries["cantidad"].get(),
         "precio": entries["precio"].get(),
-        #"total": entries["total"].get()
     }
 
 
@@ -443,10 +430,6 @@ historial_boton_barra = tk.Label(menu_frame, text="📄 Historial", bg="#1e293b"
 historial_boton_barra.grid(row=0, column=4, padx=10, pady=8)
 historial_boton_barra.bind("<Button-1>", lambda e: mostrar_historial())
 
-# barra del naveagdors
-#nav = tk.Frame(historial_frame, bg="#252535", height=40)
-#nav.pack(fill="x")
-#tk.Label(nav, text="¡Indago!", bg="#252535", fg="#7b6cf6", font=("Arial", 11, "bold")).pack(side="left", padx=10, pady=8)
 
 # Titulo
 barra_ante_superior = tk.Frame(historial_frame, bg="#1e1e2e")
@@ -476,8 +459,7 @@ boton_activar_buscar.grid(pady=5, padx=10, row=0, column=4)
 # Tarjeta
 card = tk.Frame(historial_frame, bg="#2a2a3e")
 card.pack(fill="both", expand=True, padx=20, pady=5)
-#for item in ["Registro", "Estadísticas", "Historial"]:
-#    tk.Label(nav, text=item, bg="#252535", fg="#a0a0c0", font=("Arial", 9)).pack(side="left", padx=10)
+
 
 
 mensaje = tk.Label(
@@ -490,12 +472,5 @@ mensaje = tk.Label(
 mensaje.place(relx=0.5, rely=0.5,
               anchor="center")
 
-#dias= ["lunes:","martes:","miercoles:","jueves:","viernes:","sabado:","domingo:"]
-
-#for dia in dias:
-#    tk.Label(card, text=dia, bg="#2a2a3e", fg="white", font=("Arial", 12,)).pack(anchor="w", padx=20, pady=2)
-
-# Resumen
-#tk.Label(card, text="Resumen", bg="#2a2a3e", fg="white", font=("Arial", 11, "bold")).pack(anchor="w", padx=15, pady=(10, 2))
 
 screen.mainloop()

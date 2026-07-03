@@ -1,9 +1,7 @@
 import json
 from tkinter import messagebox
 
-#def put_num_venta(compras):
-#    len_dic = len(compras["Ventas_registradas"]) + 1
-#    return len_dic
+
 
 
 def guardar_ventas(venta):    

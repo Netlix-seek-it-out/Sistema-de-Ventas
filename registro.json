@@ -1,9 +1,13 @@
 {
-  "ultimo_id_para_sumar": 1,
+  "ultimo_id_para_sumar": 7,
   "Ventas_registradas": [
-    
-    
-    
-    
+    {
+      "cliente": "diego",
+      "producto": "lapiz",
+      "cantidad": "5",
+      "precio": "1.50",
+      "total": 7.5,
+      "num_venta": 7
+    }
   ]
 }
