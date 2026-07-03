@@ -1,6 +1,13 @@
 {
-  "ultimo_id_para_sumar": 1,
+  "ultimo_id_para_sumar": 2,
   "Ventas_registradas": [
-
+    {
+      "cliente": "Karla",
+      "producto": "Escoba",
+      "cantidad": "1",
+      "precio": "10",
+      "total": 10.0,
+      "num_venta": 2
+    }
   ]
 }
