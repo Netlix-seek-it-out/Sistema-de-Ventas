@@ -1,5 +1,5 @@
 import json
-from tkinter import messagebox
+from tkinter import messagebox 
 from datetime import datetime
 
 #def put_num_venta(compras):
