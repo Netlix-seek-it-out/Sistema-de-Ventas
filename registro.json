@@ -1,32 +1,7 @@
 {
   "ultimo_id_para_sumar": 3,
   "Ventas_registradas": [
-    {
-      "cliente": "Diego",
-      "producto": "Silla",
-      "cantidad": "1",
-      "precio": "10",
-      "total": 10.0,
-      "num_venta": 3,
-      "fecha": "2026-07-02"
-    },
-    {
-      "cliente": "Diego",
-      "producto": "laptop",
-      "cantidad": "1",
-      "precio": "12",
-      "total": 12.0,
-      "num_venta": 5,
-      "fecha": "2026-07-03"
-    },
-    {
-      "cliente": "3e",
-      "producto": "3",
-      "cantidad": "3",
-      "precio": "3",
-      "total": 9.0,
-      "num_venta": 6,
-      "fecha": "2026-07-03"
-    }
+
+    
   ]
 }
