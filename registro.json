@@ -1,13 +1,13 @@
 {
-  "ultimo_id_para_sumar": 5,
+  "ultimo_id_para_sumar": 6,
   "Ventas_registradas": [
     {
-      "cliente": "Diego",
-      "producto": "Cacerola",
-      "cantidad": "10",
-      "precio": "29",
-      "total": 290.0,
-      "num_venta": 5,
+      "cliente": "Ricardo",
+      "producto": "cocos",
+      "cantidad": "3",
+      "precio": "3",
+      "total": 9.0,
+      "num_venta": 6,
       "fecha": "2026-07-04"
     }
   ]
