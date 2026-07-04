@@ -195,6 +195,15 @@ historial_boton = tk.Label(botones_frame, text="📄 Historial", font=("arial", 
 historial_boton.grid(row=0, column=2, padx=40, pady=10)
 historial_boton.bind("<Button-1>", lambda e: mostrar_historial())
 
+#La misma funciondel boton de registro, pero para el boton de estadisticas
+def entrar_mouse(e):
+    historial_boton.config(bg="#5a4bd6")
+
+def salir_mouse(e):
+    historial_boton.config(bg="#7c6af7")
+
+historial_boton.bind("<Enter>", entrar_mouse)
+historial_boton.bind("<Leave>", salir_mouse)
 
 buscar_boton_act = tk.Label(home_frame, text="¡Mantén tus compras organizadas!", font=("arial", 18, "bold"), fg="#e4e4e4", cursor="hand2", bg="#1e1e2e", 
     height=3)
@@ -435,6 +444,15 @@ btn.pack(ipadx=40, ipady=12, pady=(20, 0))
 lbl_status = tk.Label(registro_frame, text="", bg="#1e1e2e",
                        fg="#a6e3a1", font=("Segoe UI", 11))
 lbl_status.pack(pady=12)
+
+def entrar_mouse(e):
+    btn.config(bg="#5a4bd6")
+
+def salir_mouse(e):
+    btn.config(bg="#7c6af7")
+
+btn.bind("<Enter>", entrar_mouse)
+btn.bind("<Leave>", salir_mouse)
 
 
 
