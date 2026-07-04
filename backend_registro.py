@@ -1,5 +1,6 @@
 import json
 from tkinter import messagebox
+from datetime import datetime
 
 #def put_num_venta(compras):
 #    len_dic = len(compras["Ventas_registradas"]) + 1
@@ -26,6 +27,8 @@ def guardar_ventas(venta):
 
     #Numero de venta mostrar
     messagebox.showinfo("N de venta", f"Numero de venta: {numero_id}")
+
+    venta["fecha"] = datetime.now().strftime("%Y-%m-%d")
 
 # Modifica el json, lo reescribe
     with open("registro.json", "w", encoding="utf-8") as bd:
