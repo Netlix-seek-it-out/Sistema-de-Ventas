@@ -49,5 +49,5 @@ def cargar_historial(padre, abrir_edicion):
             font=("arial", 10, "bold"), 
             fg="#fbfbfb", 
             cursor="hand2", 
-            command=lambda num_venta=venta["num_venta"]: (eliminar_venta(num_venta), cargar_historial(padre))).pack(pady=5, padx=10)
+            command=lambda num_venta=venta["num_venta"]: (eliminar_venta(num_venta), cargar_historial(padre, abrir_edicion))).pack(pady=5, padx=10)
 

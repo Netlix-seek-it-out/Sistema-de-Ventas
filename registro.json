@@ -1,5 +1,5 @@
 {
-  "ultimo_id_para_sumar": 11,
+  "ultimo_id_para_sumar": 12,
   "Ventas_registradas": [
     {
       "cliente": "Diego",
@@ -11,21 +11,21 @@
       "fecha": "2026-07-05"
     },
     {
-      "cliente": "Diego",
-      "producto": "1",
-      "cantidad": "1",
-      "precio": "1",
-      "total": 1.0,
-      "num_venta": 9,
-      "fecha": "2026-07-05"
-    },
-    {
       "cliente": "Isis",
       "producto": "1",
       "cantidad": "1",
       "precio": "1",
       "total": 1.0,
       "num_venta": 11,
+      "fecha": "2026-07-05"
+    },
+    {
+      "cliente": "Diego",
+      "producto": "Paleta",
+      "cantidad": "1",
+      "precio": "1",
+      "total": 1.0,
+      "num_venta": 12,
       "fecha": "2026-07-05"
     }
   ]

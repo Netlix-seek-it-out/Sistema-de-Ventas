@@ -83,7 +83,7 @@ def mostrar_edicion(venta=None):
     home_frame.pack_forget()
     historial_frame.pack_forget()
     registro_frame.pack_forget()
-    limpiar_campos_registro()
+    limpiar_campos_edicion()
 
     if venta:
         # llenar edicion_entries con los datos de venta
@@ -91,6 +91,16 @@ def mostrar_edicion(venta=None):
         entries_edicion["cliente"].insert(0, venta["cliente"])
         # repetir con producto, cantidad, precio
 
+        entries_edicion["producto"].delete(0, tk.END)
+        entries_edicion["producto"].insert(0, venta["producto"])
+
+
+        entries_edicion["cantidad"].delete(0, tk.END)
+        entries_edicion["cantidad"].insert(0, venta["cantidad"])
+
+    
+        entries_edicion["precio"].delete(0, tk.END)
+        entries_edicion["precio"].insert(0, venta["precio"])
     edicion_frame.pack(fill="both", expand=True)
 
 
@@ -521,11 +531,11 @@ registro_boton_barra.grid(row=0, column=2, padx=10, pady=8)
 registro_boton_barra.bind("<Button-1>", lambda e: mostrar_registro())
 
 
-estadisticas_boton_barra = tk.Label(menu_frame, text="📊 Estadisticas", bg="#1e293b", width=18, height=2, font=("Arial", 12, "bold"), cursor="hand2", fg="#ffffff")
+estadisticas_boton_barra = tk.Label(menu_frame, text="📊 Estadisticas", bg="#1e293b", width=18, height=2, font=("Arial", 12, "bold"), cursor="hand2", fg="#94a3b8")
 estadisticas_boton_barra.grid(row=0, column=3, padx=10, pady=8)
 estadisticas_boton_barra.bind("<Button-1>", lambda e: mostrar_estadisticas())
 
-historial_boton_barra = tk.Label(menu_frame, text="📄 Historial", bg="#1e293b", width=18, height=2, font=("Arial", 12, "bold"), cursor="hand2", fg="#94a3b8")
+historial_boton_barra = tk.Label(menu_frame, text="📄 Historial", bg="#1e293b", width=18, height=2, font=("Arial", 12, "bold"), cursor="hand2", fg="#ffffff")
 historial_boton_barra.grid(row=0, column=4, padx=10, pady=8)
 historial_boton_barra.bind("<Button-1>", lambda e: mostrar_historial())
 
@@ -665,7 +675,7 @@ home_boton.bind("<Button-1>", lambda e: mostrar_home())
     
 registro_boton_barra = tk.Label(
             menu_frame, text="📝 Registro", bg="#1e293b", width=18, height=2, font=("Arial", 12, "bold"), cursor="hand2",
-            fg="#ffffff")
+            fg="#94a3b8")
 registro_boton_barra.grid(row=0, column=2, padx=10, pady=8)
 registro_boton_barra.bind("<Button-1>", lambda e: mostrar_registro())
 
