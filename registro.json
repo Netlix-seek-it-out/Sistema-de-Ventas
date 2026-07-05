@@ -1,14 +1,14 @@
 {
-  "ultimo_id_para_sumar": 6,
+  "ultimo_id_para_sumar": 8,
   "Ventas_registradas": [
     {
-      "cliente": "Ricardo",
-      "producto": "cocos",
+      "cliente": "Owen ",
+      "producto": "paginas",
       "cantidad": "3",
-      "precio": "3",
-      "total": 9.0,
-      "num_venta": 6,
-      "fecha": "2026-07-04"
+      "precio": "0.15",
+      "total": 0.44999999999999996,
+      "num_venta": 8,
+      "fecha": "2026-07-05"
     }
   ]
 }

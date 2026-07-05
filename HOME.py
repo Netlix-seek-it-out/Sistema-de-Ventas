@@ -355,7 +355,7 @@ historial_boton_barra.bind("<Button-1>", lambda e: mostrar_historial())
 # Titulo
 tk.Label(registro_frame, text="Registrar venta",
          bg="#1e1e2e", fg="#ffffff",
-         font=("Segoe UI", 30, "bold")).pack(pady=(40, 30))
+         font=("Segoe UI", 30 , "bold")).pack(pady=(40, 30))
 
 # Campo con las 6 etiquetas
 form_frame = tk.Frame(registro_frame, bg="#1e1e2e")
