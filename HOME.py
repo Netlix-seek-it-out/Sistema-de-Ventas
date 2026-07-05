@@ -398,12 +398,36 @@ right_col.pack(side="left", fill="both", expand=True, padx=(40, 0))
 
 entries = {}
 
+def validar_numero(valor):
+    return valor == "" or valor.replace(".", "", 1).isdigit()
+
+vcmd = (registro_frame.register(validar_numero), "%P")
+
 def make_field(parent, key, label_text):
     tk.Label(parent, text=label_text, bg="#1e1e2e",
              fg="#ffffff", font=("Segoe UI", 12, "bold")).pack(anchor="w")
-    entry = tk.Entry(parent, bg="#313145", fg="#cdd6f4",
-                     insertbackground="#cdd6f4", relief="flat",
-                     font=("Segoe UI", 13))
+    
+    if key == "cantidad":
+        entry = tk.Entry(
+        parent,
+        bg="#313145",
+        fg="#cdd6f4",
+        insertbackground="#cdd6f4",
+        relief="flat",
+        font=("Segoe UI", 13),
+        validate="key",
+        validatecommand=vcmd
+    )
+    else:
+        entry = tk.Entry(
+        parent,
+        bg="#313145",
+        fg="#cdd6f4",
+        insertbackground="#cdd6f4",
+        relief="flat",
+        font=("Segoe UI", 13)
+    )
+    
     entry.pack(fill="x", pady=(4, 60), ipady=10)
     entries[key] = entry
 
@@ -423,9 +447,16 @@ precio_frame.pack(fill="x", pady=(4, 60))
 tk.Label(precio_frame, text="$", bg="#313145", fg="#cdd6f4",
          font=("Segoe UI", 13)).pack(side="left", padx=(10, 0), ipady=10)
 
-entry_precio = tk.Entry(precio_frame, bg="#313145", fg="#cdd6f4",
-                        insertbackground="#cdd6f4", relief="flat",
-                        font=("Segoe UI", 13))
+entry_precio = tk.Entry(
+    precio_frame,
+    bg="#313145",
+    fg="#cdd6f4",
+    insertbackground="#cdd6f4",
+    relief="flat",
+    font=("Segoe UI", 13),
+    validate="key",
+    validatecommand=vcmd
+)
 entry_precio.pack(side="left", fill="x", expand=True, ipady=10)
 
 entries["precio"] = entry_precio
@@ -498,9 +529,6 @@ def salir_mouse(e):
 
 btn.bind("<Enter>", entrar_mouse)
 btn.bind("<Leave>", salir_mouse)
-
-
-
 
 
 
