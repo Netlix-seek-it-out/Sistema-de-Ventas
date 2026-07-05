@@ -8,6 +8,8 @@ from cargar_historial import cargar_historial
 
 from realizar_busqueda import busqueda
 
+from edicion_venta import editar_venta
+
 #Esto lo cree para utilizar el canvas para la barra de busqueda, rendondear las esquinas
 def crear_rect_redondeado(canvas, x1, y1, x2, y2, radio=18, **kwargs):
     puntos = [
@@ -85,21 +87,21 @@ def mostrar_edicion(venta=None):
     registro_frame.pack_forget()
     limpiar_campos_edicion()
 
+    global venta_en_edicion
+
     if venta:
+
+        venta_en_edicion = venta["num_venta"]
         # llenar edicion_entries con los datos de venta
-        entries_edicion["cliente"].delete(0, tk.END)
         entries_edicion["cliente"].insert(0, venta["cliente"])
         # repetir con producto, cantidad, precio
 
-        entries_edicion["producto"].delete(0, tk.END)
         entries_edicion["producto"].insert(0, venta["producto"])
 
 
-        entries_edicion["cantidad"].delete(0, tk.END)
         entries_edicion["cantidad"].insert(0, venta["cantidad"])
 
     
-        entries_edicion["precio"].delete(0, tk.END)
         entries_edicion["precio"].insert(0, venta["precio"])
     edicion_frame.pack(fill="both", expand=True)
 
@@ -749,7 +751,6 @@ def limpiar_campos_edicion():
 
 def editar():
     
-    
 
     for key in ["cliente", "producto", "cantidad", "precio"]:
         if entries_edicion[key].get().strip() == "":
@@ -786,7 +787,7 @@ def editar():
         messagebox.showerror("ERROR", "ingrese datos válidos en la cantidad y precio")
         return
 
-    br.guardar_ventas(venta)
+    editar_venta(venta_en_edicion, venta, )
     limpiar_campos_edicion()
     lbl_status.config(text="Venta guardada correctamente.")
 
