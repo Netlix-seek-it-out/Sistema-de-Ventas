@@ -1,14 +1,32 @@
 {
-  "ultimo_id_para_sumar": 6,
+  "ultimo_id_para_sumar": 11,
   "Ventas_registradas": [
     {
-      "cliente": "Ricardo",
-      "producto": "cocos",
-      "cantidad": "3",
-      "precio": "3",
-      "total": 9.0,
-      "num_venta": 6,
-      "fecha": "2026-07-04"
+      "cliente": "Diego",
+      "producto": "Palte",
+      "cantidad": "1",
+      "precio": "1",
+      "total": 1.0,
+      "num_venta": 8,
+      "fecha": "2026-07-05"
+    },
+    {
+      "cliente": "Diego",
+      "producto": "1",
+      "cantidad": "1",
+      "precio": "1",
+      "total": 1.0,
+      "num_venta": 9,
+      "fecha": "2026-07-05"
+    },
+    {
+      "cliente": "Isis",
+      "producto": "1",
+      "cantidad": "1",
+      "precio": "1",
+      "total": 1.0,
+      "num_venta": 11,
+      "fecha": "2026-07-05"
     }
   ]
 }
