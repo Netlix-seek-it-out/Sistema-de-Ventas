@@ -3,7 +3,7 @@
   "Ventas_registradas": [
     {
       "cliente": "Diego",
-      "producto": "OSOS",
+      "producto": "Laptop",
       "cantidad": "1",
       "precio": "1",
       "total": 1.0,
