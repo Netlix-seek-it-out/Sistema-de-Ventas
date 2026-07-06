@@ -384,7 +384,7 @@ historial_boton_barra.bind("<Button-1>", lambda e: mostrar_historial())
 # Titulo
 tk.Label(registro_frame, text="Registrar venta",
          bg="#1e1e2e", fg="#ffffff",
-         font=("Segoe UI", 30, "bold")).pack(pady=(40, 30))
+         font=("Segoe UI", 30 , "bold")).pack(pady=(40, 30))
 
 # Campo con las 6 etiquetas
 form_frame = tk.Frame(registro_frame, bg="#1e1e2e")
@@ -561,11 +561,11 @@ registro_boton_barra.grid(row=0, column=2, padx=10, pady=8)
 registro_boton_barra.bind("<Button-1>", lambda e: mostrar_registro())
 
 
-estadisticas_boton_barra = tk.Label(menu_frame, text="📊 Estadisticas", bg="#1e293b", width=18, height=2, font=("Arial", 12, "bold"), cursor="hand2", fg="#94a3b8")
+estadisticas_boton_barra = tk.Label(menu_frame, text="📊 Estadisticas", bg="#1e293b", width=18, height=2, font=("Arial", 12, "bold"), cursor="hand2", fg="#ffffff")
 estadisticas_boton_barra.grid(row=0, column=3, padx=10, pady=8)
 estadisticas_boton_barra.bind("<Button-1>", lambda e: mostrar_estadisticas())
 
-historial_boton_barra = tk.Label(menu_frame, text="📄 Historial", bg="#1e293b", width=18, height=2, font=("Arial", 12, "bold"), cursor="hand2", fg="#ffffff")
+historial_boton_barra = tk.Label(menu_frame, text="📄 Historial", bg="#1e293b", width=18, height=2, font=("Arial", 12, "bold"), cursor="hand2", fg="#94a3b8")
 historial_boton_barra.grid(row=0, column=4, padx=10, pady=8)
 historial_boton_barra.bind("<Button-1>", lambda e: mostrar_historial())
 
@@ -574,11 +574,7 @@ historial_boton_barra.bind("<Button-1>", lambda e: mostrar_historial())
 barra_ante_superior = tk.Frame(historial_frame, bg="#1e1e2e")
 barra_ante_superior.pack(anchor="w", pady=10)
 
-
 tk.Label(barra_ante_superior, text="Historial", bg="#1e1e2e", fg="white", font=("Arial", 16, "bold")).grid(row=0, column=0, padx=(30, 50), pady=(5, 5))
-
-espacio = tk.Label(barra_ante_superior, bg="#1e1e2e", width=6)
-espacio.grid(pady=10, padx=6, row=0, column=1)
 
 buscar_label = tk.Label(barra_ante_superior, text="Ingresar número de venta:", font=("arial", 12, "bold"), fg="#cdd6f4", bg="#1e1e2e")
 buscar_label.grid(pady=5, row=0, column=2)
@@ -592,19 +588,19 @@ borde_buscar.grid(pady=5, padx=10, row=0, column=3)
 COLOR_NORMAL = "#3a3a55"
 COLOR_FOCUS  = "#7A68EE"
 
-buscar_canvas = tk.Canvas(barra_ante_superior, width=320, height=44,
-                           bg="#1e1e2e", highlightthickness=0)
+# 1) Canvas del campo de texto
+buscar_canvas = tk.Canvas(barra_ante_superior, width=320, height=44, bg="#1e1e2e", highlightthickness=0)
 buscar_canvas.grid(row=0, column=3, padx=10, pady=5)
 
-rect_buscar = crear_rect_redondeado(
-    buscar_canvas, 2, 2, 318, 42, radio=20,
-    fill="#252538", outline=COLOR_NORMAL, width=2
-)
+# 2) Rectángulo redondeado dentro del canvas
+rect_buscar = crear_rect_redondeado(buscar_canvas, 2, 2, 318, 42, radio=20, fill="#252538", outline=COLOR_NORMAL, width=2)
 
-buscar_barra = tk.Entry(buscar_canvas, bg="#252538", fg="#fbfbfb",
-                         insertbackground="#fbfbfb", relief="flat",
-                         font=("Segoe UI", 12), bd=0)
-buscar_canvas.create_window(160, 22, window=buscar_barra, width=280, height=28)
+# 3) Entry real donde se escribe
+buscar_barra = tk.Entry(buscar_canvas, bg="#252538", fg="#fbfbfb", insertbackground="#fbfbfb", relief="flat", font=("Segoe UI", 12), bd=0)
+buscar_canvas.create_window(145, 22, window=buscar_barra, width=250, height=28)
+
+# 4) Lupa decorativa
+buscar_canvas.create_text(295, 22, text="🔍", fill="#bdbdd7", font=("Segoe UI Emoji", 12))
 
 def al_enfocar(e):
     buscar_canvas.itemconfig(rect_buscar, outline=COLOR_FOCUS, fill="#2c2c44")
@@ -614,34 +610,20 @@ def al_desenfocar(e):
 
 buscar_barra.bind("<FocusIn>", al_enfocar)
 buscar_barra.bind("<FocusOut>", al_desenfocar)
-buscar_barra.bind("<Return>", lambda e: busqueda(buscar_barra))
 
-# boton de buscar
+# 5) La "tarjeta" (card) se crea ANTES del bind de Enter y del botón, porque ambos la necesitan
+card = tk.Frame(historial_frame, bg="#2a2a3e")
+card.pack(fill="both", expand=True, padx=20, pady=5)
 
-btn_buscar_canvas = tk.Canvas(barra_ante_superior, width=140, height=44,
-                               bg="#1e1e2e", highlightthickness=0, cursor="hand2")
+buscar_barra.bind("<Return>", lambda e: busqueda(buscar_barra, card))
+
+# --- Botón de buscar ---
+btn_buscar_canvas = tk.Canvas(barra_ante_superior, width=140, height=44, bg="#1e1e2e", highlightthickness=0, cursor="hand2")
 btn_buscar_canvas.grid(row=0, column=4, padx=10, pady=5)
 
-btn_rect = crear_rect_redondeado(btn_buscar_canvas, 2, 2, 138, 42, radio=20,
-                                  fill="#7A68EE", outline="")
-btn_texto = btn_buscar_canvas.create_text(70, 22, text=" Buscar",
-                                           fill="white", font=("Segoe UI", 11, "bold"))
+btn_rect = crear_rect_redondeado(btn_buscar_canvas, 2, 2, 138, 42, radio=20, fill="#7A68EE", outline="")
+btn_texto = btn_buscar_canvas.create_text(70, 22, text=" Buscar", fill="white", font=("Segoe UI", 11, "bold"))
 
-# Lupa a la derecha
-buscar_canvas.create_text(
-    295, 22,              
-    text="🔍",
-    fill="#bdbdd7",
-    font=("Segoe UI Emoji", 12)
-)
-
-# Entry 
-buscar_canvas.create_window(
-    145, 22,
-    window=buscar_barra,
-    width=250,
-    height=28
-)
 def btn_hover(e):
     btn_buscar_canvas.itemconfig(btn_rect, fill="#9a8cff")
 
@@ -653,7 +635,7 @@ def btn_presionar(e):
 
 def btn_soltar(e):
     btn_buscar_canvas.itemconfig(btn_rect, fill="#9a8cff")
-    busqueda(buscar_barra)
+    busqueda(buscar_barra, card)
 
 for item in (btn_rect, btn_texto):
     btn_buscar_canvas.tag_bind(item, "<Enter>", btn_hover)
@@ -661,12 +643,13 @@ for item in (btn_rect, btn_texto):
     btn_buscar_canvas.tag_bind(item, "<ButtonPress-1>", btn_presionar)
     btn_buscar_canvas.tag_bind(item, "<ButtonRelease-1>", btn_soltar)
 
+mensaje = tk.Label(card, text="Tus registros", bg="#2a2a3e", fg="white", font=("Arial", 11, "bold"))
+mensaje.place(relx=0.5, rely=0.5, anchor="center")
 
 
 # Tarjeta
 card = tk.Frame(historial_frame, bg="#2a2a3e")
 card.pack(fill="both", expand=True, padx=20, pady=5)
-
 
 
 mensaje = tk.Label(
