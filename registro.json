@@ -2,15 +2,6 @@
   "ultimo_id_para_sumar": 5,
   "Ventas_registradas": [
     {
-      "cliente": "Gris",
-      "producto": "Sombrilla",
-      "cantidad": "19",
-      "precio": "10",
-      "total": 190.0,
-      "num_venta": 4,
-      "fecha": "2026-07-05"
-    },
-    {
       "cliente": "Fafa",
       "producto": "Peluche",
       "cantidad": "1",

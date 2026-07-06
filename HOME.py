@@ -615,7 +615,7 @@ buscar_barra.bind("<FocusOut>", al_desenfocar)
 card = tk.Frame(historial_frame, bg="#2a2a3e")
 card.pack(fill="both", expand=True, padx=20, pady=5)
 
-buscar_barra.bind("<Return>", lambda e: busqueda(buscar_barra, card))
+buscar_barra.bind("<Return>", lambda e: busqueda(buscar_barra, card, mostrar_edicion))
 
 # --- Botón de buscar ---
 btn_buscar_canvas = tk.Canvas(barra_ante_superior, width=140, height=44, bg="#1e1e2e", highlightthickness=0, cursor="hand2")
@@ -635,7 +635,7 @@ def btn_presionar(e):
 
 def btn_soltar(e):
     btn_buscar_canvas.itemconfig(btn_rect, fill="#9a8cff")
-    busqueda(buscar_barra, card)
+    busqueda(buscar_barra, card, mostrar_edicion)
 
 for item in (btn_rect, btn_texto):
     btn_buscar_canvas.tag_bind(item, "<Enter>", btn_hover)
@@ -798,7 +798,7 @@ def editar():
         messagebox.showerror("ERROR", "ingrese datos válidos en la cantidad y precio")
         return
 
-    editar_venta(venta_en_edicion, venta, )
+    editar_venta(venta_en_edicion, venta)
     limpiar_campos_edicion()
     lbl_status.config(text="Venta guardada correctamente.")
 
