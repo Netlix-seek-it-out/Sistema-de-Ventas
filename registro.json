@@ -1,5 +1,5 @@
 {
-  "ultimo_id_para_sumar": 6,
+  "ultimo_id_para_sumar": 12,
   "Ventas_registradas": [
     {
       "cliente": "Fafa",
@@ -9,6 +9,60 @@
       "total": 1.0,
       "num_venta": 5,
       "fecha": "2026-07-05"
+    },
+    {
+      "cliente": "wtwetw",
+      "producto": "er",
+      "cantidad": "12",
+      "precio": "23",
+      "total": 276.0,
+      "num_venta": 7,
+      "fecha": "2026-07-06"
+    },
+    {
+      "cliente": "sdfs",
+      "producto": "sf",
+      "cantidad": "23",
+      "precio": "23",
+      "total": 529.0,
+      "num_venta": 8,
+      "fecha": "2026-07-06"
+    },
+    {
+      "cliente": "wrwe",
+      "producto": "we",
+      "cantidad": "23",
+      "precio": "23",
+      "total": 529.0,
+      "num_venta": 9,
+      "fecha": "2026-07-06"
+    },
+    {
+      "cliente": "Isis",
+      "producto": "Laptop",
+      "cantidad": "10",
+      "precio": "400",
+      "total": 4000.0,
+      "num_venta": 10,
+      "fecha": "2026-07-06"
+    },
+    {
+      "cliente": "Daniela",
+      "producto": "Camisa",
+      "cantidad": "10",
+      "precio": "10",
+      "total": 100.0,
+      "num_venta": 11,
+      "fecha": "2026-07-06"
+    },
+    {
+      "cliente": "Diaz",
+      "producto": "Laptop",
+      "cantidad": "10",
+      "precio": "1000",
+      "total": 10000.0,
+      "num_venta": 12,
+      "fecha": "2026-07-06"
     }
   ]
 }

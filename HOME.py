@@ -119,6 +119,7 @@ home_frame = tk.Frame(screen
                        , bg="#1e1e2e")
 home_frame.pack(fill="both", expand=True)
 
+
 #BARRA DE NAVEGACION
 # Barra superior
 nav_frame = tk.Frame(home_frame, bg="#1e293b")
@@ -611,9 +612,32 @@ def al_desenfocar(e):
 buscar_barra.bind("<FocusIn>", al_enfocar)
 buscar_barra.bind("<FocusOut>", al_desenfocar)
 
-# 5) La "tarjeta" (card) se crea ANTES del bind de Enter y del botón, porque ambos la necesitan
-card = tk.Frame(historial_frame, bg="#2a2a3e")
-card.pack(fill="both", expand=True, padx=20, pady=5)
+# 5) La "tarjeta" (card) se crea ANTES del bind de Enter y del botón, porque ambos la necesitan 
+ 
+
+
+# Contenedor que va a tener el Canvas + Scrollbar
+scroll_container = tk.Frame(historial_frame, bg="#2a2a3e")
+scroll_container.pack(fill="both", expand=True, padx=20, pady=5)
+
+# Canvas donde vive el scroll
+historial_canvas = tk.Canvas(scroll_container, bg="#2a2a3e", highlightthickness=0)
+historial_canvas.pack(side="left", fill="both", expand=True)
+
+# Barra de scroll
+historial_scrollbar = tk.Scrollbar(scroll_container, orient="vertical", command=historial_canvas.yview)
+historial_scrollbar.pack(side="right", fill="y")
+
+historial_canvas.configure(yscrollcommand=historial_scrollbar.set)
+
+# ESTA es la variable "card" que ya usa el resto de tu código sin cambios
+card = tk.Frame(historial_canvas, bg="#2a2a3e")
+historial_canvas.create_window((0, 0), window=card, anchor="nw")
+
+def actualizar_scroll_historial(event):
+    historial_canvas.configure(scrollregion=historial_canvas.bbox("all"))
+
+card.bind("<Configure>", actualizar_scroll_historial)
 
 buscar_barra.bind("<Return>", lambda e: busqueda(buscar_barra, card, mostrar_edicion))
 
@@ -622,7 +646,7 @@ btn_buscar_canvas = tk.Canvas(barra_ante_superior, width=140, height=44, bg="#1e
 btn_buscar_canvas.grid(row=0, column=4, padx=10, pady=5)
 
 btn_rect = crear_rect_redondeado(btn_buscar_canvas, 2, 2, 138, 42, radio=20, fill="#7A68EE", outline="")
-btn_texto = btn_buscar_canvas.create_text(70, 22, text=" Buscar", fill="white", font=("Segoe UI", 11, "bold"))
+btn_texto = btn_buscar_canvas.create_text(70, 22, text="Buscar", fill="white", font=("Segoe UI", 11, "bold"))
 
 def btn_hover(e):
     btn_buscar_canvas.itemconfig(btn_rect, fill="#9a8cff")
