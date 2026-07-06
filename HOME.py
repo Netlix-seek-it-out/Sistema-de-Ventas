@@ -296,7 +296,7 @@ ventas = tk.Frame(fila1, bg="#7A68EE", width=220, height=150)
 ventas.pack(side="left", padx=15)
 ventas.pack_propagate(False)
 texto_ventana1=tk.Label(ventas, text="🛒", font=("Segoe UI", 22,"bold"), bg="#7A68EE", fg="white").pack(pady=(18, 2))
-texto_ventana2=tk.Label(ventas, text="0", font=("Segoe UI", 20, "bold"), bg="#7A68EE", fg="white")
+texto_ventana2=tk.Label(ventas, text="0", font=("Segoe UI", 15, "bold"), bg="#7A68EE", fg="white")
 texto_ventana2.pack()
 texto_ventana3=tk.Label(ventas, text="Total de ventas", font=("Segoe UI", 11,"bold"), bg="#7A68EE", fg="#d0c8ff").pack()
 
@@ -305,7 +305,7 @@ producto = tk.Frame(fila1, bg="#7A68EE", width=220, height=150)
 producto.pack(side="left", padx=15)
 producto.pack_propagate(False)
 texto_producto1=tk.Label(producto, text="🏆", font=("Segoe UI", 22,"bold"), bg="#7A68EE", fg="white").pack(pady=(18, 2))
-texto_producto2=tk.Label(producto, text="Lacto", font=("Segoe UI", 20, "bold"), bg="#7A68EE", fg="white")
+texto_producto2=tk.Label(producto, text="Lacto", font=("Segoe UI", 15, "bold"), bg="#7A68EE", fg="white")
 texto_producto2.pack()
 texto_producto3=tk.Label(producto, text="Producto más vendido", font=("Segoe UI", 11,"bold"), bg="#7A68EE", fg="#d0c8ff", wraplength=180).pack()
 
@@ -314,7 +314,7 @@ cliente = tk.Frame(fila1, bg="#7A68EE", width=220, height=150)
 cliente.pack(side="left", padx=15)
 cliente.pack_propagate(False)
 texto_clientes1=tk.Label(cliente, text="👤", font=("Segoe UI", 22,"bold"), bg="#7A68EE", fg="white").pack(pady=(18, 2))
-texto_clientes2=tk.Label(cliente, text="Nehemias", font=("Segoe UI", 20, "bold"), bg="#7A68EE", fg="white")
+texto_clientes2=tk.Label(cliente, text="Nehemias", font=("Segoe UI", 15, "bold"), bg="#7A68EE", fg="white")
 texto_clientes2.pack()
 texto_clientes3=tk.Label(cliente, text="Mejor cliente", font=("Segoe UI", 11,"bold"), bg="#7A68EE", fg="#d0c8ff").pack()
 
@@ -323,7 +323,7 @@ ingresos = tk.Frame(fila1, bg="#7A68EE", width=220, height=150)
 ingresos.pack(side="left", padx=15)
 ingresos.pack_propagate(False)
 texto_vingresos1=tk.Label(ingresos, text="💰", font=("Segoe UI", 22,"bold"), bg="#7A68EE", fg="white").pack(pady=(18, 2))
-texto_vingresos2=tk.Label(ingresos, text="$500", font=("Segoe UI", 20, "bold"), bg="#7A68EE", fg="white")
+texto_vingresos2=tk.Label(ingresos, text="$500", font=("Segoe UI", 15, "bold"), bg="#7A68EE", fg="white")
 texto_vingresos2.pack()
 texto_vingresos3=tk.Label(ingresos, text="Total de ingresos", font=("Segoe UI", 11,"bold"), bg="#7A68EE", fg="#d0c8ff").pack()
 
@@ -643,8 +643,8 @@ for item in (btn_rect, btn_texto):
     btn_buscar_canvas.tag_bind(item, "<ButtonPress-1>", btn_presionar)
     btn_buscar_canvas.tag_bind(item, "<ButtonRelease-1>", btn_soltar)
 
-mensaje = tk.Label(card, text="Tus registros", bg="#2a2a3e", fg="white", font=("Arial", 11, "bold"))
-mensaje.place(relx=0.5, rely=0.5, anchor="center")
+#mensaje = tk.Label(card, text="Tus registros", bg="#2a2a3e", fg="white", font=("Arial", 11, "bold"))
+#mensaje.place(relx=0.5, rely=0.5, anchor="center")
 
 
 # Tarjeta
