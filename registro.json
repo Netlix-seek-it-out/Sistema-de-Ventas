@@ -1,14 +1,14 @@
 {
-  "ultimo_id_para_sumar": 5,
+  "ultimo_id_para_sumar": 7,
   "Ventas_registradas": [
     {
-      "cliente": "Fafa",
-      "producto": "Peluche",
-      "cantidad": "1",
-      "precio": "1",
-      "total": 1.0,
-      "num_venta": 5,
-      "fecha": "2026-07-05"
+      "cliente": "Tatiana",
+      "producto": "Laptop",
+      "cantidad": "2",
+      "precio": "400",
+      "total": 800.0,
+      "num_venta": 7,
+      "fecha": "2026-07-06"
     }
   ]
 }

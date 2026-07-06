@@ -57,13 +57,13 @@ def busqueda(valor_buscar, padre, abrir_edicion):
     datos_frame = tk.Frame(venta_frame, bg="#313145")
     datos_frame.pack(side="left", fill="x", expand=True)
 
-    tk.Label(datos_frame, text=f"Venta #{encontrada['num_venta']}", bg="#313145", fg="white", font=("Arial", 10, "bold")).pack(anchor="w")
-    tk.Label(datos_frame, text=f"Cliente: {encontrada['cliente']}", bg="#313145", fg="white", font=("Arial", 10, "bold")).pack(anchor="w")
-    tk.Label(datos_frame, text=f"Producto: {encontrada['producto']}", bg="#313145", fg="white", font=("Arial", 10, "bold")).pack(anchor="w")
-    tk.Label(datos_frame, text=f"Cantidad: {encontrada['cantidad']}", bg="#313145", fg="white", font=("Arial", 10, "bold")).pack(anchor="w")
-    tk.Label(datos_frame, text=f"Precio: ${encontrada['precio']}", bg="#313145", fg="white", font=("Arial", 10, "bold")).pack(anchor="w")
-    tk.Label(datos_frame, text=f"Total: ${encontrada['total']}", bg="#313145", fg="white", font=("Arial", 10, "bold")).pack(anchor="w")
-    tk.Label(datos_frame, text=f"Fecha: {encontrada.get('fecha', 'Sin fecha')}", bg="#313145", fg="white", font=("Arial", 10, "bold")).pack(anchor="w")
+    tk.Label(datos_frame, text=f"📦 Venta #{encontrada['num_venta']}", bg="#313145", fg="white", font=("Arial", 10, "bold")).pack(anchor="w")
+    tk.Label(datos_frame, text=f"👤 Cliente: {encontrada['cliente']}", bg="#313145", fg="white", font=("Arial", 10, "bold")).pack(anchor="w")
+    tk.Label(datos_frame, text=f"📦 Producto: {encontrada['producto']}", bg="#313145", fg="white", font=("Arial", 10, "bold")).pack(anchor="w")
+    tk.Label(datos_frame, text=f"🔢 Cantidad: {encontrada['cantidad']}", bg="#313145", fg="white", font=("Arial", 10, "bold")).pack(anchor="w")
+    tk.Label(datos_frame, text=f"💲 Precio: ${encontrada['precio']}", bg="#313145", fg="white", font=("Arial", 10, "bold")).pack(anchor="w")
+    tk.Label(datos_frame, text=f"🟰 Total: ${encontrada['total']}", bg="#313145", fg="white", font=("Arial", 10, "bold")).pack(anchor="w")
+    tk.Label(datos_frame, text=f"📅 Fecha: {encontrada.get('fecha', 'Sin fecha')}", bg="#313145", fg="white", font=("Arial", 10, "bold")).pack(anchor="w")
 
 
     acciones_frame = tk.Frame(venta_frame, bg="#313145")
