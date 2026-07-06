@@ -63,7 +63,7 @@ def busqueda(valor_buscar, padre, abrir_edicion):
     tk.Label(datos_frame, text=f"Cantidad: {encontrada['cantidad']}", bg="#313145", fg="white", font=("Arial", 10, "bold")).pack(anchor="w")
     tk.Label(datos_frame, text=f"Precio: ${encontrada['precio']}", bg="#313145", fg="white", font=("Arial", 10, "bold")).pack(anchor="w")
     tk.Label(datos_frame, text=f"Total: ${encontrada['total']}", bg="#313145", fg="white", font=("Arial", 10, "bold")).pack(anchor="w")
-    tk.Label(datos_frame, text=f"Fecha: {encontrada.get('fecha', 'Sin fecha')}").pack(anchor="w")
+    tk.Label(datos_frame, text=f"Fecha: {encontrada.get('fecha', 'Sin fecha')}", bg="#313145", fg="white", font=("Arial", 10, "bold")).pack(anchor="w")
 
 
     acciones_frame = tk.Frame(venta_frame, bg="#313145")
@@ -92,5 +92,5 @@ def busqueda(valor_buscar, padre, abrir_edicion):
             font=("arial", 10, "bold"), 
             fg="#fbfbfb", 
             cursor="hand2", 
-            command=eliminar_resultado).pack()
+            command=eliminar_resultado).pack(pady=5, padx=10)
 
