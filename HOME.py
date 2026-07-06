@@ -615,7 +615,7 @@ buscar_barra.bind("<FocusOut>", al_desenfocar)
 card = tk.Frame(historial_frame, bg="#2a2a3e")
 card.pack(fill="both", expand=True, padx=20, pady=5)
 
-buscar_barra.bind("<Return>", lambda e: busqueda(buscar_barra, card))
+buscar_barra.bind("<Return>", lambda e: busqueda(buscar_barra, card, mostrar_edicion))
 
 # --- Botón de buscar ---
 btn_buscar_canvas = tk.Canvas(barra_ante_superior, width=140, height=44, bg="#1e1e2e", highlightthickness=0, cursor="hand2")
@@ -635,7 +635,7 @@ def btn_presionar(e):
 
 def btn_soltar(e):
     btn_buscar_canvas.itemconfig(btn_rect, fill="#9a8cff")
-    busqueda(buscar_barra, card)
+    busqueda(buscar_barra, card, mostrar_edicion)
 
 for item in (btn_rect, btn_texto):
     btn_buscar_canvas.tag_bind(item, "<Enter>", btn_hover)
@@ -643,13 +643,13 @@ for item in (btn_rect, btn_texto):
     btn_buscar_canvas.tag_bind(item, "<ButtonPress-1>", btn_presionar)
     btn_buscar_canvas.tag_bind(item, "<ButtonRelease-1>", btn_soltar)
 
-#mensaje = tk.Label(card, text="Tus registros", bg="#2a2a3e", fg="white", font=("Arial", 11, "bold"))
-#mensaje.place(relx=0.5, rely=0.5, anchor="center")
+mensaje = tk.Label(card, text="Tus registros", bg="#2a2a3e", fg="white", font=("Arial", 11, "bold"))
+mensaje.place(relx=0.5, rely=0.5, anchor="center")
 
 
 # Tarjeta
-card = tk.Frame(historial_frame, bg="#2a2a3e")
-card.pack(fill="both", expand=True, padx=20, pady=5)
+#card = tk.Frame(historial_frame, bg="#2a2a3e")
+#card.pack(fill="both", expand=True, padx=20, pady=5)
 
 
 mensaje = tk.Label(
@@ -677,7 +677,7 @@ menu_frame = tk.Frame(nav_frame, bg="#1e293b")
 menu_frame.pack(anchor="center", expand=True)
 
 
-nombre_app = tk.Label(menu_frame,  text="¡Indago!", bg="#1e293b", width=18, height=2, font=("Arial", 12, "bold"), fg="#7A68EE", cursor="hand2")
+nombre_app = tk.Label(menu_frame,  text="VentaCore", bg="#1e293b", width=18, height=2, font=("Arial", 12, "bold"), fg="#7A68EE", cursor="hand2")
 nombre_app.grid(row=0, column=0, padx=10, pady=8)
 
 home_boton = tk.Label(menu_frame,  text="🏠 HOME", bg="#1e293b", width=18, height=2, font=("Arial", 12, "bold"), fg="#94a3b8", cursor="hand2")
@@ -798,7 +798,7 @@ def editar():
         messagebox.showerror("ERROR", "ingrese datos válidos en la cantidad y precio")
         return
 
-    editar_venta(venta_en_edicion, venta, )
+    editar_venta(venta_en_edicion, venta)
     limpiar_campos_edicion()
     lbl_status.config(text="Venta guardada correctamente.")
 

@@ -1,5 +1,9 @@
 import json
 from tkinter import messagebox
+import tkinter as tk
+from eliminar_venta import eliminar_venta
+#from cargar_historial import cargar_historial
+
 
 def busqueda(valor_buscar):
     try:
@@ -8,11 +12,9 @@ def busqueda(valor_buscar):
     except ValueError:
         messagebox.showerror("ERROR", "ingrese el numero de venta")
     
-    import json
-import tkinter as tk
-from tkinter import messagebox
 
-def busqueda(valor_buscar, padre):
+
+def busqueda(valor_buscar, padre, abrir_edicion):
     # 1. Obtenemos el texto que el usuario escribió
     texto = valor_buscar.get().strip()
 
@@ -51,3 +53,44 @@ def busqueda(valor_buscar, padre):
     # 7. Si sí la encontramos, la mostramos igual que en el historial
     venta_frame = tk.Frame(padre, bg="#313145")
     venta_frame.pack(fill="x", pady=8, padx=18)
+
+    datos_frame = tk.Frame(venta_frame, bg="#313145")
+    datos_frame.pack(side="left", fill="x", expand=True)
+
+    tk.Label(datos_frame, text=f"Venta #{encontrada['num_venta']}", bg="#313145", fg="white", font=("Arial", 10, "bold")).pack(anchor="w")
+    tk.Label(datos_frame, text=f"Cliente: {encontrada['cliente']}", bg="#313145", fg="white", font=("Arial", 10, "bold")).pack(anchor="w")
+    tk.Label(datos_frame, text=f"Producto: {encontrada['producto']}", bg="#313145", fg="white", font=("Arial", 10, "bold")).pack(anchor="w")
+    tk.Label(datos_frame, text=f"Cantidad: {encontrada['cantidad']}", bg="#313145", fg="white", font=("Arial", 10, "bold")).pack(anchor="w")
+    tk.Label(datos_frame, text=f"Precio: ${encontrada['precio']}", bg="#313145", fg="white", font=("Arial", 10, "bold")).pack(anchor="w")
+    tk.Label(datos_frame, text=f"Total: ${encontrada['total']}", bg="#313145", fg="white", font=("Arial", 10, "bold")).pack(anchor="w")
+    tk.Label(datos_frame, text=f"Fecha: {encontrada.get('fecha', 'Sin fecha')}", bg="#313145", fg="white", font=("Arial", 10, "bold")).pack(anchor="w")
+
+
+    acciones_frame = tk.Frame(venta_frame, bg="#313145")
+    acciones_frame.pack(side="right", padx=20)
+
+    tk.Button(acciones_frame, text="Editar",
+            command=lambda venta=encontrada: abrir_edicion(venta),
+        bg="#7A68EE", width=10, height=2, font=("arial", 10, "bold"), fg="#fbfbfb", 
+        cursor="hand2").pack(pady=5, padx=10)
+
+## Funcion parab eliminar el resultado yey
+
+    def eliminar_resultado():
+        eliminar_venta(encontrada["num_venta"])
+
+        for widget in padre.winfo_children():
+            widget.destroy()
+        tk.Label(padre, text="Venta eliminada").pack()
+
+    tk.Button(
+            acciones_frame, 
+            text="Eliminar", 
+            bg="#F74B01", 
+            width=10, 
+            height=2, 
+            font=("arial", 10, "bold"), 
+            fg="#fbfbfb", 
+            cursor="hand2", 
+            command=eliminar_resultado).pack(pady=5, padx=10)
+
