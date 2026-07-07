@@ -1,5 +1,5 @@
 {
-  "ultimo_id_para_sumar": 12,
+  "ultimo_id_para_sumar": 13,
   "Ventas_registradas": [
     {
       "cliente": "Fafa",
@@ -63,6 +63,15 @@
       "total": 10000.0,
       "num_venta": 12,
       "fecha": "2026-07-06"
+    },
+    {
+      "cliente": "isis",
+      "producto": "Laptop",
+      "cantidad": "1",
+      "precio": "400",
+      "total": 400.0,
+      "num_venta": 13,
+      "fecha": "2026-07-07"
     }
   ]
 }

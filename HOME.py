@@ -159,13 +159,13 @@ historial_boton_barra.bind("<Button-1>", lambda e: mostrar_historial())
 
 #FIN DE BARRA DE NAVEGACION
 
-welcome_label = tk.Label(home_frame, text="¡Bienvenido a VentaCore!", bg="#1e1e2e", font=("Arial", 20, "bold"), fg="#f8fafc")
+welcome_label = tk.Label(home_frame, text="¡Bienvenido a VentasCore!", bg="#1e1e2e", font=("sans-serif", 24, "bold"), fg="#f8fafc")
 welcome_label.pack(pady=(60, 20))
 
 espacio = tk.Label(home_frame, bg="#0f151f")
 espacio.pack(pady=10, fill="x")
 
-binvenida_label = tk.Label(home_frame, text="¿Que quieres hacer?", font=("arial",20,"bold italic"), fg="#cdd6f4", bg="#1e1e2e")
+binvenida_label = tk.Label(home_frame, text="¿Listo para comenzar?", font=("arial",20,"bold italic"), fg="#cdd6f4", bg="#1e1e2e")
 binvenida_label.pack(pady=30)
 
 
@@ -174,16 +174,15 @@ botones_frame.pack(pady=20)
 
 #NO se usan pack y grid juntos een un mismo elemento. Escoje uno, a mi daba errorj
 
-registro_boton = tk.Label(botones_frame, text="Registar venta ✏️", font=("arial", 12, "bold"), fg="#cdd6f4", cursor="hand2", bg="#7c6af7",
-     width=18, height=2)
-registro_boton.grid(row=0, column=0, padx=40, pady=10)
-registro_boton.bind("<Button-1>", lambda e: mostrar_registro())
+registro_boton = tk.Label(botones_frame, text="Registrar venta", font=("arial", 14, "bold"), fg="#ffffff", cursor="hand2", bg="#7c6af7",
+     width=20, height=2)
+
 
 
 #Funcion para que al pasar el mouse por encima del boton, cambie de color, y al salir vuelva a su color 
 def entrar_mouse(e):
     registro_boton.config(bg="#5a4bd6")  # color más oscuro
-
+ 
 def salir_mouse(e):
     registro_boton.config(bg="#7c6af7")  # color original
 
@@ -199,46 +198,11 @@ registro_boton.bind("<Button-1>", lambda e: mostrar_registro())
 #.bind sirve para ejecutr un comando, casi igual que "button". 
 # "button-1 es el indicador que dice que se realizara cuando se presione click derecho"
 
-# LINK
+#LINK
 
-estadisticas_boton = tk.Label(botones_frame, text="📊 Estadisticas", font=("arial", 12, "bold"), fg="#cdd6f4", cursor="hand2", bg="#7c6af7", width=18, height=2)
-estadisticas_boton.grid(row=0, column=1, padx=40, pady=10)
-estadisticas_boton.bind("<Button-1>", lambda e: mostrar_estadisticas())
-
-
-estadisticas_boton.grid(row=0, column=1, padx=40, pady=10)
-estadisticas_boton.bind("<Button-1>", lambda e: mostrar_estadisticas())
-
-#La misma funciondel boton de registro, pero para el boton de estadisticas
-def entrar_mouse(e):
-    estadisticas_boton.config(bg="#5a4bd6")
-
-def salir_mouse(e):
-    estadisticas_boton.config(bg="#7c6af7")
-
-estadisticas_boton.bind("<Enter>", entrar_mouse)
-estadisticas_boton.bind("<Leave>", salir_mouse)
-#termina
-#"<button-1>" representa exactamente el click izquierdo
-
-historial_boton = tk.Label(botones_frame, text="📄 Historial", font=("arial", 12, "bold"), fg="#cdd6f4", cursor="hand2", bg="#7c6af7", 
-    width=18, height=2)
-historial_boton.grid(row=0, column=2, padx=40, pady=10)
-historial_boton.bind("<Button-1>", lambda e: mostrar_historial())
-
-#La misma funciondel boton de registro, pero para el boton de estadisticas
-def entrar_mouse(e):
-    historial_boton.config(bg="#5a4bd6")
-
-def salir_mouse(e):
-    historial_boton.config(bg="#7c6af7")
-
-historial_boton.bind("<Enter>", entrar_mouse)
-historial_boton.bind("<Leave>", salir_mouse)
-
-buscar_boton_act = tk.Label(home_frame, text="¡Mantén tus compras organizadas!", font=("arial", 18, "bold"), fg="#e4e4e4", cursor="hand2", bg="#1e1e2e", 
+buscar_boton_act = tk.Label(home_frame, text="Mantén tus compras organizadas", font=("arial", 18, "bold"), fg="#e4e4e4", cursor="hand2", bg="#1e1e2e", 
     height=3)
-buscar_boton_act.pack(pady=20)
+buscar_boton_act.pack(pady=5, ipady=10, ipadx=10)
 
 
 
