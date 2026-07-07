@@ -174,7 +174,7 @@ botones_frame.pack(pady=20)
 
 #NO se usan pack y grid juntos een un mismo elemento. Escoje uno, a mi daba errorj
 
-registro_boton = tk.Label(botones_frame, text="Registrar venta", font=("arial", 14, "bold"), fg="#ffffff", cursor="hand2", bg="#7c6af7",
+registro_boton = tk.Label(botones_frame, text="Registrar venta 🛒", font=("arial", 14, "bold"), fg="#ffffff", cursor="hand2", bg="#7c6af7",
      width=20, height=2)
 
 
