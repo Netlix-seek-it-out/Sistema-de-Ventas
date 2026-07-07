@@ -105,6 +105,11 @@ def mostrar_edicion(venta=None):
         entries_edicion["precio"].insert(0, venta["precio"])
     edicion_frame.pack(fill="both", expand=True)
 
+def ejecutar_busqueda():
+    busqueda(buscar_barra, card, mostrar_edicion)
+    historial_canvas.update_idletasks()
+    historial_canvas.configure(scrollregion=historial_canvas.bbox("all"))
+    historial_canvas.yview_moveto(0)
 
 screen = tk.Tk()
 
@@ -603,7 +608,7 @@ def actualizar_scroll_historial(event):
 
 card.bind("<Configure>", actualizar_scroll_historial)
 
-buscar_barra.bind("<Return>", lambda e: busqueda(buscar_barra, card, mostrar_edicion))
+buscar_barra.bind("<Return>", lambda e: ejecutar_busqueda())
 
 # --- Botón de buscar ---
 btn_buscar_canvas = tk.Canvas(barra_ante_superior, width=140, height=44, bg="#1e1e2e", highlightthickness=0, cursor="hand2")
@@ -623,7 +628,7 @@ def btn_presionar(e):
 
 def btn_soltar(e):
     btn_buscar_canvas.itemconfig(btn_rect, fill="#9a8cff")
-    busqueda(buscar_barra, card, mostrar_edicion)
+    ejecutar_busqueda()
 
 for item in (btn_rect, btn_texto):
     btn_buscar_canvas.tag_bind(item, "<Enter>", btn_hover)
