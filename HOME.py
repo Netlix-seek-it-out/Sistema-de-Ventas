@@ -136,7 +136,7 @@ menu_frame.columnconfigure(4, weight=1)
 # rowconfigure funciona igual pero para las filas
 
 
-nombre_app = tk.Label(menu_frame,  text="¡VentaCore!", bg="#1e293b", width=18, height=2, font=("Arial", 12, "bold"), fg="#7A68EE", cursor="hand2")
+nombre_app = tk.Label(menu_frame,  text="¡VentasCore!", bg="#1e293b", width=18, height=2, font=("Arial", 12, "bold"), fg="#7A68EE", cursor="hand2")
 nombre_app.grid(row=0, column=0, padx=10, pady=8)
 
 home_boton = tk.Label(menu_frame,  text="🏠 HOME", bg="#1e293b", width=18, height=2, font=("Arial", 12, "bold"), fg="#E2DEEA", cursor="hand2")
@@ -221,7 +221,7 @@ menu_frame.pack(anchor="center", expand=True)
 menu_frame.columnconfigure(4, weight=1)
 
 
-nombre_app = tk.Label(menu_frame,  text="¡Indago!", bg="#1e293b", width=18, height=2, font=("Arial", 12, "bold"), fg="#7A68EE", cursor="hand2")
+nombre_app = tk.Label(menu_frame,  text="¡VentasCore!", bg="#1e293b", width=18, height=2, font=("Arial", 12, "bold"), fg="#7A68EE", cursor="hand2")
 nombre_app.grid(row=0, column=0, padx=10, pady=8)
 
 home_boton = tk.Label(menu_frame,  text="🏠 HOME", bg="#1e293b", width=18, height=2, font=("Arial", 12, "bold"), fg="#94a3b8", cursor="hand2")
@@ -320,7 +320,7 @@ menu_frame = tk.Frame(nav_frame, bg="#1e293b")
 menu_frame.pack(anchor="center", expand=True)
 
 
-nombre_app = tk.Label(menu_frame,  text="¡Indago!", bg="#1e293b", width=18, height=2, font=("Arial", 12, "bold"), fg="#7A68EE", cursor="hand2")
+nombre_app = tk.Label(menu_frame,  text="¡VentasCore!", bg="#1e293b", width=18, height=2, font=("Arial", 12, "bold"), fg="#7A68EE", cursor="hand2")
 nombre_app.grid(row=0, column=0, padx=10, pady=8)
 
 home_boton = tk.Label(menu_frame,  text="🏠 HOME", bg="#1e293b", width=18, height=2, font=("Arial", 12, "bold"), fg="#94a3b8", cursor="hand2")
@@ -510,7 +510,7 @@ menu_frame.columnconfigure(4, weight=1)
 menu_frame = tk.Frame(nav_frame, bg="#1e293b")
 menu_frame.pack(anchor="center", expand=True)
 
-nombre_app = tk.Label(menu_frame,  text="¡Indago!", bg="#1e293b", width=18, height=2, font=("Arial", 12, "bold"), fg="#7A68EE", cursor="hand2")
+nombre_app = tk.Label(menu_frame,  text="¡VentasCore!", bg="#1e293b", width=18, height=2, font=("Arial", 12, "bold"), fg="#7A68EE", cursor="hand2")
 nombre_app.grid(row=0, column=0, padx=10, pady=8)
 
 home_boton = tk.Label(menu_frame,  text="🏠 HOME", bg="#1e293b", width=18, height=2, font=("Arial", 12, "bold"), fg="#94a3b8", cursor="hand2")
@@ -665,7 +665,7 @@ menu_frame = tk.Frame(nav_frame, bg="#1e293b")
 menu_frame.pack(anchor="center", expand=True)
 
 
-nombre_app = tk.Label(menu_frame,  text="VentaCore", bg="#1e293b", width=18, height=2, font=("Arial", 12, "bold"), fg="#7A68EE", cursor="hand2")
+nombre_app = tk.Label(menu_frame,  text="VentasCore", bg="#1e293b", width=18, height=2, font=("Arial", 12, "bold"), fg="#7A68EE", cursor="hand2")
 nombre_app.grid(row=0, column=0, padx=10, pady=8)
 
 home_boton = tk.Label(menu_frame,  text="🏠 HOME", bg="#1e293b", width=18, height=2, font=("Arial", 12, "bold"), fg="#94a3b8", cursor="hand2")

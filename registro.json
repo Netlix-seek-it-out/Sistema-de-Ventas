@@ -1,5 +1,5 @@
 {
-  "ultimo_id_para_sumar": 13,
+  "ultimo_id_para_sumar": 16,
   "Ventas_registradas": [
     {
       "cliente": "Fafa",
@@ -9,24 +9,6 @@
       "total": 1.0,
       "num_venta": 5,
       "fecha": "2026-07-05"
-    },
-    {
-      "cliente": "wtwetw",
-      "producto": "er",
-      "cantidad": "12",
-      "precio": "23",
-      "total": 276.0,
-      "num_venta": 7,
-      "fecha": "2026-07-06"
-    },
-    {
-      "cliente": "sdfs",
-      "producto": "sf",
-      "cantidad": "23",
-      "precio": "23",
-      "total": 529.0,
-      "num_venta": 8,
-      "fecha": "2026-07-06"
     },
     {
       "cliente": "wrwe",
@@ -71,6 +53,33 @@
       "precio": "400",
       "total": 400.0,
       "num_venta": 13,
+      "fecha": "2026-07-07"
+    },
+    {
+      "cliente": "fantaa",
+      "producto": "sweter",
+      "cantidad": "2",
+      "precio": "24",
+      "total": 48.0,
+      "num_venta": 14,
+      "fecha": "2026-07-07"
+    },
+    {
+      "cliente": "alexander",
+      "producto": "laptops",
+      "cantidad": "5",
+      "precio": "250",
+      "total": 1250.0,
+      "num_venta": 15,
+      "fecha": "2026-07-07"
+    },
+    {
+      "cliente": "tommy",
+      "producto": "laptops",
+      "cantidad": "10",
+      "precio": "250",
+      "total": 2500.0,
+      "num_venta": 16,
       "fecha": "2026-07-07"
     }
   ]
