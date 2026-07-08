@@ -14,7 +14,10 @@ def cargar_historial(padre, abrir_edicion):
     
     ventas_diccionario = compras["Ventas_registradas"]
 
+
+
     for venta in ventas_diccionario:
+                 
         venta_frame = tk.Frame(padre, bg="#07142B")
         venta_frame.pack(fill="x", pady=8, padx=18)
 

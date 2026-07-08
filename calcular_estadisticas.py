@@ -42,7 +42,7 @@ def calcular_estadisticas():
     mayor_cliente = max(contador_cliente, key=contador_cliente.get)
     estaditicas["Cliente_lead"] = mayor_cliente
 
-    # ---------- PRODUCTO MÁS VENDIDO ----------
+    #  PRODUCTO MÁS VENDIDO 
     # Suma cuántas unidades se vendieron de cada producto
     contador_producto = {}
     for product in compras["Ventas_registradas"]:
@@ -56,8 +56,8 @@ def calcular_estadisticas():
     mayor_producto = max(contador_producto, key=contador_producto.get)
     estaditicas["Mayor_producto"] = mayor_producto
 
-    # ---------- VENTAS POR DÍA ----------
-    # Lista con los nombres de los días en orden (0=Lun, 1=Mar... 6=Dom)
+    #  VENTAS POR DÍA 
+    # Lista con los nombres de los días en orden 
     nombres_dias = ["Lun", "Mar", "Mié", "Jue", "Vie", "Sáb", "Dom"]
 
     # Empezamos el contador en 0 para cada día

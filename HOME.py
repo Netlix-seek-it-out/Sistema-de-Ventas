@@ -174,7 +174,7 @@ registro_boton_barra.bind("<Button-1>", lambda e: mostrar_registro())
 
 estadisticas_boton_barra = tk.Label(menu_frame, text="📊 Estadisticas", bg="#07142B", width=18, height=2, font=("Arial", 12, "bold"), cursor="hand2", fg="#D8E3F3")
 estadisticas_boton_barra.grid(row=0, column=3, padx=10, pady=8)
-estadisticas_boton_barra.bind("<Button-1>", lambda e: None)
+estadisticas_boton_barra.bind("<Button-1>", lambda e: mostrar_estadisticas())
 
 
 
@@ -186,7 +186,7 @@ historial_boton_barra.bind("<Button-1>", lambda e: mostrar_historial())
 
 #FIN DE BARRA DE NAVEGACION
 
-welcome_label = tk.Label(home_frame, text="¡Bienvenido a VentasCore!", bg="#000B22", font=("sans-serif", 24, "bold"), fg="#8B5CF6")
+welcome_label = tk.Label(home_frame, text="¡Bienvenido a VentasCore!", bg="#000B22", font=("sans-serif", 24, "bold"), fg="#19C8FF")
 welcome_label.pack(pady=(60, 20))
 
 espacio = tk.Label(home_frame, bg="#2563EB")
@@ -265,7 +265,7 @@ registro_boton_barra.bind("<Button-1>", lambda e: mostrar_registro())
 
 estadisticas_boton_barra = tk.Label(menu_frame, text="📊 Estadisticas", bg="#07142B", width=18, height=2, font=("Arial", 12, "bold"), cursor="hand2", fg="#19C8FF")
 estadisticas_boton_barra.grid(row=0, column=3, padx=10, pady=8)
-estadisticas_boton_barra.bind("<Button-1>", lambda e: None)
+estadisticas_boton_barra.bind("<Button-1>", lambda e: mostrar_estadisticas())
 
 linea_estadisticas = tk.Frame(
     menu_frame,

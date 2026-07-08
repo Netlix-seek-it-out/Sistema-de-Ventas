@@ -1,14 +1,4 @@
 {
   "ultimo_id_para_sumar": 15,
-  "Ventas_registradas": [
-    {
-      "cliente": "uug",
-      "producto": "jfjfjf",
-      "cantidad": "7676",
-      "precio": "7676",
-      "total": 58920976.0,
-      "num_venta": 15,
-      "fecha": "2026-07-07"
-    }
-  ]
+  "Ventas_registradas": []
 }
