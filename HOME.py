@@ -48,7 +48,7 @@ def mostrar_estadisticas():
         fila.pack(fill="x", padx=20, pady=3)
         tk.Label(fila, text=dia, font=("Segoe UI", 11), bg="#2a2a3e", fg="#9090b0", width=4, anchor="e").pack(side="left")
         barras = "█" * int((val / max_val) * 30)
-        tk.Label(fila, text=f" {barras}", font=("Segoe UI", 11), bg="#2a2a3e", fg="#7A68EE").pack(side="left")
+        tk.Label(fila, text=f" {barras}", font=("Segoe UI", 11), bg="#2a2a3e", fg="#1D4ED8").pack(side="left")
 
 
     estadisticas_frame.pack(fill="both", expand=True)
@@ -1062,7 +1062,7 @@ def make_field(parent, key, label_text):
                      insertbackground="#FFFFFF", relief="flat",
                      font=("Segoe UI", 13))
     
-    entry.pack(fill="x", pady=(4, 60), ipady=10)
+    entry.pack(fill="x", pady=(4, 60), ipady=10, ipadx=20)
     entries_edicion[key] = entry
 
 # Columna izquierda

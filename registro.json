@@ -1,5 +1,5 @@
 {
-  "ultimo_id_para_sumar": 17,
+  "ultimo_id_para_sumar": 20,
   "Ventas_registradas": [
     {
       "cliente": "ISIS",
@@ -11,12 +11,30 @@
       "fecha": "2026-07-08"
     },
     {
-      "cliente": "isis",
-      "producto": "tortas",
+      "cliente": "Diego",
+      "producto": "Taza",
+      "cantidad": "10",
+      "precio": "3",
+      "total": 30.0,
+      "num_venta": 18,
+      "fecha": "2026-07-08"
+    },
+    {
+      "cliente": "DIEGO",
+      "producto": "Mochila",
       "cantidad": "10",
       "precio": "10",
       "total": 100.0,
-      "num_venta": 17,
+      "num_venta": 19,
+      "fecha": "2026-07-08"
+    },
+    {
+      "cliente": "Griselda",
+      "producto": "Libro",
+      "cantidad": "10",
+      "precio": "10",
+      "total": 100.0,
+      "num_venta": 20,
       "fecha": "2026-07-08"
     }
   ]

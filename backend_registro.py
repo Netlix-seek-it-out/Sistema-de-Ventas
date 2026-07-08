@@ -17,6 +17,14 @@ def guardar_ventas(venta):
     #Aseguradno que sea un numeor unico. Guardo el ultmio id recolectado, para que así, se evite numeros repetidos
 
 
+    # COnvertir las cosas a minuscula
+
+    producto_yay = venta["producto"].capitalize()
+    cliente_yay= venta["cliente"].capitalize()
+
+    venta["producto"] = producto_yay
+    venta["cliente"] = cliente_yay
+
     numero_id = compras["ultimo_id_para_sumar"] + 1
     compras["ultimo_id_para_sumar"] = numero_id
     venta["num_venta"] = numero_id
