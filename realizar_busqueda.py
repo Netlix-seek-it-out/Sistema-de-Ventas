@@ -29,41 +29,41 @@ def busqueda(valor_buscar, padre, abrir_edicion):
         messagebox.showerror("ERROR", "Ingresa solo el número de venta (ejemplo: 5)")
         return
 
-    # 3. Leemos el archivo con todas las ventas
+    # 3. Lee el archivo con todas las ventas
     with open("registro.json", "r", encoding="utf-8") as bd:
         compras = json.load(bd)
 
-    # 4. Buscamos la venta con ese número
+    # 4. Busca la venta con ese número
     encontrada = None
     for venta in compras["Ventas_registradas"]:
         if venta["num_venta"] == num_buscado:
             encontrada = venta
             break
 
-    # 5. Limpiamos lo que había antes en el frame (la lista completa del historial)
+    # 5. lipia lo que había antes en el frame 
     for widget in padre.winfo_children():
         widget.destroy()
 
-    # 6. Si no encontramos nada, avisamos
+    # 6. Si no encontramos nada, avisa
     if encontrada is None:
         tk.Label(padre, text=f"❌ No se encontró la venta #{num_buscado}",
                  bg="#2a2a3e", fg="white", font=("Arial", 12, "bold")).pack(pady=20)
         return
 
-    # 7. Si sí la encontramos, la mostramos igual que en el historial
+    # 7. Si si la encontramos, la mostramos igual que en el historial
     venta_frame = tk.Frame(padre, bg="#313145")
-    venta_frame.pack(fill="x", pady=8, padx=18)
+    venta_frame.pack(fill="x", pady=20, padx=35, ipadx=10, ipady=10)
 
     datos_frame = tk.Frame(venta_frame, bg="#313145")
     datos_frame.pack(side="left", fill="x", expand=True)
 
-    tk.Label(datos_frame, text=f"📦 Venta #{encontrada['num_venta']}", bg="#313145", fg="white", font=("Arial", 10, "bold")).pack(anchor="w")
-    tk.Label(datos_frame, text=f"👤 Cliente: {encontrada['cliente']}", bg="#313145", fg="white", font=("Arial", 10, "bold")).pack(anchor="w")
-    tk.Label(datos_frame, text=f"📦 Producto: {encontrada['producto']}", bg="#313145", fg="white", font=("Arial", 10, "bold")).pack(anchor="w")
-    tk.Label(datos_frame, text=f"🔢 Cantidad: {encontrada['cantidad']}", bg="#313145", fg="white", font=("Arial", 10, "bold")).pack(anchor="w")
-    tk.Label(datos_frame, text=f"💲 Precio: ${encontrada['precio']}", bg="#313145", fg="white", font=("Arial", 10, "bold")).pack(anchor="w")
-    tk.Label(datos_frame, text=f"🟰 Total: ${encontrada['total']}", bg="#313145", fg="white", font=("Arial", 10, "bold")).pack(anchor="w")
-    tk.Label(datos_frame, text=f"📅 Fecha: {encontrada.get('fecha', 'Sin fecha')}", bg="#313145", fg="white", font=("Arial", 10, "bold")).pack(anchor="w")
+    tk.Label(datos_frame, text=f"📦 Venta #{encontrada['num_venta']}", bg="#313145", fg="white", font=("Arial", 12, "bold")).pack(anchor="w")
+    tk.Label(datos_frame, text=f"👤 Cliente: {encontrada['cliente']}", bg="#313145", fg="white", font=("Arial", 12, "bold")).pack(anchor="w")
+    tk.Label(datos_frame, text=f"📦 Producto: {encontrada['producto']}", bg="#313145", fg="white", font=("Arial", 12, "bold")).pack(anchor="w")
+    tk.Label(datos_frame, text=f"🔢 Cantidad: {encontrada['cantidad']}", bg="#313145", fg="white", font=("Arial", 12, "bold")).pack(anchor="w")
+    tk.Label(datos_frame, text=f"💲 Precio: ${encontrada['precio']}", bg="#313145", fg="white", font=("Arial", 12, "bold")).pack(anchor="w")
+    tk.Label(datos_frame, text=f"🟰 Total: ${encontrada['total']}", bg="#313145", fg="white", font=("Arial", 12, "bold")).pack(anchor="w")
+    tk.Label(datos_frame, text=f"📅 Fecha: {encontrada.get('fecha', 'Sin fecha')}", bg="#313145", fg="white", font=("Arial", 12, "bold")).pack(anchor="w")
 
 
     acciones_frame = tk.Frame(venta_frame, bg="#313145")
@@ -72,7 +72,7 @@ def busqueda(valor_buscar, padre, abrir_edicion):
     tk.Button(acciones_frame, text="Editar",
             command=lambda venta=encontrada: abrir_edicion(venta),
         bg="#7A68EE", width=10, height=2, font=("arial", 10, "bold"), fg="#fbfbfb", 
-        cursor="hand2").pack(pady=5, padx=10)
+        cursor="hand2").pack(pady=15, padx=(10, 0))
 
 ## Funcion parab eliminar el resultado yey
 
@@ -92,5 +92,5 @@ def busqueda(valor_buscar, padre, abrir_edicion):
             font=("arial", 10, "bold"), 
             fg="#fbfbfb", 
             cursor="hand2", 
-            command=eliminar_resultado).pack(pady=5, padx=10)
+            command=eliminar_resultado).pack(pady=15, padx=(10, 0))
 
