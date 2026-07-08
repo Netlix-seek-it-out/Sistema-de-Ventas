@@ -105,6 +105,11 @@ def mostrar_edicion(venta=None):
         entries_edicion["precio"].insert(0, venta["precio"])
     edicion_frame.pack(fill="both", expand=True)
 
+def ejecutar_busqueda():
+    busqueda(buscar_barra, card, mostrar_edicion)
+    historial_canvas.update_idletasks()
+    historial_canvas.configure(scrollregion=historial_canvas.bbox("all"))
+    historial_canvas.yview_moveto(0)
 
 screen = tk.Tk()
 
@@ -116,16 +121,16 @@ screen.resizable(True, True)
 screen.config(bg="#020B18")
 
 home_frame = tk.Frame(screen
-                       , bg="#1e1e2e")
+                       , bg="#000B22")
 home_frame.pack(fill="both", expand=True)
 
 
 #BARRA DE NAVEGACION
 # Barra superior
-nav_frame = tk.Frame(home_frame, bg="#1e293b")
+nav_frame = tk.Frame(home_frame, bg="#07142B")
 nav_frame.pack(fill="x", pady=(0, 0), ipady=3, ipadx=10)
 
-menu_frame = tk.Frame(nav_frame, bg="#1e293b")
+menu_frame = tk.Frame(nav_frame, bg="#07142B")
 menu_frame.pack(anchor="center", expand=True)
 
 
@@ -136,56 +141,77 @@ menu_frame.columnconfigure(4, weight=1)
 # rowconfigure funciona igual pero para las filas
 
 
-nombre_app = tk.Label(menu_frame,  text="¡VentaCore!", bg="#1e293b", width=18, height=2, font=("Arial", 12, "bold"), fg="#7A68EE", cursor="hand2")
+
+nombre_app = tk.Label( menu_frame,text="¡Indago!",bg="#07142B",fg="#19C8FF",width=18,height=2,font=("Segoe UI", 12, "bold"),cursor="hand2")
 nombre_app.grid(row=0, column=0, padx=10, pady=8)
 
-home_boton = tk.Label(menu_frame,  text="🏠 HOME", bg="#1e293b", width=18, height=2, font=("Arial", 12, "bold"), fg="#E2DEEA", cursor="hand2")
+home_boton = tk.Label(menu_frame,text="🏠 HOME",bg="#07142B",fg="#19C8FF",width=18,height=2,font=("Segoe UI", 12, "bold"),cursor="hand2")
 home_boton.grid(row=0, column=1, padx=10, pady=8)
+linea_home = tk.Frame(
+    menu_frame,
+    bg="#19C8FF",
+    height=3,
+    width=120
+)
 
+linea_home.grid(
+    row=1,
+    column=1,
+    pady=(0, 5)
+)
+
+home_boton.bind("<Button-1>", lambda e: mostrar_home())
+
+
+   
 registro_boton_barra = tk.Label(
-    menu_frame, text="📝 Registro", bg="#1e293b", width=18, height=2, font=("Arial", 12, "bold"), cursor="hand2",
-      fg="#94a3b8")
+            menu_frame, text="📝 Registro", bg="#07142B", width=18, height=2, font=("Arial", 12, "bold"), cursor="hand2",fg="#D8E3F3")
 registro_boton_barra.grid(row=0, column=2, padx=10, pady=8)
 registro_boton_barra.bind("<Button-1>", lambda e: mostrar_registro())
 
 
-estadisticas_boton_barra = tk.Label(menu_frame, text="📊 Estadisticas", bg="#1e293b", width=18, height=2, font=("Arial", 12, "bold"), cursor="hand2", fg="#94a3b8")
-estadisticas_boton_barra.grid(row=0, column=3, padx=10, pady=8)
-estadisticas_boton_barra.bind("<Button-1>", lambda e: mostrar_estadisticas())
 
-historial_boton_barra = tk.Label(menu_frame, text="📄 Historial", bg="#1e293b", width=18, height=2, font=("Arial", 12, "bold"), cursor="hand2", fg="#94a3b8")
+
+estadisticas_boton_barra = tk.Label(menu_frame, text="📊 Estadisticas", bg="#07142B", width=18, height=2, font=("Arial", 12, "bold"), cursor="hand2", fg="#D8E3F3")
+estadisticas_boton_barra.grid(row=0, column=3, padx=10, pady=8)
+estadisticas_boton_barra.bind("<Button-1>", lambda e: None)
+
+
+
+
+
+historial_boton_barra = tk.Label(menu_frame, text="📄 Historial", bg="#07142B", width=18, height=2, font=("Arial", 12, "bold"), cursor="hand2", fg="#D8E3F3")
 historial_boton_barra.grid(row=0, column=4, padx=10, pady=8)
 historial_boton_barra.bind("<Button-1>", lambda e: mostrar_historial())
 
 #FIN DE BARRA DE NAVEGACION
 
-welcome_label = tk.Label(home_frame, text="¡Bienvenido a VentaCore!", bg="#1e1e2e", font=("Arial", 20, "bold"), fg="#f8fafc")
+welcome_label = tk.Label(home_frame, text="¡Bienvenido a VentasCore!", bg="#000B22", font=("sans-serif", 24, "bold"), fg="#8B5CF6")
 welcome_label.pack(pady=(60, 20))
 
-espacio = tk.Label(home_frame, bg="#0f151f")
+espacio = tk.Label(home_frame, bg="#2563EB")
 espacio.pack(pady=10, fill="x")
 
-binvenida_label = tk.Label(home_frame, text="¿Que quieres hacer?", font=("arial",20,"bold italic"), fg="#cdd6f4", bg="#1e1e2e")
+binvenida_label = tk.Label(home_frame, text="¿Listo para comenzar?", font=("arial",20,"bold italic"), fg="#D8E3F3", bg="#000B22")
 binvenida_label.pack(pady=30)
 
 
-botones_frame = tk.Frame(home_frame, bg="#1e1e2e", pady=20, padx=20)
+botones_frame = tk.Frame(home_frame, bg="#000B22", pady=20, padx=20)
 botones_frame.pack(pady=20)
 
 #NO se usan pack y grid juntos een un mismo elemento. Escoje uno, a mi daba errorj
 
-registro_boton = tk.Label(botones_frame, text="Registar venta ✏️", font=("arial", 12, "bold"), fg="#cdd6f4", cursor="hand2", bg="#7c6af7",
-     width=18, height=2)
-registro_boton.grid(row=0, column=0, padx=40, pady=10)
-registro_boton.bind("<Button-1>", lambda e: mostrar_registro())
+registro_boton = tk.Label(botones_frame, text="Registrar venta 🛒", font=("arial", 14, ), fg="#ffffff", cursor="hand2", bg="#2563EB",
+     width=20, height=2)
+
 
 
 #Funcion para que al pasar el mouse por encima del boton, cambie de color, y al salir vuelva a su color 
 def entrar_mouse(e):
-    registro_boton.config(bg="#5a4bd6")  # color más oscuro
-
+    registro_boton.config(bg="#1D4ED8")  # color más oscuro
+ 
 def salir_mouse(e):
-    registro_boton.config(bg="#7c6af7")  # color original
+    registro_boton.config(bg="#2563EB")  # color original
 
 registro_boton.bind("<Enter>", entrar_mouse)
 registro_boton.bind("<Leave>", salir_mouse)
@@ -199,46 +225,11 @@ registro_boton.bind("<Button-1>", lambda e: mostrar_registro())
 #.bind sirve para ejecutr un comando, casi igual que "button". 
 # "button-1 es el indicador que dice que se realizara cuando se presione click derecho"
 
-# LINK
+#LINK
 
-estadisticas_boton = tk.Label(botones_frame, text="📊 Estadisticas", font=("arial", 12, "bold"), fg="#cdd6f4", cursor="hand2", bg="#7c6af7", width=18, height=2)
-estadisticas_boton.grid(row=0, column=1, padx=40, pady=10)
-estadisticas_boton.bind("<Button-1>", lambda e: mostrar_estadisticas())
-
-
-estadisticas_boton.grid(row=0, column=1, padx=40, pady=10)
-estadisticas_boton.bind("<Button-1>", lambda e: mostrar_estadisticas())
-
-#La misma funciondel boton de registro, pero para el boton de estadisticas
-def entrar_mouse(e):
-    estadisticas_boton.config(bg="#5a4bd6")
-
-def salir_mouse(e):
-    estadisticas_boton.config(bg="#7c6af7")
-
-estadisticas_boton.bind("<Enter>", entrar_mouse)
-estadisticas_boton.bind("<Leave>", salir_mouse)
-#termina
-#"<button-1>" representa exactamente el click izquierdo
-
-historial_boton = tk.Label(botones_frame, text="📄 Historial", font=("arial", 12, "bold"), fg="#cdd6f4", cursor="hand2", bg="#7c6af7", 
-    width=18, height=2)
-historial_boton.grid(row=0, column=2, padx=40, pady=10)
-historial_boton.bind("<Button-1>", lambda e: mostrar_historial())
-
-#La misma funciondel boton de registro, pero para el boton de estadisticas
-def entrar_mouse(e):
-    historial_boton.config(bg="#5a4bd6")
-
-def salir_mouse(e):
-    historial_boton.config(bg="#7c6af7")
-
-historial_boton.bind("<Enter>", entrar_mouse)
-historial_boton.bind("<Leave>", salir_mouse)
-
-buscar_boton_act = tk.Label(home_frame, text="¡Mantén tus compras organizadas!", font=("arial", 18, "bold"), fg="#e4e4e4", cursor="hand2", bg="#1e1e2e", 
+buscar_boton_act = tk.Label(home_frame, text="Mantén tus compras organizadas", font=("arial", 18, "bold"), fg="#19C8FF", cursor="hand2", bg="#000B22", 
     height=3)
-buscar_boton_act.pack(pady=20)
+buscar_boton_act.pack(pady=5, ipady=10, ipadx=10)
 
 
 
@@ -268,6 +259,8 @@ registro_boton_barra = tk.Label(
             menu_frame, text="📝 Registro", bg="#07142B", width=18, height=2, font=("Arial", 12, "bold"), cursor="hand2",fg="#D8E3F3")
 registro_boton_barra.grid(row=0, column=2, padx=10, pady=8)
 registro_boton_barra.bind("<Button-1>", lambda e: mostrar_registro())
+
+
 
 
 estadisticas_boton_barra = tk.Label(menu_frame, text="📊 Estadisticas", bg="#07142B", width=18, height=2, font=("Arial", 12, "bold"), cursor="hand2", fg="#19C8FF")
@@ -384,6 +377,19 @@ registro_boton_barra = tk.Label(
 registro_boton_barra.grid(row=0, column=2, padx=10, pady=8)
 registro_boton_barra.bind("<Button-1>", lambda e: mostrar_registro())
 
+linea_registro = tk.Frame(
+    menu_frame,
+    bg="#19C8FF",
+    width=120,
+    height=3
+)
+
+linea_registro.grid(
+    row=1,
+    column=2,
+    pady=(0,5)
+)
+
 
 
 estadisticas_boton_barra = tk.Label(menu_frame, text="📊 Estadisticas", bg="#07142B", width=18, height=2, font=("Arial", 12, "bold"), cursor="hand2", fg="#D8E3F3")
@@ -402,13 +408,13 @@ tk.Label(registro_frame, text="Registrar venta",
          font=("Segoe UI", 30 , "bold")).pack(pady=(40, 30))
 
 # Campo con las 6 etiquetas
-form_frame = tk.Frame(registro_frame, bg="#1e1e2e")
+form_frame = tk.Frame(registro_frame, bg="#000B22")
 form_frame.pack(padx=120, fill="x")
 
-left_col = tk.Frame(form_frame, bg="#1e1e2e")
+left_col = tk.Frame(form_frame, bg="#000B22")
 left_col.pack(side="left", fill="both", expand=True, padx=(0, 40))
 
-right_col = tk.Frame(form_frame, bg="#1e1e2e")
+right_col = tk.Frame(form_frame, bg="#000B22")
 right_col.pack(side="left", fill="both", expand=True, padx=(40, 0))
 
 entries = {}
@@ -419,15 +425,15 @@ def validar_numero(valor):
 vcmd = (registro_frame.register(validar_numero), "%P")
 
 def make_field(parent, key, label_text):
-    tk.Label(parent, text=label_text, bg="#1e1e2e",
-             fg="#ffffff", font=("Segoe UI", 12, "bold")).pack(anchor="w")
+    tk.Label(parent, text=label_text, bg="#000B22",
+             fg="#D8E3F3", font=("Segoe UI", 12, "bold")).pack(anchor="w")
     
     if key == "cantidad":
         entry = tk.Entry(
         parent,
-        bg="#313145",
-        fg="#cdd6f4",
-        insertbackground="#cdd6f4",
+        bg="#102445",
+        fg="#D8E3F3",
+        insertbackground="#19C8FF",
         relief="flat",
         font=("Segoe UI", 13),
         validate="key",
@@ -436,9 +442,9 @@ def make_field(parent, key, label_text):
     else:
         entry = tk.Entry(
         parent,
-        bg="#313145",
-        fg="#cdd6f4",
-        insertbackground="#cdd6f4",
+        bg="#102445",
+        fg="#D8E3F3",
+        insertbackground="#19C8FF",
         relief="flat",
         font=("Segoe UI", 13)
     )
@@ -453,18 +459,18 @@ make_field(left_col,  "cantidad",  "Cantidad de unidades:")
 # Columna derecha
 make_field(right_col, "producto",  "Producto vendido:")
 
-tk.Label(right_col, text="Precio unitario:", bg="#1e1e2e",
+tk.Label(right_col, text="Precio unitario:", bg="#000B22",
          fg="#ffffff", font=("Segoe UI", 12,"bold")).pack(anchor="w")
 
-precio_frame = tk.Frame(right_col, bg="#313145")
+precio_frame = tk.Frame(right_col, bg="#102445")
 precio_frame.pack(fill="x", pady=(4, 60))
 
-tk.Label(precio_frame, text="$", bg="#313145", fg="#cdd6f4",
+tk.Label(precio_frame, text="$", bg="#102445", fg="#cdd6f4",
          font=("Segoe UI", 13)).pack(side="left", padx=(10, 0), ipady=10)
 
 entry_precio = tk.Entry(
     precio_frame,
-    bg="#313145",
+    bg="#102445",
     fg="#cdd6f4",
     insertbackground="#cdd6f4",
     relief="flat",
@@ -512,8 +518,9 @@ def guardar_datos_ventas():
             return
         
         total = cantifad_numerador * precio_numerador
-        messagebox.showinfo("TOTAL DE VENTA", f"Total: {total}")
         venta["total"]  = total
+
+
 
 
     except ValueError:
@@ -525,22 +532,31 @@ def guardar_datos_ventas():
     lbl_status.config(text="Venta guardada correctamente.")
 
 # Boton
-btn = tk.Button(registro_frame, text="Guardar Venta",
-                bg="#7c6af7", fg="#ffffff",
-                activebackground="#9a8cff", activeforeground="#ffffff",
-                relief="flat", font=("Segoe UI", 13, "bold"),
-                cursor="hand2", command=guardar_datos_ventas)
-btn.pack(ipadx=40, ipady=12, pady=(20, 0))
-
+btn = tk.Button(
+    registro_frame,
+    text="Guardar Venta",
+    bg="#2563EB",
+    fg="white",
+    activebackground="#1D4ED8",
+    activeforeground="white",
+    relief="flat",
+    bd=0,
+    cursor="hand2",
+    font=("Segoe UI", 12, "bold"),
+    padx=40,
+    pady=12,
+    command=guardar_datos_ventas
+)
+btn.pack(pady=35)
 lbl_status = tk.Label(registro_frame, text="", bg="#1e1e2e",
                        fg="#a6e3a1", font=("Segoe UI", 11))
 lbl_status.pack(pady=12)
 
 def entrar_mouse(e):
-    btn.config(bg="#5a4bd6")
+    btn.config(bg="#1D4ED8")
 
 def salir_mouse(e):
-    btn.config(bg="#7c6af7")
+    btn.config(bg="#2563EB")
 
 btn.bind("<Enter>", entrar_mouse)
 btn.bind("<Leave>", salir_mouse)
@@ -990,9 +1006,14 @@ right_col.pack(side="left", fill="both", expand=True, padx=(40, 0))
 entries_edicion = {}
 
 def make_field(parent, key, label_text):
-    tk.Label(parent, text=label_text, bg="#000B22",
-             fg="#D8E3F3", font=("Segoe UI", 12, "bold")).pack(anchor="w")
-    
+    tk.Label(
+    parent,
+    text=label_text,
+    bg="#000B22",
+    fg="#D8E3F3",
+    font=("Segoe UI", 11, "bold")).pack(anchor="w", pady=(0,5))
+
+
     entry = tk.Entry(parent, bg="#07142B", fg="#FFFFFF",
                      insertbackground="#FFFFFF", relief="flat",
                      font=("Segoe UI", 13))
@@ -1007,8 +1028,12 @@ make_field(left_col,  "cantidad",  "Cantidad de unidades:")
 # Columna derecha
 make_field(right_col, "producto",  "Producto vendido:")
 
-tk.Label(right_col, text="Precio unitario:", bg="#000B22",
-         fg="#D8E3F3", font=("Segoe UI", 12,"bold")).pack(anchor="w")
+tk.Label(
+    right_col,
+    text="Precio unitario:",
+    bg="#000B22",
+    fg="#D8E3F3",
+    font=("Segoe UI", 11, "bold")).pack(anchor="w", pady=(0,5))
 
 precio_frame = tk.Frame(right_col, bg="#07142B")
 precio_frame.pack(fill="x", pady=(4, 60))
@@ -1081,7 +1106,7 @@ btn = tk.Button(edicion_frame, text="Guardar Venta",
                 cursor="hand2", command=editar)
 btn.pack(ipadx=40, ipady=12, pady=(20, 0))
 
-lbl_status = tk.Label(edicion_frame, text="", bg="#1e1e2e",
+lbl_status = tk.Label(edicion_frame, text="", bg="#000B22",
                        fg="#a6e3a1", font=("Segoe UI", 11))
 lbl_status.pack(pady=12)
 
