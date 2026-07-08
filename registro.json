@@ -1,12 +1,12 @@
 {
-  "ultimo_id_para_sumar": 13,
+  "ultimo_id_para_sumar": 16,
   "Ventas_registradas": [
     {
       "cliente": "Fafa",
       "producto": "Peluche",
       "cantidad": "1",
-      "precio": "1",
-      "total": 1.0,
+      "precio": "100",
+      "total": 100.0,
       "num_venta": 5,
       "fecha": "2026-07-05"
     },
@@ -50,8 +50,8 @@
       "cliente": "Daniela",
       "producto": "Camisa",
       "cantidad": "10",
-      "precio": "10",
-      "total": 100.0,
+      "precio": "1",
+      "total": 10.0,
       "num_venta": 11,
       "fecha": "2026-07-06"
     },
@@ -71,6 +71,15 @@
       "precio": "400",
       "total": 400.0,
       "num_venta": 13,
+      "fecha": "2026-07-07"
+    },
+    {
+      "cliente": "Josue",
+      "producto": "Sombrilla",
+      "cantidad": "10",
+      "precio": "10",
+      "total": 100.0,
+      "num_venta": 16,
       "fecha": "2026-07-07"
     }
   ]

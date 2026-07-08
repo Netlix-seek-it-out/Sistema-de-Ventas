@@ -26,7 +26,7 @@ def guardar_ventas(venta):
     compras["Ventas_registradas"].append(venta)
 
     #Numero de venta mostrar
-    messagebox.showinfo("N de venta", f"Numero de venta: {numero_id}")
+    messagebox.showinfo("N de venta", f"Total: {venta["total"]}, Numero de venta: {numero_id}")
 
     venta["fecha"] = datetime.now().strftime("%Y-%m-%d")
 

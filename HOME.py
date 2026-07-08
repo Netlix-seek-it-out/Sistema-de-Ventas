@@ -467,8 +467,9 @@ def guardar_datos_ventas():
             return
         
         total = cantifad_numerador * precio_numerador
-        messagebox.showinfo("TOTAL DE VENTA", f"Total: {total}")
         venta["total"]  = total
+
+
 
 
     except ValueError:
