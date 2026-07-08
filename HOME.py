@@ -113,7 +113,7 @@ screen.title("HOME")
 screen.geometry("1200x600")
 screen.state("zoomed")
 screen.resizable(True, True)
-screen.config(bg="#1e1e2e")
+screen.config(bg="#020B18")
 
 home_frame = tk.Frame(screen
                        , bg="#1e1e2e")
@@ -244,96 +244,110 @@ buscar_boton_act.pack(pady=20)
 
 ## ESTADISTICAS
 
-estadisticas_frame = tk.Frame(screen, bg="#1e1e2e")
+estadisticas_frame = tk.Frame(screen, bg="#000B22")
 
 
 #BARRA DE NAVEGACION
-nav_frame = tk.Frame(estadisticas_frame, bg="#1e293b")
+nav_frame = tk.Frame(estadisticas_frame, bg="#07142B")
 nav_frame.pack(fill="x", pady=(0, 0), ipady=3, ipadx=10)
 
 
-menu_frame = tk.Frame(nav_frame, bg="#1e293b")
+menu_frame = tk.Frame(nav_frame, bg="#07142B")
 menu_frame.pack(anchor="center", expand=True)
 menu_frame.columnconfigure(4, weight=1)
 
 
-nombre_app = tk.Label(menu_frame,  text="¡Indago!", bg="#1e293b", width=18, height=2, font=("Arial", 12, "bold"), fg="#7A68EE", cursor="hand2")
+nombre_app = tk.Label( menu_frame,text="¡Indago!",bg="#07142B",fg="#19C8FF",width=18,height=2,font=("Segoe UI", 12, "bold"),cursor="hand2")
 nombre_app.grid(row=0, column=0, padx=10, pady=8)
 
-home_boton = tk.Label(menu_frame,  text="🏠 HOME", bg="#1e293b", width=18, height=2, font=("Arial", 12, "bold"), fg="#94a3b8", cursor="hand2")
+home_boton = tk.Label(menu_frame,text="🏠 HOME",bg="#07142B",fg="#D8E3F3",width=18,height=2,font=("Segoe UI", 12, "bold"),cursor="hand2")
 home_boton.grid(row=0, column=1, padx=10, pady=8)
 home_boton.bind("<Button-1>", lambda e: mostrar_home())
    
 registro_boton_barra = tk.Label(
-            menu_frame, text="📝 Registro", bg="#1e293b", width=18, height=2, font=("Arial", 12, "bold"), cursor="hand2",
-            fg="#94a3b8")
+            menu_frame, text="📝 Registro", bg="#07142B", width=18, height=2, font=("Arial", 12, "bold"), cursor="hand2",fg="#D8E3F3")
 registro_boton_barra.grid(row=0, column=2, padx=10, pady=8)
 registro_boton_barra.bind("<Button-1>", lambda e: mostrar_registro())
 
 
-estadisticas_boton_barra = tk.Label(menu_frame, text="📊 Estadisticas", bg="#1e293b", width=18, height=2, font=("Arial", 12, "bold"), cursor="hand2", fg="#ffffff")
+estadisticas_boton_barra = tk.Label(menu_frame, text="📊 Estadisticas", bg="#07142B", width=18, height=2, font=("Arial", 12, "bold"), cursor="hand2", fg="#19C8FF")
 estadisticas_boton_barra.grid(row=0, column=3, padx=10, pady=8)
 estadisticas_boton_barra.bind("<Button-1>", lambda e: None)
 
-historial_boton_barra = tk.Label(menu_frame, text="📄 Historial", bg="#1e293b", width=18, height=2, font=("Arial", 12, "bold"), cursor="hand2", fg="#94a3b8")
+linea_estadisticas = tk.Frame(
+    menu_frame,
+    bg="#19C8FF",
+    height=3,
+    width=120
+)
+
+linea_estadisticas.grid(
+    row=1,
+    column=3,
+    pady=(0, 5)
+)
+
+
+
+historial_boton_barra = tk.Label(menu_frame, text="📄 Historial", bg="#07142B", width=18, height=2, font=("Arial", 12, "bold"), cursor="hand2", fg="#D8E3F3")
 historial_boton_barra.grid(row=0, column=4, padx=10, pady=8)
 historial_boton_barra.bind("<Button-1>", lambda e: mostrar_historial())
 
 
 
 
-titulo = tk.Label(estadisticas_frame, text="📊 Estadísticas", font=("Segoe UI", 35, "bold"), bg="#1e1e2e", fg="#8B5CF6")
+titulo = tk.Label(estadisticas_frame, text="📊 Estadísticas", font=("Segoe UI", 35, "bold"), bg="#000B22", fg="#19C8FF")
 titulo.pack(pady=(30, 15))
 
-cuadros = tk.Frame(estadisticas_frame, bg="#1e1e2e")
+cuadros = tk.Frame(estadisticas_frame, bg="#000B22")
 cuadros.pack()
 
-fila1 = tk.Frame(cuadros, bg="#1e1e2e")
+fila1 = tk.Frame(cuadros, bg="#000B22")
 fila1.pack(pady=15)
 
 
 
-ventas = tk.Frame(fila1, bg="#7A68EE", width=220, height=150)
+ventas = tk.Frame(fila1, bg="#0F1C34", width=220, height=150)
 ventas.pack(side="left", padx=15)
 ventas.pack_propagate(False)
-texto_ventana1=tk.Label(ventas, text="🛒", font=("Segoe UI", 22,"bold"), bg="#7A68EE", fg="white").pack(pady=(18, 2))
-texto_ventana2=tk.Label(ventas, text="0", font=("Segoe UI", 15, "bold"), bg="#7A68EE", fg="white")
+texto_ventana1=tk.Label(ventas, text="🛒", font=("Segoe UI", 22,"bold"), bg="#0F1C34", fg="#19C8FF").pack(pady=(18, 2))
+texto_ventana2=tk.Label(ventas, text="0", font=("Segoe UI", 15, "bold"), bg="#0F1C34", fg="#FFFFFF")
 texto_ventana2.pack()
-texto_ventana3=tk.Label(ventas, text="Total de ventas", font=("Segoe UI", 11,"bold"), bg="#7A68EE", fg="#d0c8ff").pack()
+texto_ventana3=tk.Label(ventas, text="Total de ventas", font=("Segoe UI", 11,"bold"), bg="#0F1C34", fg="#9FB6D9").pack()
 
         
-producto = tk.Frame(fila1, bg="#7A68EE", width=220, height=150)
+producto = tk.Frame(fila1, bg="#0F1C34", width=220, height=150)
 producto.pack(side="left", padx=15)
 producto.pack_propagate(False)
-texto_producto1=tk.Label(producto, text="🏆", font=("Segoe UI", 22,"bold"), bg="#7A68EE", fg="white").pack(pady=(18, 2))
-texto_producto2=tk.Label(producto, text="Lacto", font=("Segoe UI", 15, "bold"), bg="#7A68EE", fg="white")
+texto_producto1=tk.Label(producto, text="🏆", font=("Segoe UI", 22,"bold"), bg="#0F1C34", fg="#19C8FF").pack(pady=(18, 2))
+texto_producto2=tk.Label(producto, text="Lacto", font=("Segoe UI", 15, "bold"), bg="#0F1C34", fg="white")
 texto_producto2.pack()
-texto_producto3=tk.Label(producto, text="Producto más vendido", font=("Segoe UI", 11,"bold"), bg="#7A68EE", fg="#d0c8ff", wraplength=180).pack()
+texto_producto3=tk.Label(producto, text="Producto más vendido", font=("Segoe UI", 11,"bold"), bg="#0F1C34", fg="#9FB6D9", wraplength=180).pack()
 
 
-cliente = tk.Frame(fila1, bg="#7A68EE", width=220, height=150)
+cliente = tk.Frame(fila1, bg="#0F1C34", width=220, height=150)
 cliente.pack(side="left", padx=15)
 cliente.pack_propagate(False)
-texto_clientes1=tk.Label(cliente, text="👤", font=("Segoe UI", 22,"bold"), bg="#7A68EE", fg="white").pack(pady=(18, 2))
-texto_clientes2=tk.Label(cliente, text="Nehemias", font=("Segoe UI", 15, "bold"), bg="#7A68EE", fg="white")
+texto_clientes1=tk.Label(cliente, text="👤", font=("Segoe UI", 22,"bold"), bg="#0F1C34", fg="#19C8FF").pack(pady=(18, 2))
+texto_clientes2=tk.Label(cliente, text="Nehemias", font=("Segoe UI", 15, "bold"), bg="#0F1C34", fg="white")
 texto_clientes2.pack()
-texto_clientes3=tk.Label(cliente, text="Mejor cliente", font=("Segoe UI", 11,"bold"), bg="#7A68EE", fg="#d0c8ff").pack()
+texto_clientes3=tk.Label(cliente, text="Mejor cliente", font=("Segoe UI", 11,"bold"), bg="#0F1C34", fg="#9FB6D9").pack()
 
 
-ingresos = tk.Frame(fila1, bg="#7A68EE", width=220, height=150)
+ingresos = tk.Frame(fila1, bg="#0F1C34", width=220, height=150)
 ingresos.pack(side="left", padx=15)
 ingresos.pack_propagate(False)
-texto_vingresos1=tk.Label(ingresos, text="💰", font=("Segoe UI", 22,"bold"), bg="#7A68EE", fg="white").pack(pady=(18, 2))
-texto_vingresos2=tk.Label(ingresos, text="$500", font=("Segoe UI", 15, "bold"), bg="#7A68EE", fg="white")
+texto_vingresos1=tk.Label(ingresos, text="💰", font=("Segoe UI", 22,"bold"), bg="#0F1C34", fg="#19C8FF").pack(pady=(18, 2))
+texto_vingresos2=tk.Label(ingresos, text="$500", font=("Segoe UI", 15, "bold"), bg="#0F1C34", fg="white")
 texto_vingresos2.pack()
-texto_vingresos3=tk.Label(ingresos, text="Total de ingresos", font=("Segoe UI", 11,"bold"), bg="#7A68EE", fg="#d0c8ff").pack()
+texto_vingresos3=tk.Label(ingresos, text="Total de ingresos", font=("Segoe UI", 11,"bold"), bg="#0F1C34", fg="#9FB6D9").pack()
 
 
 
-grafica_frame = tk.Frame(estadisticas_frame, bg="#2a2a3e", highlightbackground="#7A68EE", highlightthickness=2)
+grafica_frame = tk.Frame(estadisticas_frame, bg="#0F1C34", highlightbackground="#19C8FF", highlightthickness=2)
 grafica_frame.pack(padx=40, pady=15, fill="both", expand=True)
 
-grafica = tk.Label(grafica_frame, text="📊 Gráfica de ventas",font=("Segoe UI", 14,"bold"), bg="#2a2a3e", fg="#8B5CF6")
+grafica = tk.Label(grafica_frame, text="📊 Gráfica de ventas",font=("Segoe UI", 14,"bold"), bg="#0F1C34", fg="#19C8FF")
 grafica.pack(anchor="w", padx=20, pady=(15, 10))
 
 
@@ -344,47 +358,47 @@ grafica.pack(anchor="w", padx=20, pady=(15, 10))
 
 # REGISTRO DE VENTAS ___ FRAME DE VENTANA
 
-registro_frame = tk.Frame(screen, bg="#1e1e2e")
+registro_frame = tk.Frame(screen, bg="#000B22")
 
 #BARRA DE NAVEGACION
-nav_frame = tk.Frame(registro_frame, bg="#1e293b")
+nav_frame = tk.Frame(registro_frame, bg="#07142B")
 nav_frame.pack(fill="x", pady=(0, 10), ipady=(3), ipadx=10)
 
 menu_frame.columnconfigure(4, weight=1)
 
-menu_frame = tk.Frame(nav_frame, bg="#1e293b")
+menu_frame = tk.Frame(nav_frame, bg="#07142B")
 menu_frame.pack(anchor="center", expand=True)
 
 
-nombre_app = tk.Label(menu_frame,  text="¡Indago!", bg="#1e293b", width=18, height=2, font=("Arial", 12, "bold"), fg="#7A68EE", cursor="hand2")
+nombre_app = tk.Label(menu_frame,  text="¡Indago!", bg="#07142B", width=18, height=2, font=("Arial", 12, "bold"), fg="#19C8FF", cursor="hand2")
 nombre_app.grid(row=0, column=0, padx=10, pady=8)
 
-home_boton = tk.Label(menu_frame,  text="🏠 HOME", bg="#1e293b", width=18, height=2, font=("Arial", 12, "bold"), fg="#94a3b8", cursor="hand2")
+home_boton = tk.Label(menu_frame,  text="🏠 HOME", bg="#07142B", width=18, height=2, font=("Arial", 12, "bold"), fg="#D8E3F3", cursor="hand2")
 home_boton.grid(row=0, column=1, padx=10, pady=8)
 home_boton.bind("<Button-1>", lambda e: mostrar_home())
     
 
     
 registro_boton_barra = tk.Label(
-            menu_frame, text="📝 Registro", bg="#1e293b", width=18, height=2, font=("Arial", 12, "bold"), cursor="hand2",
-            fg="#ffffff")
+            menu_frame, text="📝 Registro", bg="#07142B", width=18, height=2, font=("Arial", 12, "bold"), cursor="hand2",fg="#19C8FF")
 registro_boton_barra.grid(row=0, column=2, padx=10, pady=8)
 registro_boton_barra.bind("<Button-1>", lambda e: mostrar_registro())
 
 
 
-estadisticas_boton_barra = tk.Label(menu_frame, text="📊 Estadisticas", bg="#1e293b", width=18, height=2, font=("Arial", 12, "bold"), cursor="hand2", fg="#94a3b8")
+estadisticas_boton_barra = tk.Label(menu_frame, text="📊 Estadisticas", bg="#07142B", width=18, height=2, font=("Arial", 12, "bold"), cursor="hand2", fg="#D8E3F3")
 estadisticas_boton_barra.grid(row=0, column=3, padx=10, pady=8)
 estadisticas_boton_barra.bind("<Button-1>", lambda e: mostrar_estadisticas())
 
-historial_boton_barra = tk.Label(menu_frame, text="📄 Historial", bg="#1e293b", width=18, height=2, font=("Arial", 12, "bold"), cursor="hand2", fg="#94a3b8")
+
+historial_boton_barra = tk.Label(menu_frame, text="📄 Historial", bg="#07142B", width=18, height=2, font=("Arial", 12, "bold"), cursor="hand2", fg="#D8E3F3")
 historial_boton_barra.grid(row=0, column=4, padx=10, pady=8)
 historial_boton_barra.bind("<Button-1>", lambda e: mostrar_historial())
 
 
 # Titulo
 tk.Label(registro_frame, text="Registrar venta",
-         bg="#1e1e2e", fg="#ffffff",
+         bg="#000B22", fg="#19C8FF",
          font=("Segoe UI", 30 , "bold")).pack(pady=(40, 30))
 
 # Campo con las 6 etiquetas
@@ -534,132 +548,310 @@ btn.bind("<Leave>", salir_mouse)
 
 
 ## HSITORIAL___FRAME___VENTANA
+historial_frame = tk.Frame(screen, bg="#000B22")
 
-historial_frame = tk.Frame(screen, bg="#1e1e2e")
+# ===================== BARRA DE NAVEGACIÓN =====================
 
-nav_frame = tk.Frame(historial_frame, bg="#1e293b")
-nav_frame.pack(fill="x", pady=(0, 0), ipady=(3), ipadx=10)
+nav_frame = tk.Frame(historial_frame, bg="#07142B")
+nav_frame.pack(fill="x", pady=(0, 0), ipady=3, ipadx=10)
 
+menu_frame = tk.Frame(nav_frame, bg="#07142B")
+menu_frame.pack(anchor="center", expand=True)
 
 menu_frame.columnconfigure(4, weight=1)
 
-menu_frame = tk.Frame(nav_frame, bg="#1e293b")
-menu_frame.pack(anchor="center", expand=True)
-
-nombre_app = tk.Label(menu_frame,  text="¡Indago!", bg="#1e293b", width=18, height=2, font=("Arial", 12, "bold"), fg="#7A68EE", cursor="hand2")
+nombre_app = tk.Label( menu_frame,text="¡Indago!",bg="#07142B",fg="#19C8FF",width=18,height=2,font=("Segoe UI", 12, "bold"),cursor="hand2")
 nombre_app.grid(row=0, column=0, padx=10, pady=8)
 
-home_boton = tk.Label(menu_frame,  text="🏠 HOME", bg="#1e293b", width=18, height=2, font=("Arial", 12, "bold"), fg="#94a3b8", cursor="hand2")
+home_boton = tk.Label(
+    menu_frame,
+    text="🏠 HOME",
+    bg="#07142B",
+    fg="#D8E3F3",
+    width=18,
+    height=2,
+    font=("Segoe UI", 12, "bold"),
+    cursor="hand2"
+)
 home_boton.grid(row=0, column=1, padx=10, pady=8)
 home_boton.bind("<Button-1>", lambda e: mostrar_home())
-    
 
- 
 registro_boton_barra = tk.Label(
-    menu_frame, text="📝 Registro", bg="#1e293b", width=18, height=2, font=("Arial", 12, "bold"), cursor="hand2",
-      fg="#94a3b8")
+    menu_frame,
+    text="📝 Registro",
+    bg="#07142B",
+    fg="#D8E3F3",
+    width=18,
+    height=2,
+    font=("Segoe UI", 12, "bold"),
+    cursor="hand2"
+)
 registro_boton_barra.grid(row=0, column=2, padx=10, pady=8)
 registro_boton_barra.bind("<Button-1>", lambda e: mostrar_registro())
 
-
-estadisticas_boton_barra = tk.Label(menu_frame, text="📊 Estadisticas", bg="#1e293b", width=18, height=2, font=("Arial", 12, "bold"), cursor="hand2", fg="#94a3b8")
+estadisticas_boton_barra = tk.Label(
+    menu_frame,
+    text="📊 Estadísticas",
+    bg="#07142B",
+    fg="#D8E3F3",
+    width=18,
+    height=2,
+    font=("Segoe UI", 12, "bold"),
+    cursor="hand2"
+)
 estadisticas_boton_barra.grid(row=0, column=3, padx=10, pady=8)
+
+
+
 estadisticas_boton_barra.bind("<Button-1>", lambda e: mostrar_estadisticas())
 
-historial_boton_barra = tk.Label(menu_frame, text="📄 Historial", bg="#1e293b", width=18, height=2, font=("Arial", 12, "bold"), cursor="hand2", fg="#94a3b8")
-historial_boton_barra.grid(row=0, column=4, padx=10, pady=8)
+historial_boton_barra = tk.Label(
+    menu_frame,
+    text="📄 Historial",
+    bg="#07142B",
+    fg="#19C8FF",
+    width=18,
+    height=2,
+    font=("Segoe UI", 12, "bold"),
+    cursor="hand2"
+)
+historial_boton_barra.grid(row=0, column=4, padx=10, pady=(8,2))
 historial_boton_barra.bind("<Button-1>", lambda e: mostrar_historial())
 
 
-# Titulo
-barra_ante_superior = tk.Frame(historial_frame, bg="#1e1e2e")
-barra_ante_superior.pack(anchor="w", pady=10)
-
-tk.Label(barra_ante_superior, text="Historial", bg="#1e1e2e", fg="white", font=("Arial", 16, "bold")).grid(row=0, column=0, padx=(30, 50), pady=(5, 5))
-
-buscar_label = tk.Label(barra_ante_superior, text="Ingresar número de venta:", font=("arial", 12, "bold"), fg="#cdd6f4", bg="#1e1e2e")
-buscar_label.grid(pady=5, row=0, column=2)
 
 
-borde_buscar = tk.Frame(barra_ante_superior, bg="#313145", highlightthickness=1)
-borde_buscar.grid(pady=5, padx=10, row=0, column=3)
+# Línea azul debajo del botón Historial
+linea_historial = tk.Frame(
+    menu_frame,
+    bg="#19C8FF",
+    width=120,
+    height=3
+)
+linea_historial.grid(row=1, column=4)
 
-#Barra de busqueda
+# ===================== TÍTULO =====================
 
-COLOR_NORMAL = "#3a3a55"
-COLOR_FOCUS  = "#7A68EE"
+barra_ante_superior = tk.Frame(historial_frame, bg="#000B22")
+barra_ante_superior.pack(anchor="w", pady=15)
 
-# 1) Canvas del campo de texto
-buscar_canvas = tk.Canvas(barra_ante_superior, width=320, height=44, bg="#1e1e2e", highlightthickness=0)
+tk.Label(
+    barra_ante_superior,
+    text="Historial",
+    bg="#000B22",
+    fg="#FFFFFF",
+    font=("Segoe UI", 20, "bold")
+).grid(row=0, column=0, padx=(30,50))
+
+buscar_label = tk.Label(
+    barra_ante_superior,
+    text="Ingresar número de venta:",
+    font=("Segoe UI",12,"bold"),
+    fg="#D8E3F3",
+    bg="#000B22"
+)
+buscar_label.grid(row=0, column=2, pady=5)
+
+borde_buscar = tk.Frame(
+    barra_ante_superior,
+    bg="#1E4C8C",
+    highlightthickness=1
+)
+borde_buscar.grid(row=0, column=3, padx=10, pady=5)
+
+# ===================== BARRA DE BÚSQUEDA =====================
+
+COLOR_NORMAL = "#1B4D8D"
+COLOR_FOCUS  = "#19C8FF"
+
+# Canvas del campo de búsqueda
+buscar_canvas = tk.Canvas(
+    barra_ante_superior,
+    width=320,
+    height=44,
+    bg="#000B22",
+    highlightthickness=0
+)
 buscar_canvas.grid(row=0, column=3, padx=10, pady=5)
 
-# 2) Rectángulo redondeado dentro del canvas
-rect_buscar = crear_rect_redondeado(buscar_canvas, 2, 2, 318, 42, radio=20, fill="#252538", outline=COLOR_NORMAL, width=2)
+# Rectángulo redondeado
+rect_buscar = crear_rect_redondeado(
+    buscar_canvas,
+    2,
+    2,
+    318,
+    42,
+    radio=20,
+    fill="#081B38",
+    outline=COLOR_NORMAL,
+    width=2
+)
 
-# 3) Entry real donde se escribe
-buscar_barra = tk.Entry(buscar_canvas, bg="#252538", fg="#fbfbfb", insertbackground="#fbfbfb", relief="flat", font=("Segoe UI", 12), bd=0)
-buscar_canvas.create_window(145, 22, window=buscar_barra, width=250, height=28)
+# Caja de texto
+buscar_barra = tk.Entry(
+    buscar_canvas,
+    bg="#081B38",
+    fg="#FFFFFF",
+    insertbackground="#FFFFFF",
+    relief="flat",
+    font=("Segoe UI", 12),
+    bd=0
+)
 
-# 4) Lupa decorativa
-buscar_canvas.create_text(295, 22, text="🔍", fill="#bdbdd7", font=("Segoe UI Emoji", 12))
+buscar_canvas.create_window(
+    145,
+    22,
+    window=buscar_barra,
+    width=250,
+    height=28
+)
+
+# Lupa
+buscar_canvas.create_text(
+    295,
+    22,
+    text="🔍",
+    fill="#19C8FF",
+    font=("Segoe UI Emoji", 12)
+)
 
 def al_enfocar(e):
-    buscar_canvas.itemconfig(rect_buscar, outline=COLOR_FOCUS, fill="#2c2c44")
+    buscar_canvas.itemconfig(
+        rect_buscar,
+        outline=COLOR_FOCUS,
+        fill="#102C57"
+    )
 
 def al_desenfocar(e):
-    buscar_canvas.itemconfig(rect_buscar, outline=COLOR_NORMAL, fill="#252538")
+    buscar_canvas.itemconfig(
+        rect_buscar,
+        outline=COLOR_NORMAL,
+        fill="#081B38"
+    )
 
 buscar_barra.bind("<FocusIn>", al_enfocar)
 buscar_barra.bind("<FocusOut>", al_desenfocar)
 
-# 5) La "tarjeta" (card) se crea ANTES del bind de Enter y del botón, porque ambos la necesitan 
- 
-
 
 # Contenedor que va a tener el Canvas + Scrollbar
-scroll_container = tk.Frame(historial_frame, bg="#2a2a3e")
-scroll_container.pack(fill="both", expand=True, padx=20, pady=5)
+scroll_container = tk.Frame(
+    historial_frame,
+    bg="#000B22"
+)
+scroll_container.pack(fill="both", expand=True, padx=20, pady=10)
 
 # Canvas donde vive el scroll
-historial_canvas = tk.Canvas(scroll_container, bg="#2a2a3e", highlightthickness=0)
+historial_canvas = tk.Canvas(
+    scroll_container,
+    bg="#000B22",
+    highlightthickness=0
+)
 historial_canvas.pack(side="left", fill="both", expand=True)
 
 # Barra de scroll
-historial_scrollbar = tk.Scrollbar(scroll_container, orient="vertical", command=historial_canvas.yview)
-historial_scrollbar.pack(side="right", fill="y")
+historial_scrollbar = tk.Scrollbar(
+    scroll_container,
+    orient="vertical",
+    bg="#07142B",
+    troughcolor="#000B22",
+    activebackground="#19C8FF",
+    width=20,
+    command=historial_canvas.yview
+)
+   
 
+historial_scrollbar.pack(side="right", fill="y", padx=(5,5))
 historial_canvas.configure(yscrollcommand=historial_scrollbar.set)
 
-# ESTA es la variable "card" que ya usa el resto de tu código sin cambios
-card = tk.Frame(historial_canvas, bg="#2a2a3e")
-historial_canvas.create_window((0, 0), window=card, anchor="nw")
+# Frame donde se dibujan las tarjetas
+card = tk.Frame(
+    historial_canvas,
+    bg="#000B22"
+)
+
+historial_canvas.create_window(
+    (0, 0),
+    window=card,
+    anchor="nw"
+)
 
 def actualizar_scroll_historial(event):
-    historial_canvas.configure(scrollregion=historial_canvas.bbox("all"))
+    historial_canvas.configure(
+        scrollregion=historial_canvas.bbox("all")
+    )
 
 card.bind("<Configure>", actualizar_scroll_historial)
 
-buscar_barra.bind("<Return>", lambda e: busqueda(buscar_barra, card, mostrar_edicion))
+buscar_barra.bind(
+    "<Return>",
+    lambda e: busqueda(
+        buscar_barra,
+        card,
+        mostrar_edicion
+    )
+)
+## --- Botón de buscar ---
 
-# --- Botón de buscar ---
-btn_buscar_canvas = tk.Canvas(barra_ante_superior, width=140, height=44, bg="#1e1e2e", highlightthickness=0, cursor="hand2")
+btn_buscar_canvas = tk.Canvas(
+    barra_ante_superior,
+    width=140,
+    height=44,
+    bg="#000B22",
+    highlightthickness=0,
+    cursor="hand2"
+)
+
 btn_buscar_canvas.grid(row=0, column=4, padx=10, pady=5)
 
-btn_rect = crear_rect_redondeado(btn_buscar_canvas, 2, 2, 138, 42, radio=20, fill="#7A68EE", outline="")
-btn_texto = btn_buscar_canvas.create_text(70, 22, text="Buscar", fill="white", font=("Segoe UI", 11, "bold"))
+
+btn_rect = crear_rect_redondeado(
+    btn_buscar_canvas,
+    2,
+    2,
+    138,
+    42,
+    radio=20,
+    fill="#1E6BFF",
+    outline=""
+)
+
+btn_texto = btn_buscar_canvas.create_text(
+    70,
+    22,
+    text="Buscar",
+    fill="#FFFFFF",
+    font=("Segoe UI", 11, "bold")
+)
+
 
 def btn_hover(e):
-    btn_buscar_canvas.itemconfig(btn_rect, fill="#9a8cff")
+    btn_buscar_canvas.itemconfig(
+        btn_rect,
+        fill="#19C8FF"
+    )
+
 
 def btn_salir(e):
-    btn_buscar_canvas.itemconfig(btn_rect, fill="#7A68EE")
+    btn_buscar_canvas.itemconfig(
+        btn_rect,
+        fill="#1E6BFF"
+    )
+
 
 def btn_presionar(e):
-    btn_buscar_canvas.itemconfig(btn_rect, fill="#5a4bd6")
+    btn_buscar_canvas.itemconfig(
+        btn_rect,
+        fill="#1554C0"
+    )
+
 
 def btn_soltar(e):
-    btn_buscar_canvas.itemconfig(btn_rect, fill="#9a8cff")
+    btn_buscar_canvas.itemconfig(
+        btn_rect,
+        fill="#19C8FF"
+    )
     busqueda(buscar_barra, card, mostrar_edicion)
+
 
 for item in (btn_rect, btn_texto):
     btn_buscar_canvas.tag_bind(item, "<Enter>", btn_hover)
@@ -667,89 +859,144 @@ for item in (btn_rect, btn_texto):
     btn_buscar_canvas.tag_bind(item, "<ButtonPress-1>", btn_presionar)
     btn_buscar_canvas.tag_bind(item, "<ButtonRelease-1>", btn_soltar)
 
-mensaje = tk.Label(card, text="Tus registros", bg="#2a2a3e", fg="white", font=("Arial", 11, "bold"))
-mensaje.place(relx=0.5, rely=0.5, anchor="center")
-
-
-# Tarjeta
-#card = tk.Frame(historial_frame, bg="#2a2a3e")
-#card.pack(fill="both", expand=True, padx=20, pady=5)
-
 
 mensaje = tk.Label(
     card,
     text="Tus registros",
-    bg="#2a2a3e",
-    fg="white",
-    font=("Arial", 11, "bold")
+    bg="#000B22",
+    fg="#FFFFFF",
+    font=("Segoe UI", 11, "bold")
 )
-mensaje.place(relx=0.5, rely=0.5,
-              anchor="center")
+
+mensaje.place(
+    relx=0.5,
+    rely=0.5,
+    anchor="center"
+)
+
+### EDICION FRAME
+
+edicion_frame = tk.Frame(screen, bg="#000B22")
+
+# BARRA DE NAVEGACION
+nav_frame = tk.Frame(edicion_frame, bg="#07142B")
+nav_frame.pack(fill="x", pady=(0, 10), ipady=3, ipadx=10)
 
 
-
-### EDICION FRAME YEEEEEEEEEEEEEEEEEEEEEEEEEEE
-edicion_frame = tk.Frame(screen, bg="#1e1e2e")
-
-#BARRA DE NAVEGACION
-nav_frame = tk.Frame(edicion_frame, bg="#1e293b")
-nav_frame.pack(fill="x", pady=(0, 10), ipady=(3), ipadx=10)
+menu_frame = tk.Frame(nav_frame, bg="#07142B")
+menu_frame.pack(anchor="center", expand=True)
 
 menu_frame.columnconfigure(4, weight=1)
 
-menu_frame = tk.Frame(nav_frame, bg="#1e293b")
-menu_frame.pack(anchor="center", expand=True)
 
-
-nombre_app = tk.Label(menu_frame,  text="VentaCore", bg="#1e293b", width=18, height=2, font=("Arial", 12, "bold"), fg="#7A68EE", cursor="hand2")
+nombre_app = tk.Label(
+    menu_frame,
+    text="VentaCore",
+    bg="#07142B",
+    width=18,
+    height=2,
+    font=("Segoe UI", 12, "bold"),
+    fg="#19C8FF",
+    cursor="hand2"
+)
 nombre_app.grid(row=0, column=0, padx=10, pady=8)
 
-home_boton = tk.Label(menu_frame,  text="🏠 HOME", bg="#1e293b", width=18, height=2, font=("Arial", 12, "bold"), fg="#94a3b8", cursor="hand2")
+
+home_boton = tk.Label(
+    menu_frame,
+    text="🏠 HOME",
+    bg="#07142B",
+    width=18,
+    height=2,
+    font=("Segoe UI", 12, "bold"),
+    fg="#D8E3F3",
+    cursor="hand2"
+)
 home_boton.grid(row=0, column=1, padx=10, pady=8)
 home_boton.bind("<Button-1>", lambda e: mostrar_home())
-    
 
-    
+
+
 registro_boton_barra = tk.Label(
-            menu_frame, text="📝 Registro", bg="#1e293b", width=18, height=2, font=("Arial", 12, "bold"), cursor="hand2",
-            fg="#94a3b8")
+    menu_frame,
+    text="📝 Registro",
+    bg="#07142B",
+    width=18,
+    height=2,
+    font=("Segoe UI", 12, "bold"),
+    fg="#D8E3F3",
+    cursor="hand2"
+)
 registro_boton_barra.grid(row=0, column=2, padx=10, pady=8)
 registro_boton_barra.bind("<Button-1>", lambda e: mostrar_registro())
 
 
 
-estadisticas_boton_barra = tk.Label(menu_frame, text="📊 Estadisticas", bg="#1e293b", width=18, height=2, font=("Arial", 12, "bold"), cursor="hand2", fg="#94a3b8")
+estadisticas_boton_barra = tk.Label(
+    menu_frame,
+    text="📊 Estadísticas",
+    bg="#07142B",
+    width=18,
+    height=2,
+    font=("Segoe UI", 12, "bold"),
+    fg="#D8E3F3",
+    cursor="hand2"
+)
 estadisticas_boton_barra.grid(row=0, column=3, padx=10, pady=8)
 estadisticas_boton_barra.bind("<Button-1>", lambda e: mostrar_estadisticas())
 
-historial_boton_barra = tk.Label(menu_frame, text="📄 Historial", bg="#1e293b", width=18, height=2, font=("Arial", 12, "bold"), cursor="hand2", fg="#ffffff")
+
+
+historial_boton_barra = tk.Label(
+    menu_frame,
+    text="📄 Historial",
+    bg="#07142B",
+    width=18,
+    height=2,
+    font=("Segoe UI", 12, "bold"),
+    fg="#19C8FF",
+    cursor="hand2"
+)
 historial_boton_barra.grid(row=0, column=4, padx=10, pady=8)
 historial_boton_barra.bind("<Button-1>", lambda e: mostrar_historial())
 
 
+# Línea activa debajo de Historial
+linea_activa = tk.Frame(
+    menu_frame,
+    bg="#19C8FF",
+    height=3,
+    width=120
+)
+
+linea_activa.grid(row=1, column=4, pady=(0, 3))
+
+
 # Titulo
 tk.Label(edicion_frame, text="Editar venta",
-         bg="#1e1e2e", fg="#ffffff",
+         bg="#000B22", fg="#FFFFFF",
          font=("Segoe UI", 30, "bold")).pack(pady=(40, 30))
 
 # Campo con las 6 etiquetas
-form_frame = tk.Frame(edicion_frame, bg="#1e1e2e")
+form_frame = tk.Frame(edicion_frame, bg="#000B22")
 form_frame.pack(padx=120, fill="x")
 
-left_col = tk.Frame(form_frame, bg="#1e1e2e")
+left_col = tk.Frame(form_frame, bg="#000B22")
 left_col.pack(side="left", fill="both", expand=True, padx=(0, 40))
 
-right_col = tk.Frame(form_frame, bg="#1e1e2e")
+right_col = tk.Frame(form_frame, bg="#000B22")
 right_col.pack(side="left", fill="both", expand=True, padx=(40, 0))
 
 entries_edicion = {}
 
 def make_field(parent, key, label_text):
-    tk.Label(parent, text=label_text, bg="#1e1e2e",
-             fg="#ffffff", font=("Segoe UI", 12, "bold")).pack(anchor="w")
-    entry = tk.Entry(parent, bg="#313145", fg="#cdd6f4",
-                     insertbackground="#cdd6f4", relief="flat",
+    tk.Label(parent, text=label_text, bg="#000B22",
+             fg="#D8E3F3", font=("Segoe UI", 12, "bold")).pack(anchor="w")
+    
+    entry = tk.Entry(parent, bg="#07142B", fg="#FFFFFF",
+                     insertbackground="#FFFFFF", relief="flat",
                      font=("Segoe UI", 13))
+    
     entry.pack(fill="x", pady=(4, 60), ipady=10)
     entries_edicion[key] = entry
 
@@ -760,25 +1007,25 @@ make_field(left_col,  "cantidad",  "Cantidad de unidades:")
 # Columna derecha
 make_field(right_col, "producto",  "Producto vendido:")
 
-tk.Label(right_col, text="Precio unitario:", bg="#1e1e2e",
-         fg="#ffffff", font=("Segoe UI", 12,"bold")).pack(anchor="w")
+tk.Label(right_col, text="Precio unitario:", bg="#000B22",
+         fg="#D8E3F3", font=("Segoe UI", 12,"bold")).pack(anchor="w")
 
-precio_frame = tk.Frame(right_col, bg="#313145")
+precio_frame = tk.Frame(right_col, bg="#07142B")
 precio_frame.pack(fill="x", pady=(4, 60))
 
-tk.Label(precio_frame, text="$", bg="#313145", fg="#cdd6f4",
+tk.Label(precio_frame, text="$", bg="#07142B", fg="#D8E3F3",
          font=("Segoe UI", 13)).pack(side="left", padx=(10, 0), ipady=10)
 
-entry_precio = tk.Entry(precio_frame, bg="#313145", fg="#cdd6f4",
-                        insertbackground="#cdd6f4", relief="flat",
+entry_precio = tk.Entry(precio_frame, bg="#07142B", fg="#FFFFFF",
+                        insertbackground="#FFFFFF", relief="flat",
                         font=("Segoe UI", 13))
+
 entry_precio.pack(side="left", fill="x", expand=True, ipady=10)
 
 entries_edicion["precio"] = entry_precio
 
 
-from tkinter import messagebox 
-
+from tkinter import messagebox
 
 def limpiar_campos_edicion():
    for campo in entries_edicion.values():
