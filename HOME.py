@@ -147,6 +147,7 @@ nombre_app.grid(row=0, column=0, padx=10, pady=8)
 
 home_boton = tk.Label(menu_frame,text="🏠 HOME",bg="#07142B",fg="#19C8FF",width=18,height=2,font=("Segoe UI", 12, "bold"),cursor="hand2")
 home_boton.grid(row=0, column=1, padx=10, pady=8)
+
 linea_home = tk.Frame(
     menu_frame,
     bg="#19C8FF",
@@ -186,23 +187,59 @@ historial_boton_barra.bind("<Button-1>", lambda e: mostrar_historial())
 
 #FIN DE BARRA DE NAVEGACION
 
-welcome_label = tk.Label(home_frame, text="¡Bienvenido a VentasCore!", bg="#000B22", font=("sans-serif", 24, "bold"), fg="#19C8FF")
-welcome_label.pack(pady=(60, 20))
 
-espacio = tk.Label(home_frame, bg="#2563EB")
-espacio.pack(pady=10, fill="x")
+welcome_label = tk.Label(
+    home_frame,
+    text="VentasCore",
+    bg="#000B22",
+    fg="#00D4FF",
+    font=("Segoe UI", 40, "bold")
+)
+welcome_label.pack(pady=(55, 5))
 
-binvenida_label = tk.Label(home_frame, text="¿Listo para comenzar?", font=("arial",20,"bold italic"), fg="#D8E3F3", bg="#000B22")
-binvenida_label.pack(pady=30)
+subtitle_label = tk.Label(
+    home_frame,
+    text="Sistema de gestión de ventas",
+    bg="#000B22",
+    fg="#A8B8D8",
+    font=("Segoe UI", 15)
+)
+subtitle_label.pack(pady=(0, 35))
+
+espacio = tk.Label(
+    home_frame,
+    bg="#0F1C34",
+    height=1
+)
+espacio.pack(fill="x", pady=(0, 40))
+
+binvenida_label = tk.Label(
+    home_frame,
+    text="¿Listo para comenzar?",
+    bg="#000B22",
+    fg="#F8FAFC",
+    font=("Segoe UI", 20, "bold")
+)
+binvenida_label.pack(pady=(5, 10))
 
 
-botones_frame = tk.Frame(home_frame, bg="#000B22", pady=20, padx=20)
-botones_frame.pack(pady=20)
+botones_frame = tk.Frame(home_frame,bg="#000B22")
+botones_frame.pack(pady=(15, 35))
 
 #NO se usan pack y grid juntos een un mismo elemento. Escoje uno, a mi daba errorj
 
-registro_boton = tk.Label(botones_frame, text="Registrar venta 🛒", font=("arial", 14, ), fg="#ffffff", cursor="hand2", bg="#2563EB",
-     width=20, height=2)
+registro_boton = tk.Label(
+    botones_frame,
+    text="🛒  Registrar Venta",
+    bg="#1D4ED8",
+    fg="#FFFFFF",
+    font=("Segoe UI", 13, "bold"),
+    cursor="hand2",
+    width=24,
+    height=2,
+    bd=0,
+    relief="flat"
+)
 
 
 
@@ -227,9 +264,15 @@ registro_boton.bind("<Button-1>", lambda e: mostrar_registro())
 
 #LINK
 
-buscar_boton_act = tk.Label(home_frame, text="Mantén tus compras organizadas", font=("arial", 18, "bold"), fg="#19C8FF", cursor="hand2", bg="#000B22", 
-    height=3)
-buscar_boton_act.pack(pady=5, ipady=10, ipadx=10)
+buscar_boton_act = tk.Label(
+    home_frame,
+    text="Controla tus ventas de forma rápida y sencilla",
+    bg="#000B22",
+    fg="#94A3B8",
+    font=("Segoe UI", 20),
+    height=2
+)
+buscar_boton_act.pack(pady=(10, 0))
 
 
 
@@ -528,8 +571,9 @@ def guardar_datos_ventas():
         return
 
     br.guardar_ventas(venta)
-    limpiar_campos_registro()
     lbl_status.config(text="Venta guardada correctamente.")
+    limpiar_campos_registro()
+
 
 # Boton
 btn = tk.Button(

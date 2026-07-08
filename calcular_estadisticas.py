@@ -32,7 +32,7 @@ def calcular_estadisticas():
     # Cuenta cuántas ventas hizo cada cliente
     contador_cliente = {}
     for pelota in compras["Ventas_registradas"]:
-        cliente = pelota["cliente"]
+        cliente = pelota["cliente"].capitalize()
         if cliente in contador_cliente:
             contador_cliente[cliente] += 1
         else:
@@ -46,7 +46,7 @@ def calcular_estadisticas():
     # Suma cuántas unidades se vendieron de cada producto
     contador_producto = {}
     for product in compras["Ventas_registradas"]:
-        producto = product["producto"]
+        producto = product["producto"].capitalize()
         cantidad = float(product["cantidad"])
         if producto in contador_producto:
             contador_producto[producto] += cantidad
