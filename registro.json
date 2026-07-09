@@ -1,5 +1,5 @@
 {
-  "ultimo_id_para_sumar": 22,
+  "ultimo_id_para_sumar": 23,
   "Ventas_registradas": [
     {
       "cliente": "ISIS",
@@ -20,7 +20,7 @@
       "fecha": "2026-07-08"
     },
     {
-      "cliente": "DIEGO",
+      "cliente": "Diego",
       "producto": "Mochila",
       "cantidad": "10",
       "precio": "10",
@@ -53,6 +53,15 @@
       "precio": "10",
       "total": 10.0,
       "num_venta": 22,
+      "fecha": "2026-07-08"
+    },
+    {
+      "cliente": "Diegaso",
+      "producto": "Iphone",
+      "cantidad": "10",
+      "precio": "200",
+      "total": 2000.0,
+      "num_venta": 23,
       "fecha": "2026-07-08"
     }
   ]

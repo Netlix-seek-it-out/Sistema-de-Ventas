@@ -1,10 +1,16 @@
 import json
 from datetime import datetime  # para trabajar con fechas
-
+import os
 
 def calcular_estadisticas():
+
+    ## Ruta para que funcione en un fork :D
+    
+    carpeta_actual = os.path.dirname(os.path.abspath(__file__))
+    ruta_json = os.path.join(carpeta_actual, "registro.json")
+
     # Abrimos y leemos el archivo donde se guardan todas las ventas
-    with open("registro.json", "r", encoding="utf-8") as bd:
+    with open(ruta_json, "r", encoding="utf-8") as bd:
         compras = json.load(bd)
 
     estaditicas = {}

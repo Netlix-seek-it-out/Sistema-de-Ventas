@@ -2,7 +2,7 @@ import json
 from tkinter import messagebox
 import tkinter as tk
 from eliminar_venta import eliminar_venta
-#from cargar_historial import cargar_historial
+import os
 
 
 def busqueda(valor_buscar):
@@ -30,7 +30,13 @@ def busqueda(valor_buscar, padre, abrir_edicion):
         return
 
     # 3. Lee el archivo con todas las ventas
-    with open("registro.json", "r", encoding="utf-8") as bd:
+
+    ## Ruta para que funcione en un fork :D
+    
+    carpeta_actual = os.path.dirname(os.path.abspath(__file__))
+    ruta_json = os.path.join(carpeta_actual, "registro.json")
+
+    with open(ruta_json, "r", encoding="utf-8") as bd:
         compras = json.load(bd)
 
     # 4. Busca la venta con ese número

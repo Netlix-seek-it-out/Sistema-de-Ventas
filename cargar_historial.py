@@ -1,6 +1,10 @@
 import json
 import tkinter as tk
 from eliminar_venta import eliminar_venta
+import os
+
+
+
 
 
 def cargar_historial(padre, abrir_edicion):
@@ -8,8 +12,13 @@ def cargar_historial(padre, abrir_edicion):
     for widget in padre.winfo_children():
         widget.destroy()
 
-
-    with open("registro.json", "r", encoding="utf-8") as bd:
+        
+## Ruta para que funcione en un fork :D
+    
+    carpeta_actual = os.path.dirname(os.path.abspath(__file__))
+    ruta_json = os.path.join(carpeta_actual, "registro.json")
+    
+    with open(ruta_json, "r", encoding="utf-8") as bd:
         compras = json.load(bd)
    
     ventas_diccionario = compras["Ventas_registradas"]
