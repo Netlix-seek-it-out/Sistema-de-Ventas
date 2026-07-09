@@ -1,5 +1,5 @@
 {
-  "ultimo_id_para_sumar": 24,
+  "ultimo_id_para_sumar": 26,
   "Ventas_registradas": [
     {
       "cliente": "ISIS",
@@ -72,6 +72,24 @@
       "total": 4000.0,
       "num_venta": 24,
       "fecha": "2026-07-08"
+    },
+    {
+      "cliente": "Any",
+      "producto": "Pan dulce",
+      "cantidad": "4",
+      "precio": "2.75",
+      "total": 11.0,
+      "num_venta": 25,
+      "fecha": "2026-07-09"
+    },
+    {
+      "cliente": "Alejandro",
+      "producto": "Monsters",
+      "cantidad": "12",
+      "precio": "2.75",
+      "total": 33.0,
+      "num_venta": 26,
+      "fecha": "2026-07-09"
     }
   ]
 }

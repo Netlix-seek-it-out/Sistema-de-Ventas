@@ -1163,6 +1163,4 @@ def salir_mouse(e):
 btn.bind("<Enter>", entrar_mouse)
 btn.bind("<Leave>", salir_mouse)
 
-
-
 screen.mainloop()
