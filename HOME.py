@@ -906,7 +906,7 @@ def btn_soltar(e):
         btn_rect,
         fill="#19C8FF"
     )
-    ejecutar_busqueda()
+    lambda e: ejecutar_busqueda()
 
 
 for item in (btn_rect, btn_texto):

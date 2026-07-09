@@ -2,19 +2,21 @@ import json
 from tkinter import messagebox
 import tkinter as tk
 from eliminar_venta import eliminar_venta
+import os
 #from cargar_historial import cargar_historial
 
 
-def busqueda(valor_buscar):
+
+
+
+def busqueda(valor_buscar, padre, abrir_edicion, historial_canvas):
+
     try:
         valor = int(valor_buscar.get())
         
     except ValueError:
         messagebox.showerror("ERROR", "ingrese el numero de venta")
     
-
-
-def busqueda(valor_buscar, padre, abrir_edicion):
     # 1. Obtenemos el texto que el usuario escribió
     texto = valor_buscar.get().strip()
 
@@ -28,9 +30,12 @@ def busqueda(valor_buscar, padre, abrir_edicion):
     except ValueError:
         messagebox.showerror("ERROR", "Ingresa solo el número de venta (ejemplo: 5)")
         return
+        ## Ruta para que funcione en un fork :D
+    
+    carpeta_actual = os.path.dirname(os.path.abspath(__file__))
+    ruta_json = os.path.join(carpeta_actual, "registro.json") 
 
-    # 3. Leemos el archivo con todas las ventas
-    with open("registro.json", "r", encoding="utf-8") as bd:
+    with open(ruta_json, "r", encoding="utf-8") as bd:
         compras = json.load(bd)
 
     # 4. Buscamos la venta con ese número
