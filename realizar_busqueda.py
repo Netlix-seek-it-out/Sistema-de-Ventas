@@ -76,8 +76,8 @@ def busqueda(valor_buscar, padre, abrir_edicion, historial_canvas):
 
     tk.Button(acciones_frame, text="Editar",
             command=lambda venta=encontrada: abrir_edicion(venta),
-        bg="#7A68EE", width=10, height=2, font=("arial", 10, "bold"), fg="#fbfbfb", 
-        cursor="hand2").pack(pady=5, padx=10)
+        bg="#1D4ED8", width=10, height=2, font=("arial", 10, "bold"), fg="#fbfbfb", 
+        cursor="hand2").pack(pady=15, padx=10)
 
 ## Funcion parab eliminar el resultado yey
 
@@ -97,5 +97,5 @@ def busqueda(valor_buscar, padre, abrir_edicion, historial_canvas):
             font=("arial", 10, "bold"), 
             fg="#fbfbfb", 
             cursor="hand2", 
-            command=eliminar_resultado).pack(pady=5, padx=10)
+            command=eliminar_resultado).pack(pady=15, padx=10)
 
