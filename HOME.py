@@ -113,6 +113,24 @@ def ejecutar_busqueda():
 
 screen = tk.Tk()
 
+logo_original = tk.PhotoImage(file="ventacore (2).gif")
+logo = logo_original.subsample(11, 11)
+
+def agregar_logo(parent, fila, columna):
+    canvas = tk.Canvas(
+        parent,
+        width=70,
+        height=70,
+        bg="#07142B",
+        highlightthickness=0
+    )
+
+    canvas.grid(row=fila, column=columna, padx=10, pady=5)
+
+    canvas.create_image(35, 35, image=logo)
+
+    canvas.image = logo
+
 screen.title("HOME")
 
 screen.geometry("1200x600")
@@ -135,6 +153,7 @@ menu_frame.pack(anchor="center", expand=True)
 
 
 menu_frame.columnconfigure(4, weight=1)
+agregar_logo(menu_frame, 0, 0)
 
 
 #columnconfigure funciona así: el primer parametro es el indie en donde se encuentra la columna, y la segunda opcion, el weight, es el peso, o la importancia que tiene, si tiene weight=1, el widget cubrirá todo el espacio sobrante. Si uuno tiene un weight de 2, cubrirá más espacio del sobrante.
@@ -171,19 +190,22 @@ registro_boton_barra.grid(row=0, column=2, padx=10, pady=8)
 registro_boton_barra.bind("<Button-1>", lambda e: mostrar_registro())
 
 
-
-
 estadisticas_boton_barra = tk.Label(menu_frame, text="📊 Estadisticas", bg="#07142B", width=18, height=2, font=("Arial", 12, "bold"), cursor="hand2", fg="#D8E3F3")
 estadisticas_boton_barra.grid(row=0, column=3, padx=10, pady=8)
 estadisticas_boton_barra.bind("<Button-1>", lambda e: mostrar_estadisticas())
 
 
-
-
-
 historial_boton_barra = tk.Label(menu_frame, text="📄 Historial", bg="#07142B", width=18, height=2, font=("Arial", 12, "bold"), cursor="hand2", fg="#D8E3F3")
 historial_boton_barra.grid(row=0, column=4, padx=10, pady=8)
 historial_boton_barra.bind("<Button-1>", lambda e: mostrar_historial())
+
+nombre_app.grid(row=0, column=1)
+home_boton.grid(row=0, column=2)
+registro_boton_barra.grid(row=0, column=3)
+estadisticas_boton_barra.grid(row=0, column=4)
+historial_boton_barra.grid(row=0, column=5)
+
+
 
 #FIN DE BARRA DE NAVEGACION
 
@@ -289,6 +311,7 @@ nav_frame.pack(fill="x", pady=(0, 0), ipady=3, ipadx=10)
 menu_frame = tk.Frame(nav_frame, bg="#07142B")
 menu_frame.pack(anchor="center", expand=True)
 menu_frame.columnconfigure(4, weight=1)
+agregar_logo(menu_frame, 0, 0)
 
 
 nombre_app = tk.Label( menu_frame,text="¡VentasCore!",bg="#07142B",fg="#19C8FF",width=18,height=2,font=("Segoe UI", 12, "bold"),cursor="hand2")
@@ -328,8 +351,6 @@ linea_estadisticas.grid(
 historial_boton_barra = tk.Label(menu_frame, text="📄 Historial", bg="#07142B", width=18, height=2, font=("Arial", 12, "bold"), cursor="hand2", fg="#D8E3F3")
 historial_boton_barra.grid(row=0, column=4, padx=10, pady=8)
 historial_boton_barra.bind("<Button-1>", lambda e: mostrar_historial())
-
-
 
 
 titulo = tk.Label(estadisticas_frame, text="📊 Estadísticas", font=("Segoe UI", 35, "bold"), bg="#000B22", fg="#19C8FF")
@@ -387,9 +408,11 @@ grafica = tk.Label(grafica_frame, text="📊 Gráfica de ventas",font=("Segoe UI
 grafica.pack(anchor="w", padx=20, pady=(15, 10))
 
 
-
-
-
+nombre_app.grid(row=0, column=1)
+home_boton.grid(row=0, column=2)
+registro_boton_barra.grid(row=0, column=3)
+estadisticas_boton_barra.grid(row=0, column=4)
+historial_boton_barra.grid(row=0, column=5)
 
 
 # REGISTRO DE VENTAS ___ FRAME DE VENTANA
@@ -400,11 +423,12 @@ registro_frame = tk.Frame(screen, bg="#000B22")
 nav_frame = tk.Frame(registro_frame, bg="#07142B")
 nav_frame.pack(fill="x", pady=(0, 10), ipady=(3), ipadx=10)
 
-menu_frame.columnconfigure(4, weight=1)
-
 menu_frame = tk.Frame(nav_frame, bg="#07142B")
 menu_frame.pack(anchor="center", expand=True)
 
+menu_frame.columnconfigure(4, weight=1)
+
+agregar_logo(menu_frame, 0, 0)
 
 nombre_app = tk.Label(menu_frame,  text="¡VentasCore!", bg="#07142B", width=18, height=2, font=("Arial", 12, "bold"), fg="#19C8FF", cursor="hand2")
 nombre_app.grid(row=0, column=0, padx=10, pady=8)
@@ -605,9 +629,14 @@ def salir_mouse(e):
 btn.bind("<Enter>", entrar_mouse)
 btn.bind("<Leave>", salir_mouse)
 
+nombre_app.grid(row=0, column=1)
+home_boton.grid(row=0, column=2)
+registro_boton_barra.grid(row=0, column=3)
+estadisticas_boton_barra.grid(row=0, column=4)
+historial_boton_barra.grid(row=0, column=5)
 
 
-## HSITORIAL___FRAME___VENTANA
+## HISTORIAL___FRAME___VENTANA
 historial_frame = tk.Frame(screen, bg="#000B22")
 
 # ===================== BARRA DE NAVEGACIÓN =====================
@@ -619,6 +648,7 @@ menu_frame = tk.Frame(nav_frame, bg="#07142B")
 menu_frame.pack(anchor="center", expand=True)
 
 menu_frame.columnconfigure(4, weight=1)
+agregar_logo(menu_frame, 0, 0)
 
 nombre_app = tk.Label( menu_frame,text="¡VentasCore!",bg="#07142B",fg="#19C8FF",width=18,height=2,font=("Segoe UI", 12, "bold"),cursor="hand2")
 nombre_app.grid(row=0, column=0, padx=10, pady=8)
@@ -930,6 +960,13 @@ mensaje.place(
     anchor="center"
 )
 
+nombre_app.grid(row=0, column=1)
+home_boton.grid(row=0, column=2)
+registro_boton_barra.grid(row=0, column=3)
+estadisticas_boton_barra.grid(row=0, column=4)
+historial_boton_barra.grid(row=0, column=5)
+
+
 ### EDICION FRAME
 
 edicion_frame = tk.Frame(screen, bg="#000B22")
@@ -944,6 +981,7 @@ menu_frame.pack(anchor="center", expand=True)
 
 menu_frame.columnconfigure(4, weight=1)
 
+agregar_logo(menu_frame, 0, 0)
 
 nombre_app = tk.Label(
     menu_frame,
@@ -1089,6 +1127,11 @@ entry_precio.pack(side="left", fill="x", expand=True, ipady=10)
 
 entries_edicion["precio"] = entry_precio
 
+nombre_app.grid(row=0, column=1)
+home_boton.grid(row=0, column=2)
+registro_boton_barra.grid(row=0, column=3)
+estadisticas_boton_barra.grid(row=0, column=4)
+historial_boton_barra.grid(row=0, column=5)
 
 from tkinter import messagebox
 
