@@ -106,7 +106,7 @@ def mostrar_edicion(venta=None):
     edicion_frame.pack(fill="both", expand=True)
 
 def ejecutar_busqueda():
-    busqueda(buscar_barra, card, mostrar_edicion)
+    busqueda(buscar_barra, card, mostrar_edicion, historial_canvas)
     historial_canvas.update_idletasks()
     historial_canvas.configure(scrollregion=historial_canvas.bbox("all"))
     historial_canvas.yview_moveto(0)
@@ -844,11 +844,7 @@ card.bind("<Configure>", actualizar_scroll_historial)
 
 buscar_barra.bind(
     "<Return>",
-    lambda e: busqueda(
-        buscar_barra,
-        card,
-        mostrar_edicion
-    )
+    lambda e: ejecutar_busqueda()
 )
 ## --- Botón de buscar ---
 
@@ -910,7 +906,7 @@ def btn_soltar(e):
         btn_rect,
         fill="#19C8FF"
     )
-    busqueda(buscar_barra, card, mostrar_edicion)
+    ejecutar_busqueda()
 
 
 for item in (btn_rect, btn_texto):
