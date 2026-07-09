@@ -28,7 +28,7 @@ def cargar_historial(padre, abrir_edicion):
         columna_sola = i % columnas
 
         venta_frame = tk.Frame(padre, bg="#313145")
-        venta_frame.grid(row=fila, column=columna_sola, pady=20, padx=22, ipadx=8, ipady=5, sticky="n")
+        venta_frame.grid(row=fila, column=columna_sola, pady=20, padx=22, ipadx=8, ipady=5, sticky="nsew")
 
         datos_frame = tk.Frame(venta_frame, bg="#313145")
         datos_frame.pack(side="left", fill="x", expand=True)
