@@ -1,5 +1,5 @@
 {
-  "ultimo_id_para_sumar": 20,
+  "ultimo_id_para_sumar": 22,
   "Ventas_registradas": [
     {
       "cliente": "ISIS",
@@ -35,6 +35,24 @@
       "precio": "10",
       "total": 100.0,
       "num_venta": 20,
+      "fecha": "2026-07-08"
+    },
+    {
+      "cliente": "Mayra",
+      "producto": "Galletas",
+      "cantidad": "10",
+      "precio": "0.50",
+      "total": 5.0,
+      "num_venta": 21,
+      "fecha": "2026-07-08"
+    },
+    {
+      "cliente": "Owenaso",
+      "producto": "Airpords",
+      "cantidad": "1",
+      "precio": "10",
+      "total": 10.0,
+      "num_venta": 22,
       "fecha": "2026-07-08"
     }
   ]

@@ -20,7 +20,7 @@ def cargar_historial(padre, abrir_edicion):
     ## Configurando la forma y el espacio que abracara cada columna
 
     for col in range(3):
-        padre.grid_columnconfigure(col, weight=2)
+        padre.grid_columnconfigure(col, weight=1)
 
     for i, venta in enumerate(ventas_diccionario):
 
@@ -28,7 +28,7 @@ def cargar_historial(padre, abrir_edicion):
         columna_sola = i % columnas
 
         venta_frame = tk.Frame(padre, bg="#313145")
-        venta_frame.grid(row=fila, column=columna_sola, pady=20, padx=35, ipadx=8, ipady=5)
+        venta_frame.grid(row=fila, column=columna_sola, pady=20, padx=22, ipadx=8, ipady=5, sticky="n")
 
         datos_frame = tk.Frame(venta_frame, bg="#313145")
         datos_frame.pack(side="left", fill="x", expand=True)
@@ -38,13 +38,13 @@ def cargar_historial(padre, abrir_edicion):
         acciones_frame.pack(side="right", padx=20)
 
 
-        tk.Label(datos_frame, text=f"📦 Venta #{venta['num_venta']}", bg="#313145", fg="white", font=("Arial", 12, "bold")).pack(anchor="w", pady=4)
-        tk.Label(datos_frame, text=f"👤 Cliente: {venta['cliente']}", bg="#313145", fg="white", font=("Arial", 12, "bold")).pack(anchor="w", pady=4)
-        tk.Label(datos_frame, text=f"📦 Producto: {venta['producto']}", bg="#313145", fg="white", font=("Arial", 12, "bold")).pack(anchor="w", pady=4)
-        tk.Label(datos_frame, text=f"🔢 Cantidad: {venta['cantidad']}", bg="#313145", fg="white", font=("Arial", 12, "bold")).pack(anchor="w", pady=4)
-        tk.Label(datos_frame, text=f"💲 Precio: ${venta['precio']}", bg="#313145", fg="white", font=("Arial", 12, "bold")).pack(anchor="w", pady=4)
-        tk.Label(datos_frame, text=f"🟰 Total: ${venta['total']}", bg="#313145", fg="white", font=("Arial", 12, "bold")).pack(anchor="w", pady=4)
-        tk.Label(datos_frame, text=f"📅 Fecha: {venta.get('fecha', 'Sin fecha')}", bg="#313145", fg="white", font=("Arial", 12, "bold")).pack(anchor="w", pady=4)
+        tk.Label(datos_frame, text=f"📦 Venta #{venta['num_venta']}", bg="#313145", fg="white", font=("Arial", 12, "bold")).pack(anchor="w", pady=4, padx=10)
+        tk.Label(datos_frame, text=f"👤 Cliente: {venta['cliente']}", bg="#313145", fg="white", font=("Arial", 12, "bold")).pack(anchor="w", pady=4, padx=10)
+        tk.Label(datos_frame, text=f"📦 Producto: {venta['producto']}", bg="#313145", fg="white", font=("Arial", 12, "bold")).pack(anchor="w", pady=4, padx=10)
+        tk.Label(datos_frame, text=f"🔢 Cantidad: {venta['cantidad']}", bg="#313145", fg="white", font=("Arial", 12, "bold")).pack(anchor="w", pady=4, padx=10)
+        tk.Label(datos_frame, text=f"💲 Precio: ${venta['precio']}", bg="#313145", fg="white", font=("Arial", 12, "bold")).pack(anchor="w", pady=4, padx=10)
+        tk.Label(datos_frame, text=f"🟰 Total: ${venta['total']}", bg="#313145", fg="white", font=("Arial", 12, "bold")).pack(anchor="w", pady=4, padx=10)
+        tk.Label(datos_frame, text=f"📅 Fecha: {venta.get('fecha', 'Sin fecha')}", bg="#313145", fg="white", font=("Arial", 12, "bold")).pack(anchor="w", pady=4, padx=10)
 
         tk.Button(acciones_frame, text="Editar",
             command=lambda venta=venta: abrir_edicion(venta),
