@@ -1,5 +1,5 @@
 {
-  "ultimo_id_para_sumar": 23,
+  "ultimo_id_para_sumar": 24,
   "Ventas_registradas": [
     {
       "cliente": "ISIS",
@@ -62,6 +62,15 @@
       "precio": "200",
       "total": 2000.0,
       "num_venta": 23,
+      "fecha": "2026-07-08"
+    },
+    {
+      "cliente": "Ferxxo",
+      "producto": "Celular",
+      "cantidad": "2",
+      "precio": "2000",
+      "total": 4000.0,
+      "num_venta": 24,
       "fecha": "2026-07-08"
     }
   ]

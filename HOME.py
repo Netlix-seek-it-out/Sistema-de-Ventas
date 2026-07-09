@@ -142,7 +142,7 @@ menu_frame.columnconfigure(4, weight=1)
 
 
 
-nombre_app = tk.Label( menu_frame,text="¡Indago!",bg="#07142B",fg="#19C8FF",width=18,height=2,font=("Segoe UI", 12, "bold"),cursor="hand2")
+nombre_app = tk.Label( menu_frame,text="¡VentasCore!",bg="#07142B",fg="#19C8FF",width=18,height=2,font=("Segoe UI", 12, "bold"),cursor="hand2")
 nombre_app.grid(row=0, column=0, padx=10, pady=8)
 
 home_boton = tk.Label(menu_frame,text="🏠 HOME",bg="#07142B",fg="#19C8FF",width=18,height=2,font=("Segoe UI", 12, "bold"),cursor="hand2")
@@ -291,7 +291,7 @@ menu_frame.pack(anchor="center", expand=True)
 menu_frame.columnconfigure(4, weight=1)
 
 
-nombre_app = tk.Label( menu_frame,text="¡Indago!",bg="#07142B",fg="#19C8FF",width=18,height=2,font=("Segoe UI", 12, "bold"),cursor="hand2")
+nombre_app = tk.Label( menu_frame,text="¡VentasCore!",bg="#07142B",fg="#19C8FF",width=18,height=2,font=("Segoe UI", 12, "bold"),cursor="hand2")
 nombre_app.grid(row=0, column=0, padx=10, pady=8)
 
 home_boton = tk.Label(menu_frame,text="🏠 HOME",bg="#07142B",fg="#D8E3F3",width=18,height=2,font=("Segoe UI", 12, "bold"),cursor="hand2")
@@ -406,7 +406,7 @@ menu_frame = tk.Frame(nav_frame, bg="#07142B")
 menu_frame.pack(anchor="center", expand=True)
 
 
-nombre_app = tk.Label(menu_frame,  text="¡Indago!", bg="#07142B", width=18, height=2, font=("Arial", 12, "bold"), fg="#19C8FF", cursor="hand2")
+nombre_app = tk.Label(menu_frame,  text="¡VentasCore!", bg="#07142B", width=18, height=2, font=("Arial", 12, "bold"), fg="#19C8FF", cursor="hand2")
 nombre_app.grid(row=0, column=0, padx=10, pady=8)
 
 home_boton = tk.Label(menu_frame,  text="🏠 HOME", bg="#07142B", width=18, height=2, font=("Arial", 12, "bold"), fg="#D8E3F3", cursor="hand2")
@@ -620,7 +620,7 @@ menu_frame.pack(anchor="center", expand=True)
 
 menu_frame.columnconfigure(4, weight=1)
 
-nombre_app = tk.Label( menu_frame,text="¡Indago!",bg="#07142B",fg="#19C8FF",width=18,height=2,font=("Segoe UI", 12, "bold"),cursor="hand2")
+nombre_app = tk.Label( menu_frame,text="¡VentasCore!",bg="#07142B",fg="#19C8FF",width=18,height=2,font=("Segoe UI", 12, "bold"),cursor="hand2")
 nombre_app.grid(row=0, column=0, padx=10, pady=8)
 
 home_boton = tk.Label(
