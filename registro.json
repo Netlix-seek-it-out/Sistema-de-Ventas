@@ -1,5 +1,5 @@
 {
-  "ultimo_id_para_sumar": 18,
+  "ultimo_id_para_sumar": 20,
   "Ventas_registradas": [
     {
       "cliente": "Arriola",
@@ -17,6 +17,24 @@
       "precio": "23",
       "total": 46.0,
       "num_venta": 18,
+      "fecha": "2026-07-09"
+    },
+    {
+      "cliente": "Snow",
+      "producto": "Helado",
+      "cantidad": "1",
+      "precio": "1",
+      "total": 1.0,
+      "num_venta": 19,
+      "fecha": "2026-07-09"
+    },
+    {
+      "cliente": "Honey",
+      "producto": "Bote de miel",
+      "cantidad": "1",
+      "precio": "2",
+      "total": 2.0,
+      "num_venta": 20,
       "fecha": "2026-07-09"
     }
   ]
