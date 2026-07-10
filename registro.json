@@ -1,32 +1,13 @@
 {
-  "ultimo_id_para_sumar": 20,
-
+  "ultimo_id_para_sumar": 21,
   "Ventas_registradas": [
     {
-      "cliente": "We",
+      "cliente": "Wey",
       "producto": "Sr",
       "cantidad": "23",
       "precio": "234",
       "total": 5382.0,
       "num_venta": 3,
-      "fecha": "2026-07-09"
-    },
-    {
-      "cliente": "25",
-      "producto": "Dg34",
-      "cantidad": "34",
-      "precio": "34",
-      "total": 1156.0,
-      "num_venta": 4,
-      "fecha": "2026-07-09"
-    },
-    {
-      "cliente": "Affafd",
-      "producto": "C344",
-      "cantidad": "234",
-      "precio": "34",
-      "total": 7956.0,
-      "num_venta": 5,
       "fecha": "2026-07-09"
     },
     {
@@ -45,6 +26,15 @@
       "precio": "2",
       "total": 2.0,
       "num_venta": 20,
+      "fecha": "2026-07-09"
+    },
+    {
+      "cliente": "Diego",
+      "producto": "Helado",
+      "cantidad": "10",
+      "precio": "10",
+      "total": 100.0,
+      "num_venta": 21,
       "fecha": "2026-07-09"
     }
   ]

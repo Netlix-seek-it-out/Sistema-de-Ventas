@@ -1094,7 +1094,7 @@ edicion_frame = tk.Frame(screen, bg="#000B22")
 
 # BARRA DE NAVEGACION
 nav_frame = tk.Frame(edicion_frame, bg="#07142B")
-nav_frame.pack(fill="x", pady=(0, 10), ipady=3, ipadx=10)
+nav_frame.pack(fill="x", pady=(0, 0), ipady=0, ipadx=10)
 
 
 menu_frame = tk.Frame(nav_frame, bg="#07142B")
@@ -1108,8 +1108,8 @@ nombre_app = tk.Label(
     menu_frame,
     text="VentasCore",
     bg="#07142B",
-    width=18,
-    height=2,
+    width=12,
+    height=1,
     font=("Segoe UI", 20, "bold"),
     fg="#FFFFFF",
     cursor="hand2"
@@ -1122,7 +1122,7 @@ home_boton = tk.Label(
     text="🏠 HOME",
     bg="#07142B",
     width=18,
-    height=2,
+    height=1,
     font=("Segoe UI", 12, "bold"),
     fg="#D8E3F3",
     cursor="hand2"
@@ -1136,7 +1136,7 @@ registro_boton_barra = tk.Label(
     text="📝 Registro",
     bg="#07142B",
     width=18,
-    height=2,
+    height=1,
     font=("Segoe UI", 12, "bold"),
     fg="#D8E3F3",
     cursor="hand2"
@@ -1150,7 +1150,7 @@ estadisticas_boton_barra = tk.Label(
     text="📊 Estadísticas",
     bg="#07142B",
     width=18,
-    height=2,
+    height=1,
     font=("Segoe UI", 12, "bold"),
     fg="#D8E3F3",
     cursor="hand2"
@@ -1164,7 +1164,7 @@ historial_boton_barra = tk.Label(
     text="📄 Historial",
     bg="#07142B",
     width=18,
-    height=2,
+    height=1,
     font=("Segoe UI", 12, "bold"),
     fg="#19C8FF",
     cursor="hand2"
@@ -1265,7 +1265,7 @@ def editar():
     
     if venta_en_edicion is None:
         messagebox.showerror("ERROR", "No hay venta seleccionada para editar.")
-    return
+        return
 
     for key in ["cliente", "producto", "cantidad", "precio"]:
         if entries_edicion[key].get().strip() == "":
