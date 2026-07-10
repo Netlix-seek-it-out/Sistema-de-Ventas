@@ -13,7 +13,7 @@ def cargar_historial(padre, abrir_edicion):
         widget.destroy()
 
         
-## Ruta para que funcione en un fork :D
+#  Ruta para que funcione en un fork :D
     
     carpeta_actual = os.path.dirname(os.path.abspath(__file__))
     ruta_json = os.path.join(carpeta_actual, "registro.json")
@@ -26,7 +26,7 @@ def cargar_historial(padre, abrir_edicion):
     #Columnas 3 jejeje
     columnas = 3
 
-    ## Configurando la forma y el espacio que abracara cada columna
+    # Configurando la forma y el espacio que abracara cada columna
 
     for col in range(3):
         padre.grid_columnconfigure(col, weight=1)

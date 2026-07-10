@@ -25,17 +25,17 @@ def calcular_estadisticas():
         estaditicas["Ventas_por_dia"] = {"Lun": 0, "Mar": 0, "Mié": 0, "Jue": 0, "Vie": 0, "Sáb": 0, "Dom": 0}
         return estaditicas
 
-    # ---------- TOTAL DE VENTAS ----------
+    #   TOTAL DE VENTAS 
     # Cuenta cuántas ventas hay registradas en total
     total_ventas = len(compras["Ventas_registradas"])
     estaditicas["Total_ventas"] = total_ventas
 
-    # ---------- TOTAL DE INGRESOS ----------
+    # TOTAL DE INGRESOS 
     # Suma el campo "total" de cada venta
     total_ingresos = sum(venta["total"] for venta in compras["Ventas_registradas"])
     estaditicas["Total_ingresos"] = total_ingresos
 
-    # ---------- MEJOR CLIENTE ----------
+    #  MEJOR CLIENTE 
     # Cuenta cuántas ventas hizo cada cliente
     contador_cliente = {}
     for pelota in compras["Ventas_registradas"]:

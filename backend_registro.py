@@ -6,7 +6,7 @@ import os
 
 def guardar_ventas(venta):  
 
-    ## Ruta para que funcione en un fork :D
+    # Ruta para que funcione en un fork :D
     
     carpeta_actual = os.path.dirname(os.path.abspath(__file__))
     ruta_json = os.path.join(carpeta_actual, "registro.json") 
