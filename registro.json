@@ -1,17 +1,8 @@
 {
-  "ultimo_id_para_sumar": 21,
+  "ultimo_id_para_sumar": 22,
   "Ventas_registradas": [
     {
-      "cliente": "Wey",
-      "producto": "Sr",
-      "cantidad": "23",
-      "precio": "234",
-      "total": 5382.0,
-      "num_venta": 3,
-      "fecha": "2026-07-09"
-    },
-    {
-      "cliente": "Snow",
+      "cliente": "Nemi",
       "producto": "Helado",
       "cantidad": "1",
       "precio": "1",
@@ -35,6 +26,15 @@
       "precio": "10",
       "total": 100.0,
       "num_venta": 21,
+      "fecha": "2026-07-09"
+    },
+    {
+      "cliente": "Arriola",
+      "producto": "Lapiz",
+      "cantidad": "2",
+      "precio": "34",
+      "total": 68.0,
+      "num_venta": 22,
       "fecha": "2026-07-09"
     }
   ]

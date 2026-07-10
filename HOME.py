@@ -140,13 +140,12 @@ screen.state("zoomed")
 screen.resizable(True, True)
 screen.config(bg="#020B18")
 
-home_frame = tk.Frame(screen
-                       , bg="#000B22")
+home_frame = tk.Frame(screen, bg="#000B22")
 home_frame.pack(fill="both", expand=True)
 
 
 #BARRA DE NAVEGACION
-# Barra superior
+
 nav_frame = tk.Frame(home_frame, bg="#07142B")
 nav_frame.pack(fill="x", pady=(0, 0), ipady=1, ipadx=10)
 
@@ -157,10 +156,10 @@ menu_frame.pack(anchor="center", expand=True)
 menu_frame.columnconfigure(4, weight=1)
 
 
-agregar_logo(menu_frame, 0, 0)
-
 # columnconfigure funciona así: el primer parametro es el índice en donde se encuentra la columna,
 # y la segunda opción, el weight, es el peso o la importancia que tiene.
+
+agregar_logo(menu_frame, 0, 0)
 
 nombre_app = tk.Label(
     menu_frame,
@@ -283,7 +282,6 @@ binvenida_label.pack(pady=(5, 10))
 botones_frame = tk.Frame(home_frame,bg="#000B22")
 botones_frame.pack(pady=(15, 35))
 
-#NO se usan pack y grid juntos een un mismo elemento. Escoje uno, a mi daba errorj
 
 registro_boton = tk.Label(
     botones_frame,
@@ -302,7 +300,7 @@ registro_boton = tk.Label(
 
 #Funcion para que al pasar el mouse por encima del boton, cambie de color, y al salir vuelva a su color 
 def entrar_mouse(e):
-    registro_boton.config(bg="#1D4ED8")  # color más oscuro
+    registro_boton.config(bg="#0044FF")  # color más oscuro
  
 def salir_mouse(e):
     registro_boton.config(bg="#2563EB")  # color original
@@ -480,7 +478,7 @@ grafica_frame.pack(padx=40, pady=15, fill="both", expand=True)
 grafica = tk.Label(grafica_frame, text="📊 Gráfica de ventas",font=("Segoe UI", 14,"bold"), bg="#0F1C34", fg="#19C8FF")
 grafica.pack(anchor="w", padx=20, pady=(15, 10))
 
-
+# columnas  de la bara de nabagacion 
 nombre_app.grid(row=0, column=1)
 home_boton.grid(row=0, column=2)
 registro_boton_barra.grid(row=0, column=3)
@@ -600,7 +598,14 @@ entries = {}
 def validar_numero(valor):
     return valor == "" or valor.replace(".", "", 1).isdigit()
 
+def validar_texto(valor):
+    return valor == "" or all(
+        caracter.isalpha() or caracter.isspace()
+        for caracter in valor
+    )
+
 vcmd = (registro_frame.register(validar_numero), "%P")
+vcmd_texto = (registro_frame.register(validar_texto), "%P")
 
 def make_field(parent, key, label_text):
     tk.Label(parent, text=label_text, bg="#000B22",
@@ -617,6 +622,18 @@ def make_field(parent, key, label_text):
         validate="key",
         validatecommand=vcmd
     )
+
+    elif  key == "cliente":
+        entry = tk.Entry(
+        parent,
+        bg="#102445",
+        fg="#D8E3F3",
+        insertbackground="#19C8FF",
+        relief="flat",
+        font=("Segoe UI", 13),
+        validate="key",
+        validatecommand=vcmd_texto )
+
     else:
         entry = tk.Entry(
         parent,
@@ -624,8 +641,7 @@ def make_field(parent, key, label_text):
         fg="#D8E3F3",
         insertbackground="#19C8FF",
         relief="flat",
-        font=("Segoe UI", 13)
-    )
+        font=("Segoe UI", 13))
     
     entry.pack(fill="x", pady=(4, 60), ipady=10)
     entries[key] = entry
@@ -638,13 +654,13 @@ make_field(left_col,  "cantidad",  "Cantidad de unidades:")
 make_field(right_col, "producto",  "Producto vendido:")
 
 tk.Label(right_col, text="Precio unitario:", bg="#000B22",
-         fg="#ffffff", font=("Segoe UI", 12,"bold")).pack(anchor="w")
+ fg="#ffffff", font=("Segoe UI", 12,"bold")).pack(anchor="w")
 
 precio_frame = tk.Frame(right_col, bg="#102445")
 precio_frame.pack(fill="x", pady=(4, 60))
 
 tk.Label(precio_frame, text="$", bg="#102445", fg="#cdd6f4",
-         font=("Segoe UI", 13)).pack(side="left", padx=(10, 0), ipady=10)
+ font=("Segoe UI", 13)).pack(side="left", padx=(10, 0), ipady=10)
 
 entry_precio = tk.Entry(
     precio_frame,
@@ -747,10 +763,10 @@ estadisticas_boton_barra.grid(row=0, column=4)
 historial_boton_barra.grid(row=0, column=5)
 
 
-## HISTORIAL___FRAME___VENTANA
+# HISTORIAL FRAME VENTANA
 historial_frame = tk.Frame(screen, bg="#000B22")
 
-# ===================== BARRA DE NAVEGACIÓN =====================
+# BARRA DE NAVEGACIÓN 
 
 nav_frame = tk.Frame(historial_frame, bg="#07142B")
 nav_frame.pack(fill="x", pady=(0, 0), ipady=0, ipadx=10)
@@ -841,7 +857,7 @@ linea_historial.grid(
 )
 
 
-# ===================== TÍTULO =====================
+# TÍTULO  
 
 barra_ante_superior = tk.Frame(historial_frame, bg="#000B22")
 barra_ante_superior.pack(anchor="w", pady=15)
@@ -870,7 +886,7 @@ borde_buscar = tk.Frame(
 )
 borde_buscar.grid(row=0, column=3, padx=10, pady=5)
 
-# ===================== BARRA DE BÚSQUEDA =====================
+#  BARRA DE BÚSQUEDA
 
 COLOR_NORMAL = "#1B4D8D"
 COLOR_FOCUS  = "#19C8FF"
@@ -1088,7 +1104,7 @@ estadisticas_boton_barra.grid(row=0, column=4)
 historial_boton_barra.grid(row=0, column=5)
 
 
-### EDICION FRAME
+# EDICION FRAME
 
 edicion_frame = tk.Frame(screen, bg="#000B22")
 
@@ -1193,7 +1209,8 @@ tk.Label(edicion_frame, text="Editar venta",
          bg="#000B22", fg="#FFFFFF",
          font=("Segoe UI", 30, "bold")).pack(pady=(40, 30))
 
-# Campo con las 6 etiquetas
+# Campo de editar etiquetas
+
 form_frame = tk.Frame(edicion_frame, bg="#000B22")
 form_frame.pack(padx=120, fill="x")
 
@@ -1214,9 +1231,8 @@ def make_field(parent, key, label_text):
     font=("Segoe UI", 11, "bold")).pack(anchor="w", pady=(0,5))
 
 
-    entry = tk.Entry(parent, bg="#07142B", fg="#FFFFFF",
-                     insertbackground="#FFFFFF", relief="flat",
-                     font=("Segoe UI", 13))
+    entry = tk.Entry(parent, bg="#07142B", fg="#FFFFFF",insertbackground="#FFFFFF", relief="flat",
+    font=("Segoe UI", 13))
     
     entry.pack(fill="x", pady=(4, 60), ipady=10, ipadx=20)
     entries_edicion[key] = entry
@@ -1242,8 +1258,8 @@ tk.Label(precio_frame, text="$", bg="#07142B", fg="#D8E3F3",
          font=("Segoe UI", 13)).pack(side="left", padx=(10, 0), ipady=10)
 
 entry_precio = tk.Entry(precio_frame, bg="#07142B", fg="#FFFFFF",
-                        insertbackground="#FFFFFF", relief="flat",
-                        font=("Segoe UI", 13))
+insertbackground="#FFFFFF", relief="flat",
+font=("Segoe UI", 13))
 
 entry_precio.pack(side="left", fill="x", expand=True, ipady=10)
 
