@@ -11,9 +11,13 @@ def editar_venta(num_venta, venta_actualizada):
         compras = json.load(bd)
 
     for venta in compras["Ventas_registradas"]:
+
+
         if venta["num_venta"] == num_venta:
-            venta["cliente"] = venta_actualizada["cliente"]
-            venta["producto"] = venta_actualizada["producto"]
+
+
+            venta["cliente"] = venta_actualizada["cliente"].capitalize()
+            venta["producto"] = venta_actualizada["producto"].capitalize()
             venta["cantidad"] = venta_actualizada["cantidad"]
             venta["precio"] = venta_actualizada["precio"]
             venta["total"] = venta_actualizada["total"]

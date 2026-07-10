@@ -57,18 +57,18 @@ def busqueda(valor_buscar, padre, abrir_edicion, historial_canvas):
 
     # 7. Si sí la encontramos, la mostramos igual que en el historial
     venta_frame = tk.Frame(padre, bg="#313145")
-    venta_frame.pack(fill="x", pady=8, padx=18)
+    venta_frame.pack(fill="x", pady=20, padx=22, ipadx=8, ipady=5)
 
     datos_frame = tk.Frame(venta_frame, bg="#313145")
     datos_frame.pack(side="left", fill="x", expand=True)
 
-    tk.Label(datos_frame, text=f"📦 Venta #{encontrada['num_venta']}", bg="#313145", fg="white", font=("Arial", 12, "bold")).pack(anchor="w", pady=4, padx=10)
-    tk.Label(datos_frame, text=f"👤 Cliente: {encontrada['cliente']}", bg="#313145", fg="white", font=("Arial", 12, "bold")).pack(anchor="w", pady=4, padx=10)
-    tk.Label(datos_frame, text=f"📦 Producto: {encontrada['producto']}", bg="#313145", fg="white", font=("Arial", 12, "bold")).pack(anchor="w", pady=4, padx=10)
-    tk.Label(datos_frame, text=f"🔢 Cantidad: {encontrada['cantidad']}", bg="#313145", fg="white", font=("Arial", 12, "bold")).pack(anchor="w", pady=4, padx=10)
-    tk.Label(datos_frame, text=f"💲 Precio: ${encontrada['precio']}", bg="#313145", fg="white", font=("Arial", 12, "bold")).pack(anchor="w", pady=4, padx=10)
-    tk.Label(datos_frame, text=f"🟰 Total: ${encontrada['total']}", bg="#313145", fg="white", font=("Arial", 12, "bold")).pack(anchor="w", pady=4, padx=10)
-    tk.Label(datos_frame, text=f"📅 Fecha: {encontrada.get('fecha', 'Sin fecha')}", bg="#313145", fg="white", font=("Arial", 12, "bold")).pack(anchor="w", pady=4, padx=10)
+    tk.Label(datos_frame, text=f"📦 Venta #{encontrada['num_venta']}", bg="#313145", fg="white", font=("Arial", 12, "bold")).pack(anchor="w", pady=5, padx=10)
+    tk.Label(datos_frame, text=f"👤 Cliente: {encontrada['cliente']}", bg="#313145", fg="white", font=("Arial", 12, "bold")).pack(anchor="w", pady=5, padx=10)
+    tk.Label(datos_frame, text=f"📦 Producto: {encontrada['producto']}", bg="#313145", fg="white", font=("Arial", 12, "bold")).pack(anchor="w", pady=5, padx=10)
+    tk.Label(datos_frame, text=f"🔢 Cantidad: {encontrada['cantidad']}", bg="#313145", fg="white", font=("Arial", 12, "bold")).pack(anchor="w", pady=5, padx=10)
+    tk.Label(datos_frame, text=f"💲 Precio: ${encontrada['precio']}", bg="#313145", fg="white", font=("Arial", 12, "bold")).pack(anchor="w", pady=5, padx=10)
+    tk.Label(datos_frame, text=f"🟰 Total: ${encontrada['total']}", bg="#313145", fg="white", font=("Arial", 12, "bold")).pack(anchor="w", pady=5, padx=10)
+    tk.Label(datos_frame, text=f"📅 Fecha: {encontrada.get('fecha', 'Sin fecha')}", bg="#313145", fg="white", font=("Arial", 12, "bold")).pack(anchor="w", pady=5, padx=10)
 
 
     acciones_frame = tk.Frame(venta_frame, bg="#313145")

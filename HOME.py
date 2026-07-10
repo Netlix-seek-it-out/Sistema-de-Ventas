@@ -67,7 +67,7 @@ def mostrar_registro():
     estadisticas_frame.pack_forget()
     home_frame.pack_forget()
     historial_frame.pack_forget()
-    lbl_status.config(text="")
+    lbl_status_registro.config(text="")
     limpiar_campos_registro()
     edicion_frame.pack_forget()
     registro_frame.pack(fill="both", expand=True)
@@ -148,7 +148,7 @@ home_frame.pack(fill="both", expand=True)
 #BARRA DE NAVEGACION
 # Barra superior
 nav_frame = tk.Frame(home_frame, bg="#07142B")
-nav_frame.pack(fill="x", pady=(0, 0), ipady=1, ipadx=10)
+nav_frame.pack(fill="x", pady=(0, 0), ipady=0, ipadx=10)
 
 menu_frame = tk.Frame(nav_frame, bg="#07142B")
 menu_frame.pack(anchor="center", expand=True)
@@ -207,7 +207,7 @@ registro_boton_barra = tk.Label(
     bg="#07142B",
     width=18,
     height=1,
-    font=("Arial", 12, "bold"),
+    font=("Segoe UI", 12, "bold"),
     cursor="hand2",
     fg="#D8E3F3"
 )
@@ -220,7 +220,7 @@ estadisticas_boton_barra = tk.Label(
     bg="#07142B",
     width=18,
     height=1,
-    font=("Arial", 12, "bold"),
+    font=("Segoe UI", 12, "bold"),
     cursor="hand2",
     fg="#D8E3F3"
 )
@@ -233,7 +233,7 @@ historial_boton_barra = tk.Label(
     bg="#07142B",
     width=18,
     height=1,
-    font=("Arial", 12, "bold"),
+    font=("Segoe UI", 12, "bold"),
     cursor="hand2",
     fg="#D8E3F3"
 )
@@ -381,7 +381,7 @@ registro_boton_barra = tk.Label(
     fg="#D8E3F3",
     width=18,
     height=1,
-    font=("Arial", 12, "bold"),
+    font=("Segoe UI", 12, "bold"),
     cursor="hand2"
 )
 registro_boton_barra.grid(row=0, column=3, padx=10, pady=8)
@@ -394,7 +394,7 @@ estadisticas_boton_barra = tk.Label(
     fg="#19C8FF",
     width=18,
     height=1,
-    font=("Arial", 12, "bold"),
+    font=("Segoe UI", 12, "bold"),
     cursor="hand2"
 )
 estadisticas_boton_barra.grid(row=0, column=4, padx=10, pady=8)
@@ -418,8 +418,8 @@ historial_boton_barra = tk.Label(
     bg="#07142B",
     fg="#D8E3F3",
     width=18,
-    height=2,
-    font=("Arial", 12, "bold"),
+    height=1,
+    font=("Segoe UI", 12, "bold"),
     cursor="hand2"
 )
 historial_boton_barra.grid(row=0, column=5, padx=10, pady=8)
@@ -510,7 +510,7 @@ nombre_app = tk.Label(
     bg="#07142B",
     width=12,
     height=1,
-    font=("Arial", 20, "bold"),
+    font=("Segoe UI", 20, "bold"),
     fg="#FFFFFF",
     cursor="hand2"
 )
@@ -706,7 +706,7 @@ def guardar_datos_ventas():
         return
 
     br.guardar_ventas(venta)
-    lbl_status.config(text="Venta guardada correctamente.")
+    lbl_status_registro.config(text="Venta guardada correctamente.")
     limpiar_campos_registro()
 
 
@@ -727,9 +727,9 @@ btn = tk.Button(
     command=guardar_datos_ventas
 )
 btn.pack(pady=35)
-lbl_status = tk.Label(registro_frame, text="", bg="#1e1e2e",
+lbl_status_registro = tk.Label(registro_frame, text="", bg="#1e1e2e",
                        fg="#a6e3a1", font=("Segoe UI", 11))
-lbl_status.pack(pady=12)
+lbl_status_registro.pack(pady=12)
 
 def entrar_mouse(e):
     btn.config(bg="#1D4ED8")
