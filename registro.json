@@ -1,23 +1,23 @@
 {
-  "ultimo_id_para_sumar": 16,
+  "ultimo_id_para_sumar": 18,
   "Ventas_registradas": [
     {
-      "cliente": "uug",
-      "producto": "jfjfjf",
-      "cantidad": "7676",
-      "precio": "7676",
-      "total": 58920976.0,
-      "num_venta": 15,
-      "fecha": "2026-07-07"
+      "cliente": "Arriola",
+      "producto": "Lapiz",
+      "cantidad": "23",
+      "precio": "15",
+      "total": 345.0,
+      "num_venta": 17,
+      "fecha": "2026-07-09"
     },
     {
-      "cliente": "Arriola",
-      "producto": "colores",
-      "cantidad": "200",
+      "cliente": "Diego ",
+      "producto": "Tv",
+      "cantidad": "2",
       "precio": "23",
-      "total": 4600.0,
-      "num_venta": 16,
-      "fecha": "2026-07-08"
+      "total": 46.0,
+      "num_venta": 18,
+      "fecha": "2026-07-09"
     }
   ]
 }

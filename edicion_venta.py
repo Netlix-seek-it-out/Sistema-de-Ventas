@@ -1,7 +1,13 @@
 import json
+import os
 
 def editar_venta(num_venta, venta_actualizada):
-    with open("registro.json", "r", encoding="utf-8") as bd:
+    ## Ruta para que funcione en un fork :D
+    
+    carpeta_actual = os.path.dirname(os.path.abspath(__file__))
+    ruta_json = os.path.join(carpeta_actual, "registro.json")
+
+    with open(ruta_json, "r", encoding="utf-8") as bd:
         compras = json.load(bd)
 
     for venta in compras["Ventas_registradas"]:
@@ -13,5 +19,5 @@ def editar_venta(num_venta, venta_actualizada):
             venta["total"] = venta_actualizada["total"]
             break
         
-    with open("registro.json", "w", encoding="utf-8") as bd:
+    with open(ruta_json, "w", encoding="utf-8") as bd:
         json.dump(compras, bd, indent=2)

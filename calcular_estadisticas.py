@@ -1,10 +1,16 @@
 import json
 from datetime import datetime  # para trabajar con fechas
-
+import os
 
 def calcular_estadisticas():
+
+    ## Ruta para que funcione en un fork :D
+    
+    carpeta_actual = os.path.dirname(os.path.abspath(__file__))
+    ruta_json = os.path.join(carpeta_actual, "registro.json")
+
     # Abrimos y leemos el archivo donde se guardan todas las ventas
-    with open("registro.json", "r", encoding="utf-8") as bd:
+    with open(ruta_json, "r", encoding="utf-8") as bd:
         compras = json.load(bd)
 
     estaditicas = {}
@@ -32,7 +38,7 @@ def calcular_estadisticas():
     # Cuenta cuántas ventas hizo cada cliente
     contador_cliente = {}
     for pelota in compras["Ventas_registradas"]:
-        cliente = pelota["cliente"]
+        cliente = pelota["cliente"].capitalize()
         if cliente in contador_cliente:
             contador_cliente[cliente] += 1
         else:
@@ -42,11 +48,11 @@ def calcular_estadisticas():
     mayor_cliente = max(contador_cliente, key=contador_cliente.get)
     estaditicas["Cliente_lead"] = mayor_cliente
 
-    # ---------- PRODUCTO MÁS VENDIDO ----------
+    #  PRODUCTO MÁS VENDIDO 
     # Suma cuántas unidades se vendieron de cada producto
     contador_producto = {}
     for product in compras["Ventas_registradas"]:
-        producto = product["producto"]
+        producto = product["producto"].capitalize()
         cantidad = float(product["cantidad"])
         if producto in contador_producto:
             contador_producto[producto] += cantidad
@@ -56,8 +62,8 @@ def calcular_estadisticas():
     mayor_producto = max(contador_producto, key=contador_producto.get)
     estaditicas["Mayor_producto"] = mayor_producto
 
-    # ---------- VENTAS POR DÍA ----------
-    # Lista con los nombres de los días en orden (0=Lun, 1=Mar... 6=Dom)
+    #  VENTAS POR DÍA 
+    # Lista con los nombres de los días en orden 
     nombres_dias = ["Lun", "Mar", "Mié", "Jue", "Vie", "Sáb", "Dom"]
 
     # Empezamos el contador en 0 para cada día
