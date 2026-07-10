@@ -1,94 +1,22 @@
 {
-  "ultimo_id_para_sumar": 26,
+  "ultimo_id_para_sumar": 18,
   "Ventas_registradas": [
     {
-      "cliente": "ISIS",
-      "producto": "SOMBRILLA",
-      "cantidad": "10",
-      "precio": "10",
-      "total": 100.0,
-      "num_venta": 16,
-      "fecha": "2026-07-08"
-    },
-    {
-      "cliente": "Diego",
-      "producto": "Taza",
-      "cantidad": "10",
-      "precio": "3",
-      "total": 30.0,
-      "num_venta": 18,
-      "fecha": "2026-07-08"
-    },
-    {
-      "cliente": "Diego",
-      "producto": "Mochila",
-      "cantidad": "10",
-      "precio": "10",
-      "total": 100.0,
-      "num_venta": 19,
-      "fecha": "2026-07-08"
-    },
-    {
-      "cliente": "Griselda",
-      "producto": "Libro",
-      "cantidad": "10",
-      "precio": "10",
-      "total": 100.0,
-      "num_venta": 20,
-      "fecha": "2026-07-08"
-    },
-    {
-      "cliente": "Mayra",
-      "producto": "Galletas",
-      "cantidad": "10",
-      "precio": "0.50",
-      "total": 5.0,
-      "num_venta": 21,
-      "fecha": "2026-07-08"
-    },
-    {
-      "cliente": "Owenaso",
-      "producto": "Airpords",
-      "cantidad": "1",
-      "precio": "10",
-      "total": 10.0,
-      "num_venta": 22,
-      "fecha": "2026-07-08"
-    },
-    {
-      "cliente": "Diegaso",
-      "producto": "Iphone",
-      "cantidad": "10",
-      "precio": "200",
-      "total": 2000.0,
-      "num_venta": 23,
-      "fecha": "2026-07-08"
-    },
-    {
-      "cliente": "Ferxxo",
-      "producto": "Celular",
-      "cantidad": "2",
-      "precio": "2000",
-      "total": 4000.0,
-      "num_venta": 24,
-      "fecha": "2026-07-08"
-    },
-    {
-      "cliente": "Any",
-      "producto": "Pan dulce",
-      "cantidad": "4",
-      "precio": "2.75",
-      "total": 11.0,
-      "num_venta": 25,
+      "cliente": "Arriola",
+      "producto": "Lapiz",
+      "cantidad": "23",
+      "precio": "15",
+      "total": 345.0,
+      "num_venta": 17,
       "fecha": "2026-07-09"
     },
     {
-      "cliente": "Alejandro",
-      "producto": "Monsters",
-      "cantidad": "12",
-      "precio": "2.75",
-      "total": 33.0,
-      "num_venta": 26,
+      "cliente": "Diego ",
+      "producto": "Tv",
+      "cantidad": "2",
+      "precio": "23",
+      "total": 46.0,
+      "num_venta": 18,
       "fecha": "2026-07-09"
     }
   ]
