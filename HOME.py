@@ -163,7 +163,7 @@ agregar_logo(menu_frame, 0, 0)
 
 nombre_app = tk.Label(
     menu_frame,
-    text="VentasCore",
+    text="VentaCore",
     bg="#07142B",
     fg="#FFFFFF",
     width=12,
@@ -246,7 +246,7 @@ historial_boton_barra.bind("<Button-1>", lambda e: mostrar_historial())
 
 welcome_label = tk.Label(
     home_frame,
-    text="VentasCore",
+    text="VentaCore",
     bg="#000B22",
     fg="#00D4FF",
     font=("Segoe UI", 40, "bold")
@@ -349,7 +349,7 @@ agregar_logo(menu_frame, 0, 0)
 
 nombre_app = tk.Label(
     menu_frame,
-    text="VentasCore",
+    text="VentaCore",
     bg="#07142B",
     fg="#FFFFFF",
     width=12,
@@ -504,7 +504,7 @@ agregar_logo(menu_frame, 0, 0)
 
 nombre_app = tk.Label(
     menu_frame,
-    text="VentasCore",
+    text="VentaCore",
     bg="#07142B",
     width=12,
     height=1,
@@ -781,7 +781,7 @@ agregar_logo(menu_frame, 0, 0)
 
 nombre_app = tk.Label(
     menu_frame,
-    text="VentasCore",
+    text="VentaCore",
     bg="#07142B",
     fg="#FFFFFF",
     width=12,
@@ -1122,7 +1122,7 @@ agregar_logo(menu_frame, 0, 0)
 
 nombre_app = tk.Label(
     menu_frame,
-    text="VentasCore",
+    text="VentaCore",
     bg="#07142B",
     width=12,
     height=1,
